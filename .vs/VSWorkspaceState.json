@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Ventas",
+    "\\Ventas\\Ventas"
   ],
-  "SelectedNode": "\\LICENSE",
+  "SelectedNode": "\\Ventas\\Ventas\\ProyectoTienda.sln",
   "PreviewInSolutionExplorer": false
 }

@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+
+using System.Configuration;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +16,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.Data.Sql;
+using System.Data.SqlClient;
+
 namespace Ventas
+
 {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
@@ -23,6 +30,14 @@ namespace Ventas
         public MainWindow()
         {
             InitializeComponent();
+
+           
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+
         }
     }
 }

@@ -6,7 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace ProyectoTienda
+
+namespace Ventas
 {
     /// <summary>
     /// Lógica de interacción para App.xaml

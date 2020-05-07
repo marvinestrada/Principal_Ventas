@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Ventas
+namespace ProyectoTienda.Vistas
 {
     /// <summary>
-    /// Lógica de interacción para marvin.xaml
+    /// Lógica de interacción para AddPermisos.xaml
     /// </summary>
-    public partial class marvin : Window
+    public partial class AddPermisos : Window
     {
-        public marvin()
+        public AddPermisos()
         {
             InitializeComponent();
         }

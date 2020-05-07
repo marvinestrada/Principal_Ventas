@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,18 +11,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Sql;
+using System.Data.SqlClient;
 
-namespace Ventas
+namespace ProyectoTienda
 {
     /// <summary>
-    /// Lógica de interacción para Angela.xaml
+    /// Lógica de interacción para MainWindow.xaml
     /// </summary>
-    public partial class Angela : Window
+    public partial class MainWindow : Window
     {
-        public Angela()
+        public MainWindow()
         {
             InitializeComponent();
+           
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

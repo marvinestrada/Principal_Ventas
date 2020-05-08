@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Data;
+using System.ComponentModel;
 using System.Configuration;
 using ProyectoTienda.Vistas;
 using System.Windows.Forms;
@@ -40,10 +41,7 @@ namespace ProyectoTienda.Vistas
                 SqlDataAdapter puente = new SqlDataAdapter(cmd);
                 puente.Fill(tabla);
                 Conexion.conex.Close();
-                ventana.DataContext = tabla;
-                
-            
-            
+                ventana.DataContext = tabla;           
         }
 
         private void mover(object sender, MouseButtonEventArgs e)
@@ -55,7 +53,7 @@ namespace ProyectoTienda.Vistas
             if (ventana.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)ventana.SelectedItem;
-                int id_persona = (int)(vista["Id_persona"]);
+                int id_persona = (int)(vista["Id"]);
                 String nombres = (vista["Nombre"]).ToString();
                 String direcciones = (vista["Direccion"]).ToString();
                 String telefonos = (vista["Telefono"]).ToString();
@@ -74,8 +72,6 @@ namespace ProyectoTienda.Vistas
             this.Close();
         }
 
-     
-
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Conexiones();
@@ -84,7 +80,7 @@ namespace ProyectoTienda.Vistas
         private void Button_Click_3(object sender, RoutedEventArgs e)
             {
             DataRowView vista = (DataRowView)ventana.SelectedItem;
-            int result = (int)(vista["Id_persona"]);
+            int result = (int)(vista["Id"]);
 
             if (ventana.SelectedCells.Count > 0)
             {
@@ -102,6 +98,7 @@ namespace ProyectoTienda.Vistas
                         cmd.ExecuteNonQuery();           
                         Conexion.conex.Close();
                         Conexiones();
+                        System.Windows.MessageBox.Show("Eliminado exitosamente");
                     }
                 }
                 catch (Exception ea)

@@ -23,9 +23,10 @@ namespace ProyectoTienda.Vistas
     /// </summary>
     public partial class AddProducto : Window
     {
-        int Opcion, Ids;
-        public string Descripcion, Precio_venta, Unidad_minima;
-        public AddProducto(int opcion, int id = 0, string descrip = "", string precio_ven = "", string unidad_min = "")
+        int Opcion, Ids, Unidad_minima;
+        public string Descripcion;
+        Decimal Precio_venta;
+        public AddProducto(int opcion, int id = 0, string descrip = "", Decimal precio_ven = 0, int unidad_min = 0)
         {
             InitializeComponent();
             Opcion = opcion;
@@ -73,16 +74,18 @@ namespace ProyectoTienda.Vistas
        public void incluirDatos()
         {
             txtDesceipcion.Text = Descripcion;
-            txtPrecioVenta.Text = Precio_venta;
-            txtUnidadMin.Text = Unidad_minima;
+            txtPrecioVenta.Text = Precio_venta.ToString();
+            txtUnidadMin.Text = Unidad_minima.ToString();
             txtDesceipcion.Focus();
   
         }
 
         public void actualizar()
         {
-           
-                if (txtDesceipcion.Text != "" && txtPrecioVenta.Text != "" && txtUnidadMin.Text != "" )
+            try
+            {
+
+                if (txtDesceipcion.Text != "" && txtPrecioVenta.Text != "" && txtUnidadMin.Text != "")
                 {
                     SqlCommand cmd = new SqlCommand("spProductos", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -90,42 +93,56 @@ namespace ProyectoTienda.Vistas
                     cmd.Parameters.AddWithValue("@Id", Ids.ToString());
                     cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
                     cmd.Parameters.AddWithValue("@PrecioVenta", txtPrecioVenta.Text);
-                    cmd.Parameters.AddWithValue("@UnidadMin", txtUnidadMin.Text);                  
+                    cmd.Parameters.AddWithValue("@UnidadMin", txtUnidadMin.Text);
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();
+                    MessageBox.Show("Id Producto " + Ids + " Actualizado correctamente");
                     this.Close();
-                    
-                    
+
+
                 }
 
                 else
                 {
                     MessageBox.Show("Los campos no deben quedar vacios.");
-                    Conexion.conex.Close();
+                    
                 }
+            }
+            catch (Exception w)
+            {
+                w.ToString();
+                Conexion.conex.Close();
+            }
 
             
         }
 
         public void Guardar()
         {
-
-            if (txtDesceipcion.Text != "" && txtPrecioVenta.Text != "" && txtUnidadMin.Text != "")
+            try
             {
-                SqlCommand cmd = new SqlCommand("spProductos", Conexion.conex);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Opcion", 1);
-                cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
-                cmd.Parameters.AddWithValue("@PrecioVenta", txtPrecioVenta.Text);
-                cmd.Parameters.AddWithValue("@UnidadMin", txtUnidadMin.Text);
-                Conexion.conex.Open();
-                cmd.ExecuteNonQuery();
-                Conexion.conex.Close();
-                this.Close();
+                if (txtDesceipcion.Text != "" && txtPrecioVenta.Text != "" && txtUnidadMin.Text != "")
+                {
+                    SqlCommand cmd = new SqlCommand("spProductos", Conexion.conex);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Opcion", 1);
+                    cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
+                    cmd.Parameters.AddWithValue("@PrecioVenta", txtPrecioVenta.Text);
+                    cmd.Parameters.AddWithValue("@UnidadMin", txtUnidadMin.Text);
+                    Conexion.conex.Open();
+                    cmd.ExecuteNonQuery();
+                    Conexion.conex.Close();
+                    this.Close();
 
+                }
+                else MessageBox.Show("fallo");
             }
-            else MessageBox.Show("fallo");
+            catch(Exception asdd)
+            {
+                asdd.ToString();
+                Conexion.conex.Close();
+            }
 
                 
 

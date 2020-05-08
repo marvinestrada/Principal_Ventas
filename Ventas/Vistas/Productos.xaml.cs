@@ -54,10 +54,10 @@ namespace ProyectoTienda.Vistas
             if (mostrarDatos.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-                int id_persona = (int)(vista["Id_producto"]);
+                int id_persona = (int)(vista["Id Producto"]);
                 String Descripcion = (vista["Descripcion"]).ToString();
-                String precio_venta = (vista["Precio_venta"]).ToString();
-                String minimo = (vista["Minimo"]).ToString();
+                Decimal precio_venta = (Decimal)(vista["Precio de Venta"]);
+                int minimo = (int)(vista["Unidades Minimas"]);
                 
 
                 AddProducto abrir = new AddProducto(2, id_persona, Descripcion, precio_venta, minimo);
@@ -82,18 +82,18 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
             {
+
             DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-            int result = (int)(vista["Id_producto"]);
+            int result = (int)(vista["Id Producto"]);
 
             if (mostrarDatos.SelectedCells.Count > 0)
             {
-                try
-                {
+               
                     MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro de eliminar?",
                                             "confirmar", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (respuesta == MessageBoxResult.Yes)
                     {                        
-                        SqlCommand cmd = new SqlCommand("spProducto", Conexion.conex);                        
+                        SqlCommand cmd = new SqlCommand("spProductos", Conexion.conex);                        
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@Opcion", 4);                        
                         cmd.Parameters.AddWithValue("@Id", result);                       
@@ -102,12 +102,8 @@ namespace ProyectoTienda.Vistas
                         Conexion.conex.Close();
                         Conexiones();
                     }
-                }
-                catch (Exception ea)
-                {
-                    ea.ToString();
-                    Conexion.conex.Close();
-                }
+                
+               
             }
             else System.Windows.MessageBox.Show("Seleccione algun dato de la tabla");
         }

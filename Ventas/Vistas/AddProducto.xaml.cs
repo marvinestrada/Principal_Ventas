@@ -81,14 +81,13 @@ namespace ProyectoTienda.Vistas
 
         public void actualizar()
         {
-            try
-            {
+           
                 if (txtDesceipcion.Text != "" && txtPrecioVenta.Text != "" && txtUnidadMin.Text != "" )
                 {
-                    SqlCommand cmd = new SqlCommand("spProducto", Conexion.conex);
+                    SqlCommand cmd = new SqlCommand("spProductos", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Opcion", 3);
-                    cmd.Parameters.AddWithValue("@Id", Ids);
+                    cmd.Parameters.AddWithValue("@Id", Ids.ToString());
                     cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
                     cmd.Parameters.AddWithValue("@PrecioVenta", txtPrecioVenta.Text);
                     cmd.Parameters.AddWithValue("@UnidadMin", txtUnidadMin.Text);                  
@@ -106,45 +105,31 @@ namespace ProyectoTienda.Vistas
                     Conexion.conex.Close();
                 }
 
-            }
-            catch (Exception asd)
-            {
-                asd.ToString();
-                Conexion.conex.Close();
-            }
+            
         }
 
         public void Guardar()
         {
-            try
-            {
-                if (txtDesceipcion.Text != "" && txtPrecioVenta.Text != "" && txtUnidadMin.Text != "")
-                {
-                    SqlCommand cmd = new SqlCommand("spPersonas", Conexion.conex);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Opcion", 1);
-                    cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
-                    cmd.Parameters.AddWithValue("@PrecioVenta", txtPrecioVenta.Text);
-                    cmd.Parameters.AddWithValue("@UnidadMin", txtUnidadMin.Text);
-                    Conexion.conex.Open();
-                    cmd.ExecuteNonQuery();
-                    Conexion.conex.Close();
-                    this.Close();
-                    
-                }
 
-                else
-                {
-                    MessageBox.Show("Los campos no deben quedar vacios.");
-                    Conexion.conex.Close();
-                }
-
-            }
-            catch(Exception asd)
+            if (txtDesceipcion.Text != "" && txtPrecioVenta.Text != "" && txtUnidadMin.Text != "")
             {
-                asd.ToString();
+                SqlCommand cmd = new SqlCommand("spProductos", Conexion.conex);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Opcion", 1);
+                cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
+                cmd.Parameters.AddWithValue("@PrecioVenta", txtPrecioVenta.Text);
+                cmd.Parameters.AddWithValue("@UnidadMin", txtUnidadMin.Text);
+                Conexion.conex.Open();
+                cmd.ExecuteNonQuery();
                 Conexion.conex.Close();
+                this.Close();
+
             }
+            else MessageBox.Show("fallo");
+
+                
+
+            
         }
 
        

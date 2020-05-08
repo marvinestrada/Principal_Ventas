@@ -31,24 +31,17 @@ namespace ProyectoTienda.Vistas
 
         public void Conexiones()
         {
-            try
-            {
-                SqlCommand cmd = new SqlCommand("spProducto", Conexion.conex);
+              SqlCommand cmd = new SqlCommand("spProductos", Conexion.conex);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Opcion", 2);
-                DataTable tabla = new DataTable();
+                cmd.Parameters.AddWithValue("Opcion", 2);
+                DataTable productoss = new DataTable();
                 Conexion.conex.Open();
                 SqlDataAdapter puente = new SqlDataAdapter(cmd);
-                puente.Fill(tabla);
+                puente.Fill(productoss);
                 Conexion.conex.Close();
-                ventana.DataContext = tabla;
+                mostrarDatos.DataContext = productoss;
                 
-            }
-            catch(Exception asd)
-            {
-                asd.ToString();
-                Conexion.conex.Close();
-            }
+           
             
         }
 
@@ -58,9 +51,9 @@ namespace ProyectoTienda.Vistas
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (ventana.SelectedCells.Count > 0)
+            if (mostrarDatos.SelectedCells.Count > 0)
             {
-                DataRowView vista = (DataRowView)ventana.SelectedItem;
+                DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
                 int id_persona = (int)(vista["Id_producto"]);
                 String Descripcion = (vista["Descripcion"]).ToString();
                 String precio_venta = (vista["Precio_venta"]).ToString();
@@ -89,10 +82,10 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
             {
-            DataRowView vista = (DataRowView)ventana.SelectedItem;
+            DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
             int result = (int)(vista["Id_producto"]);
 
-            if (ventana.SelectedCells.Count > 0)
+            if (mostrarDatos.SelectedCells.Count > 0)
             {
                 try
                 {

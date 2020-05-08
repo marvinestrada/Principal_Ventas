@@ -81,8 +81,7 @@ namespace ProyectoTienda.Vistas
 
         public void actualizar()
         {
-            try
-            {
+           
                 if (txtNombre.Text != "" && txtEmpresa.Text != "" && txtDireccion.Text != "" && txtTelefono.Text != "")
                 {
                     SqlCommand cmd = new SqlCommand("spPersonas", Conexion.conex);
@@ -106,18 +105,12 @@ namespace ProyectoTienda.Vistas
                     Conexion.conex.Close();
                 }
 
-            }
-            catch (Exception asd)
-            {
-                asd.ToString();
-                Conexion.conex.Close();
-            }
+           
         }
 
         public void Guardar()
         {
-            try
-            {
+           
                 if (txtNombre.Text != "" && txtEmpresa.Text != "" && txtDireccion.Text != "" && txtTelefono.Text != "")
                 {
                     SqlCommand cmd = new SqlCommand("spPersonas", Conexion.conex);
@@ -139,12 +132,7 @@ namespace ProyectoTienda.Vistas
                     Conexion.conex.Close();
                 }
 
-            }
-            catch(Exception asd)
-            {
-                asd.ToString();
-                Conexion.conex.Close();
-            }
+            
         }
 
        

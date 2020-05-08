@@ -31,8 +31,7 @@ namespace ProyectoTienda.Vistas
 
         public void Conexiones()
         {
-            try
-            {
+            
                 SqlCommand cmd = new SqlCommand("spPersonas", Conexion.conex);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Opcion", 2);
@@ -43,12 +42,7 @@ namespace ProyectoTienda.Vistas
                 Conexion.conex.Close();
                 ventana.DataContext = tabla;
                 
-            }
-            catch(Exception asd)
-            {
-                asd.ToString();
-                Conexion.conex.Close();
-            }
+            
             
         }
 

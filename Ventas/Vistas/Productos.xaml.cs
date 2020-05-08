@@ -41,7 +41,7 @@ namespace ProyectoTienda.Vistas
                 Conexion.conex.Close();
                 mostrarDatos.DataContext = productoss;
                 
-           
+           //Establece la conexion con el procedimiento almacenado
             
         }
 

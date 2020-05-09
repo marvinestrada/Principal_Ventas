@@ -79,11 +79,12 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
             {
-            DataRowView vista = (DataRowView)ventana.SelectedItem;
-            int result = (int)(vista["Id"]);
+            
 
             if (ventana.SelectedCells.Count > 0)
             {
+                DataRowView vista = (DataRowView)ventana.SelectedItem;
+                int result = (int)(vista["Id"]);
                 try
                 {
                     MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro de eliminar?",

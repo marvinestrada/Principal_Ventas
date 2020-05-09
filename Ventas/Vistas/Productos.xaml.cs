@@ -83,13 +83,14 @@ namespace ProyectoTienda.Vistas
         private void Button_Click_3(object sender, RoutedEventArgs e)
             {
 
-            DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-            int result = (int)(vista["Id Producto"]);
+            
 
             if (mostrarDatos.SelectedCells.Count > 0)
             {
-               
-                    MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro de eliminar?",
+                DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
+                int result = (int)(vista["Id Producto"]);
+
+                MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro de eliminar?",
                                             "confirmar", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (respuesta == MessageBoxResult.Yes)
                     {                        

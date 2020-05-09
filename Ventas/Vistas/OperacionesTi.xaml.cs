@@ -20,9 +20,9 @@ namespace ProyectoTienda.Vistas
     /// <summary>
     /// Lógica de interacción para Personas.xaml
     /// </summary>
-    public partial class Productos : Window
+    public partial class OperacionesTi : Window
     {
-        public Productos()
+        public OperacionesTi()
         {
             InitializeComponent();
             Conexiones();
@@ -31,9 +31,9 @@ namespace ProyectoTienda.Vistas
 
         public void Conexiones()
         {
-              SqlCommand cmd = new SqlCommand("spProductos", Conexion.conex);
+              SqlCommand cmd = new SqlCommand("spTipoOperaciones", Conexion.conex);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("Opcion", 2);
+                cmd.Parameters.AddWithValue("Crud", 1);
                 DataTable productoss = new DataTable();
                 Conexion.conex.Open();
                 SqlDataAdapter puente = new SqlDataAdapter(cmd);
@@ -54,13 +54,9 @@ namespace ProyectoTienda.Vistas
             if (mostrarDatos.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-                int id_persona = (int)(vista["Id Producto"]);
+                int id_tipo= (int)(vista["Id"]);
                 String Descripcion = (vista["Descripcion"]).ToString();
-                Decimal precio_venta = (Decimal)(vista["Precio de Venta"]);
-                int minimo = (int)(vista["Unidades Minimas"]);
-                
-
-                AddProducto abrir = new AddProducto(2, id_persona, Descripcion, precio_venta, minimo);
+                AddOpreracionesTi abrir = new AddOpreracionesTi(2, id_tipo, Descripcion);
                 abrir.ShowDialog();
                 abrir.Close();
                 Conexiones();
@@ -83,21 +79,21 @@ namespace ProyectoTienda.Vistas
         private void Button_Click_3(object sender, RoutedEventArgs e)
             {
 
-            
+           
 
             if (mostrarDatos.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-                int result = (int)(vista["Id Producto"]);
+                int result = (int)(vista["Id"]);
 
                 MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro de eliminar?",
                                             "confirmar", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (respuesta == MessageBoxResult.Yes)
                     {                        
-                        SqlCommand cmd = new SqlCommand("spProductos", Conexion.conex);                        
+                        SqlCommand cmd = new SqlCommand("spTipoOperaciones", Conexion.conex);                        
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@Opcion", 4);                        
-                        cmd.Parameters.AddWithValue("@Id", result);                       
+                        cmd.Parameters.AddWithValue("@Crud", 3);                        
+                        cmd.Parameters.AddWithValue("@Id_Operaciones", result);                       
                         Conexion.conex.Open();                
                         cmd.ExecuteNonQuery();           
                         Conexion.conex.Close();
@@ -111,11 +107,13 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            AddProducto mostrar = new AddProducto(1);
+            AddOpreracionesTi mostrar = new AddOpreracionesTi(1);
             mostrar.ShowDialog();
             mostrar.Close();
             Conexiones();
 
         }
+
+     
     }
 }

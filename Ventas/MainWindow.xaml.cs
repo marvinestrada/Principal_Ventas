@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
+
 namespace ProyectoTienda
 {
     /// <summary>

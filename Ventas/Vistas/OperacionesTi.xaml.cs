@@ -31,9 +31,9 @@ namespace ProyectoTienda.Vistas
 
         public void Conexiones()
         {
-              SqlCommand cmd = new SqlCommand("spTipoOperaciones", Conexion.conex);
+              SqlCommand cmd = new SqlCommand("spProductos", Conexion.conex);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("Crud", 1);
+                cmd.Parameters.AddWithValue("Opcion", 2);
                 DataTable productoss = new DataTable();
                 Conexion.conex.Open();
                 SqlDataAdapter puente = new SqlDataAdapter(cmd);
@@ -54,9 +54,13 @@ namespace ProyectoTienda.Vistas
             if (mostrarDatos.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-                int id_tipo= (int)(vista["Id"]);
+                int id_persona = (int)(vista["Id Producto"]);
                 String Descripcion = (vista["Descripcion"]).ToString();
-                AddOpreracionesTi abrir = new AddOpreracionesTi(2, id_tipo, Descripcion);
+                Decimal precio_venta = (Decimal)(vista["Precio de Venta"]);
+                int minimo = (int)(vista["Unidades Minimas"]);
+                
+
+                AddProducto abrir = new AddProducto(2, id_persona, Descripcion, precio_venta, minimo);
                 abrir.ShowDialog();
                 abrir.Close();
                 Conexiones();
@@ -80,7 +84,7 @@ namespace ProyectoTienda.Vistas
             {
 
             DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-            int result = (int)(vista["Id"]);
+            int result = (int)(vista["Id Producto"]);
 
             if (mostrarDatos.SelectedCells.Count > 0)
             {
@@ -89,10 +93,10 @@ namespace ProyectoTienda.Vistas
                                             "confirmar", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (respuesta == MessageBoxResult.Yes)
                     {                        
-                        SqlCommand cmd = new SqlCommand("spTipoOperaciones", Conexion.conex);                        
+                        SqlCommand cmd = new SqlCommand("spProductos", Conexion.conex);                        
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@Crud", 3);                        
-                        cmd.Parameters.AddWithValue("@Id_Operaciones", result);                       
+                        cmd.Parameters.AddWithValue("@Opcion", 4);                        
+                        cmd.Parameters.AddWithValue("@Id", result);                       
                         Conexion.conex.Open();                
                         cmd.ExecuteNonQuery();           
                         Conexion.conex.Close();
@@ -106,13 +110,11 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            AddOpreracionesTi mostrar = new AddOpreracionesTi(1);
+            AddProducto mostrar = new AddProducto(1);
             mostrar.ShowDialog();
             mostrar.Close();
             Conexiones();
 
         }
-
-     
     }
 }

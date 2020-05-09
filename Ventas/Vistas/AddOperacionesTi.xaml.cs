@@ -23,14 +23,17 @@ namespace ProyectoTienda.Vistas
     /// </summary>
     public partial class AddOpreracionesTi : Window
     {
-        int Opcion, Ids;
+        int Opcion, Ids, Unidad_minima;
         public string Descripcion;
-        public AddOpreracionesTi(int opcion, int id = 0, string descrip = "")
+        Decimal Precio_venta;
+        public AddOpreracionesTi(int opcion, int id = 0, string descrip = "", Decimal precio_ven = 0, int unidad_min = 0)
         {
             InitializeComponent();
             Opcion = opcion;
             Ids = id;
-            Descripcion = descrip;           
+            Descripcion = descrip;
+            Precio_venta = precio_ven;
+            Unidad_minima = unidad_min;
             
             if (Opcion == 2) incluirDatos();
         }
@@ -42,7 +45,7 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if (txtDesceipcion.Text != ""  )
+            if (txtDesceipcion.Text != "" && txtPrecioVenta.Text != "" && txtUnidadMin.Text != "" )
             {
                 if (Opcion == 1) { Guardar(); }
                 else if (Opcion == 2) { actualizar(); }
@@ -71,6 +74,8 @@ namespace ProyectoTienda.Vistas
        public void incluirDatos()
         {
             txtDesceipcion.Text = Descripcion;
+            txtPrecioVenta.Text = Precio_venta.ToString();
+            txtUnidadMin.Text = Unidad_minima.ToString();
             txtDesceipcion.Focus();
   
         }
@@ -80,18 +85,20 @@ namespace ProyectoTienda.Vistas
             try
             {
 
-                if (txtDesceipcion.Text != "" )
+                if (txtDesceipcion.Text != "" && txtPrecioVenta.Text != "" && txtUnidadMin.Text != "")
                 {
-                    SqlCommand cmd = new SqlCommand("spTipoOperaciones", Conexion.conex);
+                    SqlCommand cmd = new SqlCommand("spProductos", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Crud", 2);
-                    cmd.Parameters.AddWithValue("@Id_Operaciones", Ids.ToString());
-                    cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);                    
+                    cmd.Parameters.AddWithValue("@Opcion", 3);
+                    cmd.Parameters.AddWithValue("@Id", Ids.ToString());
+                    cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
+                    cmd.Parameters.AddWithValue("@PrecioVenta", txtPrecioVenta.Text);
+                    cmd.Parameters.AddWithValue("@UnidadMin", txtUnidadMin.Text);
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();
                     this.Close();
-                    MessageBox.Show("Id Operacion " + Ids + " Actualizado correctamente");
+                    MessageBox.Show("Id Producto " + Ids + " Actualizado correctamente");
 
 
                 }
@@ -115,12 +122,14 @@ namespace ProyectoTienda.Vistas
         {
             try
             {
-                if (txtDesceipcion.Text != "" )
+                if (txtDesceipcion.Text != "" && txtPrecioVenta.Text != "" && txtUnidadMin.Text != "")
                 {
-                    SqlCommand cmd = new SqlCommand("spTipoOperaciones", Conexion.conex);
+                    SqlCommand cmd = new SqlCommand("spProductos", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Crud", 0);
+                    cmd.Parameters.AddWithValue("@Opcion", 1);
                     cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
+                    cmd.Parameters.AddWithValue("@PrecioVenta", txtPrecioVenta.Text);
+                    cmd.Parameters.AddWithValue("@UnidadMin", txtUnidadMin.Text);
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();

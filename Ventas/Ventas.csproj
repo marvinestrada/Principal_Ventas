@@ -86,6 +86,9 @@
     <Compile Include="Vistas\AddPermisos.xaml.cs">
       <DependentUpon>AddPermisos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\AddTipoOperaciones.xaml.cs">
+      <DependentUpon>AddTipoOperaciones.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\AddProducto.xaml.cs">
       <DependentUpon>AddProducto.xaml</DependentUpon>
     </Compile>
@@ -97,6 +100,9 @@
     </Compile>
     <Compile Include="Vistas\Permisos.xaml.cs">
       <DependentUpon>Permisos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\TipoOperaciones.xaml.cs">
+      <DependentUpon>TipoOperaciones.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Productos.xaml.cs">
       <DependentUpon>Productos.xaml</DependentUpon>
@@ -121,6 +127,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Vistas\AddTipoOperaciones.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Vistas\AddProducto.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -136,6 +146,10 @@
     <Page Include="Vistas\Permisos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\TipoOperaciones.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Vistas\Productos.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -97,8 +97,8 @@ namespace ProyectoTienda.Vistas
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();
-                    MessageBox.Show("Id Producto " + Ids + " Actualizado correctamente");
                     this.Close();
+                    MessageBox.Show("Id Producto " + Ids + " Actualizado correctamente");
 
 
                 }

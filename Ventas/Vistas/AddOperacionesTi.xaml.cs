@@ -21,12 +21,12 @@ namespace ProyectoTienda.Vistas
     /// <summary>
     /// Lógica de interacción para AddPersonas.xaml
     /// </summary>
-    public partial class AddTipoOperaciones : Window
+    public partial class AddOpreracionesTi : Window
     {
         int Opcion, Ids, Unidad_minima;
         public string Descripcion;
         Decimal Precio_venta;
-        public AddTipoOperaciones(int opcion, int id = 0, string descrip = "", Decimal precio_ven = 0, int unidad_min = 0)
+        public AddOpreracionesTi(int opcion, int id = 0, string descrip = "", Decimal precio_ven = 0, int unidad_min = 0)
         {
             InitializeComponent();
             Opcion = opcion;

@@ -1,4 +1,4 @@
-﻿<Window x:Class="ProyectoTienda.Vistas.AddTipoOperaciones"
+﻿<Window x:Class="ProyectoTienda.Vistas.AddOpreracionesTi"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"

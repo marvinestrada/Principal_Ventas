@@ -83,11 +83,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Vistas\AddPermisos.xaml.cs">
-      <DependentUpon>AddPermisos.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\AddTipoOperaciones.xaml.cs">
-      <DependentUpon>AddTipoOperaciones.xaml</DependentUpon>
+    <Compile Include="Vistas\AddOperacionesTi.xaml.cs">
+      <DependentUpon>AddOperacionesTi.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\AddProducto.xaml.cs">
       <DependentUpon>AddProducto.xaml</DependentUpon>
@@ -98,11 +95,8 @@
     <Compile Include="Vistas\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Permisos.xaml.cs">
-      <DependentUpon>Permisos.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\TipoOperaciones.xaml.cs">
-      <DependentUpon>TipoOperaciones.xaml</DependentUpon>
+    <Compile Include="Vistas\OperacionesTi.xaml.cs">
+      <DependentUpon>OperacionesTi.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Productos.xaml.cs">
       <DependentUpon>Productos.xaml</DependentUpon>
@@ -123,11 +117,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Vistas\AddPermisos.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Vistas\AddTipoOperaciones.xaml">
+    <Page Include="Vistas\AddOperacionesTi.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -143,11 +133,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\Permisos.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Vistas\TipoOperaciones.xaml">
+    <Page Include="Vistas\OperacionesTi.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

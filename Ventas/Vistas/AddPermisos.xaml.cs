@@ -29,7 +29,6 @@ namespace ProyectoTienda.Vistas
         public AddPermisos(int opcion, int id = 0, string descrip = "")
         {
 
-            //solo son dos campos los que estoy enviando y estos los recibo aca solamente 2 Diablo burro aaaah va estar ahi ofendiedno :c
             InitializeComponent();
             Opcion = opcion;
             Ids = id;

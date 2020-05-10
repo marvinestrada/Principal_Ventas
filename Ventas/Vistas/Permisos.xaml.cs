@@ -6,40 +6,115 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Data;
 using System.Configuration;
+using ProyectoTienda.Vistas;
+using System.Windows.Forms;
+
+
 
 namespace ProyectoTienda.Vistas
 {
     /// <summary>
-    /// Lógica de interacción para Permisos.xaml
+    /// Lógica de interacción para Personas.xaml
     /// </summary>
     public partial class Permisos : Window
     {
         public Permisos()
         {
             InitializeComponent();
-            cone();
+            Conexiones();
+            
         }
 
-        public void cone()
+        public void Conexiones()
         {
+              SqlCommand cmd = new SqlCommand("spPermisos", Conexion.conex);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("CRUD", 2);
+                DataTable productoss = new DataTable();
+                Conexion.conex.Open();
+                SqlDataAdapter puente = new SqlDataAdapter(cmd);
+                puente.Fill(productoss);
+                Conexion.conex.Close();
+                mostrarDatos.DataContext = productoss;
+                
+           //Establece la conexion con el procedimiento almacenado
+            
+        }
 
-            SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = ConfigurationManager.ConnectionStrings["Conectar"].ToString();
-            conexion.Open();
-            SqlCommand comando = new SqlCommand();
-            comando.CommandText = "Select * From [Permisos]";
-            comando.Connection = conexion;
-            SqlDataReader leer = comando.ExecuteReader();
-            ventana.ItemsSource = leer;
+        private void mover(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (mostrarDatos.SelectedCells.Count > 0)
+            {
+                DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
+                int id_permiso = (int)(vista["Id"]);
+                String Descripcion = (vista["Descripcion"]).ToString();
+               
+                
+
+                AddPermisos abrir = new AddPermisos(2, id_permiso, Descripcion);
+                abrir.ShowDialog();
+                abrir.Close();
+                Conexiones();
+            }
+            else System.Windows.MessageBox.Show("Seleccione algun dato de la tabla.");
+
+        }
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+     
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Conexiones();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+            {
+
+            
+
+            if (mostrarDatos.SelectedCells.Count > 0)
+            {
+                DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
+                int result = (int)(vista["Id"]);
+
+                MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro de eliminar?",
+                                            "confirmar", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (respuesta == MessageBoxResult.Yes)
+                    {                        
+                        SqlCommand cmd = new SqlCommand("spPermisos", Conexion.conex);                        
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@CRUD", 4);                        
+                        cmd.Parameters.AddWithValue("@Id_permiso", result);                       
+                        Conexion.conex.Open();                
+                        cmd.ExecuteNonQuery();           
+                        Conexion.conex.Close();
+                        Conexiones();
+                    }
+                
+               
+            }
+            else System.Windows.MessageBox.Show("Seleccione algun dato de la tabla");
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            AddPermisos mostrar = new AddPermisos(1);
+            mostrar.ShowDialog();
+            mostrar.Close();
+            Conexiones();
+            //estaba llamando a la tabla producto aca
         }
     }
 }

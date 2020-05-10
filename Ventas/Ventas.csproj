@@ -91,6 +91,10 @@
       <DependentUpon>AddPermisos.xaml</DependentUpon>
     </Compile>
 
+    <Compile Include="Vistas\AddCajas.xaml.cs">
+      <DependentUpon>AddCajas.xaml</DependentUpon>
+    </Compile>
+
     <Compile Include="Vistas\AddProducto.xaml.cs">
       <DependentUpon>AddProducto.xaml</DependentUpon>
     </Compile>
@@ -106,6 +110,10 @@
 
     <Compile Include="Vistas\Permisos.xaml.cs">
       <DependentUpon>Permisos.xaml</DependentUpon>
+    </Compile>
+
+    <Compile Include="Vistas\Cajas.xaml.cs">
+      <DependentUpon>Cajas.xaml</DependentUpon>
     </Compile>
 
     <Compile Include="Vistas\Productos.xaml.cs">
@@ -137,6 +145,11 @@
       <SubType>Designer</SubType>
     </Page>
 
+    <Page Include="Vistas\AddCajas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+
     <Page Include="Vistas\AddProducto.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -155,6 +168,11 @@
     </Page>
 
     <Page Include="Vistas\Permisos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+
+    <Page Include="Vistas\Cajas.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

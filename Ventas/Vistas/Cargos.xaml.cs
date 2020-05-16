@@ -9,11 +9,11 @@ using System.Data;
 namespace ProyectoTienda.Vistas
 {
     /// <summary>
-    /// Lógica de interacción para Cajas.xaml
+    /// Lógica de interacción para Cargos.xaml
     /// </summary>
-    public partial class Cajas : Window
+    public partial class Cargos : Window
     {
-        public Cajas()
+        public Cargos()
         {
             InitializeComponent();
             Conexiones();
@@ -24,7 +24,7 @@ namespace ProyectoTienda.Vistas
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("spCaja", Conexion.conex);
+                SqlCommand cmd = new SqlCommand("spCargos", Conexion.conex);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@crud", 2);
                 DataTable tabla = new DataTable();
@@ -52,14 +52,13 @@ namespace ProyectoTienda.Vistas
             if (Ventana.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)Ventana.SelectedItem;
-                int id_caja = (int)(vista["Id Caja"]);
+                int id_car = (int)(vista["Id Cargo"]);
                 string fechaa = (vista["Fecha"]).ToString();
-                String id_empleado = (vista["Id Empleado"]).ToString();
-                String comentario = (vista["Comentarios"]).ToString();
+                String id_oper = (vista["Codigo Operacion"]).ToString();
                 String monto = (vista["Monto"]).ToString();
-                
 
-                AddCajas abrir = new AddCajas(2, id_caja, fechaa, id_empleado, comentario, monto);
+
+                AddCargos abrir = new AddCargos(2, id_car, fechaa, id_oper, monto);
                 abrir.ShowDialog();
                 abrir.Close();
                 Conexiones();
@@ -85,17 +84,17 @@ namespace ProyectoTienda.Vistas
             if (Ventana.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)Ventana.SelectedItem;
-                int result = (int)(vista["Id caja"]);
+                int result = (int)(vista["Id cargo"]);
                 try
                 {
                     MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro de eliminar?",
                                             "confirmar", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (respuesta == MessageBoxResult.Yes)
                     {
-                        SqlCommand cmd = new SqlCommand("spCaja", Conexion.conex);
+                        SqlCommand cmd = new SqlCommand("spCargos", Conexion.conex);
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@Crud", 4);
-                        cmd.Parameters.AddWithValue("@Id_Caja", result);
+                        cmd.Parameters.AddWithValue("@Id_Car", result);
                         Conexion.conex.Open();
                         cmd.ExecuteNonQuery();
                         Conexion.conex.Close();
@@ -114,7 +113,7 @@ namespace ProyectoTienda.Vistas
 
         private void btnInser(object sender, RoutedEventArgs e)
         {
-            AddCajas mostrar = new AddCajas(1);
+            AddCargos mostrar = new AddCargos(1);
             mostrar.ShowDialog();
             mostrar.Close();
             Conexiones();

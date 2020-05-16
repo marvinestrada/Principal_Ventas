@@ -7,20 +7,19 @@ using System.Data;
 namespace ProyectoTienda.Vistas
 {
     /// <summary>
-    /// Lógica de interacción para AddCajas.xaml
+    /// Lógica de interacción para AddCargos.xaml
     /// </summary>
-    public partial class AddCajas : Window
+    public partial class AddCargos : Window
     {
         int Opcion, Idd;
-        public string Fecha, Id_Empleado, Comentarios, Monto;
-        public AddCajas(int opcion, int id = 0, string fecha = "", string id_empleado = "", string comentarios = "", string monto = "")
+        public string Fecha, Id_Op, Monto;
+        public AddCargos(int opcion, int id = 0, string fecha = "", string id_op = "",  string monto = "")
         {
             InitializeComponent();
             Opcion = opcion;
             Idd = id;
             Fecha = fecha;
-            Id_Empleado = id_empleado;
-            Comentarios = comentarios;
+            Id_Op = id_op;
             Monto = monto;
 
             if (Opcion == 2) incluirDatos();
@@ -33,7 +32,7 @@ namespace ProyectoTienda.Vistas
 
         private void btnAceptar(object sender, RoutedEventArgs e)
         {
-            if (txtFecha.Text != "" && txtcod_empleado.Text != "" && txtComentarios.Text != "")
+            if (txtFecha.Text != "" && txtcod_oper.Text != "" )
             {
                 if (Opcion == 1) { Guardar(); }
                 else if (Opcion == 2) { actualizar(); }
@@ -62,8 +61,7 @@ namespace ProyectoTienda.Vistas
         public void incluirDatos()
         {
             txtFecha.Text = Fecha;
-            txtcod_empleado.Text = Id_Empleado;
-            txtComentarios.Text = Comentarios;
+            txtcod_oper.Text = Id_Op;
             txtMonto.Text = Monto;
 
 
@@ -72,16 +70,15 @@ namespace ProyectoTienda.Vistas
         public void actualizar()
         {
 
-            if (txtFecha.Text != "" && txtcod_empleado.Text != "" && txtComentarios.Text != "")
+            if (txtFecha.Text != "" && txtcod_oper.Text != "" && txtMonto.Text != "")
             {
-                SqlCommand cmd = new SqlCommand("spCaja", Conexion.conex);
+                SqlCommand cmd = new SqlCommand("spCargos", Conexion.conex);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@crud", 3);
-                cmd.Parameters.AddWithValue("@Id_caja", Idd.ToString());
-                cmd.Parameters.AddWithValue("@Fecha", txtFecha.Text);
-                cmd.Parameters.AddWithValue("@Id_Empleado", txtcod_empleado.Text);
-                cmd.Parameters.AddWithValue("@Comentarios", txtComentarios.Text);
-                cmd.Parameters.AddWithValue("@Monto", Convert.ToDecimal(txtMonto.Text));
+                cmd.Parameters.AddWithValue("@Crud", 3);
+                cmd.Parameters.AddWithValue("@Id_car", Idd.ToString());
+                cmd.Parameters.AddWithValue("@Fecha_cargo",txtFecha.Text);
+                cmd.Parameters.AddWithValue("@Id_op", txtcod_oper.Text);
+                cmd.Parameters.AddWithValue("@Monto_cobro", Convert.ToDecimal(txtMonto.Text));
 
                 Conexion.conex.Open();
                 cmd.ExecuteNonQuery();
@@ -103,18 +100,17 @@ namespace ProyectoTienda.Vistas
         public void Guardar()
         {
             
-                if (txtFecha.Text != "" && txtcod_empleado.Text != "" && txtComentarios.Text != "")
+                if (txtFecha.Text != "" && txtcod_oper.Text != "" )
                 {
-                    SqlCommand cmd = new SqlCommand("spCaja", Conexion.conex);
+                    SqlCommand cmd = new SqlCommand("spCargos", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@crud", 1);
-                    cmd.Parameters.AddWithValue("@Id_caja", Idd);
-                    cmd.Parameters.AddWithValue("@Fecha",txtFecha.Text);
-                    cmd.Parameters.AddWithValue("@Id_empleado", txtcod_empleado.Text);
-                    cmd.Parameters.AddWithValue("@Comentarios", txtComentarios.Text);
-                    cmd.Parameters.AddWithValue("@Monto", txtMonto.Text);
+                    cmd.Parameters.AddWithValue("@Id_car", Idd.ToString());
+                    cmd.Parameters.AddWithValue("@Fecha_cargo", txtFecha.Text);
+                    cmd.Parameters.AddWithValue("@Id_op", txtcod_oper.Text);
+                    cmd.Parameters.AddWithValue("@Monto_cobro", txtMonto.Text);
 
-                    Conexion.conex.Open();
+                Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();
                     

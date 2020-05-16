@@ -23,18 +23,17 @@ namespace ProyectoTienda.Vistas
     /// </summary>
     public partial class AddPermiso_Personas : Window
     {
-        int Opcion, Ids;
+        int Opcion, Ids, Perm, Empl;
         public string Descripcion;  
        
-        public AddPermiso_Personas(int opcion, int id = 0, string descrip = "")
+        public AddPermiso_Personas(int opcion, int id = 0, int id_empleado = 0, int id_emple_per = 0, string descrip = "")
         {
-
             InitializeComponent();
             Opcion = opcion;
             Ids = id;
+            Perm = id_empleado;
+            Empl = id_emple_per;
             Descripcion = descrip;
-           
-            
             if (Opcion == 2) incluirDatos();
         }
 
@@ -91,14 +90,11 @@ namespace ProyectoTienda.Vistas
                     cmd.Parameters.AddWithValue("@CRUD", 3);
                     cmd.Parameters.AddWithValue("@Id_permiso", Ids.ToString());
                     cmd.Parameters.AddWithValue("@Descripcion", txtpermiso.Text);
-                 
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();
                     this.Close();
                     MessageBox.Show("Id Permiso " + Ids + " Actualizado correctamente");
-
-
                 }
 
                 else
@@ -145,12 +141,6 @@ namespace ProyectoTienda.Vistas
                 asdd.ToString();
                 Conexion.conex.Close();
             }
-
-                
-
-            
         }
-
-       
     }
 }

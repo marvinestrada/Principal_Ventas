@@ -55,11 +55,10 @@ namespace ProyectoTienda.Vistas
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
                 int id_permiso = (int)(vista["Id"]);
+                int id_empleado = (int)(vista)["Id Empleados"];
+                int id_emple_per = (int)(vista)["Id Permiso Empleados"];
                 String Descripcion = (vista["Descripcion"]).ToString();
-               
-                
-
-                AddPermisos abrir = new AddPermisos(2, id_permiso, Descripcion);
+                AddPermiso_Personas abrir = new AddPermiso_Personas(2, id_permiso,id_empleado, id_emple_per, Descripcion);
                 abrir.ShowDialog();
                 abrir.Close();
                 Conexiones();
@@ -88,7 +87,6 @@ namespace ProyectoTienda.Vistas
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
                 int result = (int)(vista["Id"]);
-
                 MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro de eliminar?",
                                             "confirmar", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (respuesta == MessageBoxResult.Yes)
@@ -96,7 +94,9 @@ namespace ProyectoTienda.Vistas
                         SqlCommand cmd = new SqlCommand("spPermisos", Conexion.conex);                        
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@CRUD", 4);                        
-                        cmd.Parameters.AddWithValue("@Id_permiso", result);                       
+                        cmd.Parameters.AddWithValue("@Id_permiso", result);
+                        cmd.Parameters.AddWithValue("@Id_empleado", result);
+                        cmd.Parameters.AddWithValue("@Id_Empleado_Permiso", result);
                         Conexion.conex.Open();                
                         cmd.ExecuteNonQuery();           
                         Conexion.conex.Close();
@@ -114,7 +114,7 @@ namespace ProyectoTienda.Vistas
             mostrar.ShowDialog();
             mostrar.Close();
             Conexiones();
-            //estaba llamando a la tabla producto aca
+            //estaba llamando a la tabla que agrega personas
         }
     }
 }

@@ -24,16 +24,15 @@ namespace ProyectoTienda.Vistas
     public partial class AddPermiso_Personas : Window
     {
         int Opcion, Ids;
-        public string Descripcion, Perm, Empl;  
+        public string  Perm, Empl;  
        
-        public AddPermiso_Personas(int opcion, int id = 0, string id_empleado = "", string id_emple_per = "", string descrip = "")
+        public AddPermiso_Personas(int opcion, int id = 0, string id_empleado = "", string id_emple_per = "")
         {
             InitializeComponent();
             Opcion = opcion;
             Ids = id;
             Perm = id_empleado;
             Empl = id_emple_per;
-            Descripcion = descrip;
             if (Opcion == 2) incluirDatos();
         }
 
@@ -72,16 +71,14 @@ namespace ProyectoTienda.Vistas
 
        public void incluirDatos()
         {
-            txtpermiso.Text = Descripcion;
-           
+            txtpermiso.Text = Perm;
+            txtempleado.Text = Empl;
             txtpermiso.Focus();
   
         }
 
         public void actualizar()
         {
-            try
-            {
 
                 if (txtpermiso.Text != "" )
                 {
@@ -97,20 +94,11 @@ namespace ProyectoTienda.Vistas
                     this.Close();
                     MessageBox.Show("Id Permiso " + Ids + " Actualizado correctamente");
                 }
-         //MI AMIGO.... :c
                 else
                 {
                     MessageBox.Show("Los campos no deben quedar vacios.");
                     
                 }
-            }
-            catch (Exception w)
-            {
-                w.ToString();
-                Conexion.conex.Close();
-            }
-
-            
         }
 
         private void button_Click_3(object sender, RoutedEventArgs e)
@@ -120,9 +108,7 @@ namespace ProyectoTienda.Vistas
 
         public void Guardar()
         {
-            try
-            {
-                if (txtpermiso.Text != "" )
+                if (txtpermiso.Text != "")
                 {
                     SqlCommand cmd = new SqlCommand("spPermisosEmpleado", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -135,12 +121,7 @@ namespace ProyectoTienda.Vistas
                     this.Close();
                 }
                 else MessageBox.Show("fallo");
-            }
-            catch(Exception asdd)
-            {
-                asdd.ToString();
-                Conexion.conex.Close();
-            }
+            
         }
     }
 }

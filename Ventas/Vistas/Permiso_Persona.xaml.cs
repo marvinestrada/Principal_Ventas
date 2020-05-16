@@ -39,11 +39,10 @@ namespace ProyectoTienda.Vistas
                 SqlDataAdapter puente = new SqlDataAdapter(cmd);
                 puente.Fill(productoss);
                 Conexion.conex.Close();
-                mostrarDatos.DataContext = productoss;
-                
+                mostrarDatos.DataContext = productoss;     
            //Establece la conexion con el procedimiento almacenado
-            
         }
+
 
         private void mover(object sender, MouseButtonEventArgs e)
         {
@@ -56,7 +55,7 @@ namespace ProyectoTienda.Vistas
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
                 string id_permiso = (vista["ID"]).ToString();
                 string id_empleado = (vista)["Id Empleado"].ToString();
-                int id_emple_per = (int)(vista)["Id Permiso Empleados"];
+                int id_emple_per = (int)(vista)["Permiso Empleado"];
                 AddPermiso_Personas abrir = new AddPermiso_Personas(2, id_emple_per, id_empleado, id_permiso);
                 abrir.ShowDialog();
                 abrir.Close();

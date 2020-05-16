@@ -55,7 +55,7 @@ namespace ProyectoTienda.Vistas
                 int id_car = (int)(vista["Id Cargo"]);
                 string fechaa = (vista["Fecha"]).ToString();
                 String id_oper = (vista["Codigo Operacion"]).ToString();
-                String monto = (vista["Monto"]).ToString();
+                String monto = (vista["Monto"]).ToString(); 
 
 
                 AddCargos abrir = new AddCargos(2, id_car, fechaa, id_oper, monto);

@@ -32,7 +32,7 @@ namespace ProyectoTienda.Vistas
 
         private void btnAceptar(object sender, RoutedEventArgs e)
         {
-            if (txtFecha.Text != "" && txtcod_oper.Text != "" )
+            if (Dfechita.Text != "" && txtcod_oper.Text != "" )
             {
                 if (Opcion == 1) { Guardar(); }
                 else if (Opcion == 2) { actualizar(); }
@@ -60,7 +60,7 @@ namespace ProyectoTienda.Vistas
 
         public void incluirDatos()
         {
-            txtFecha.Text = Fecha;
+            Dfechita.Text = Fecha;
             txtcod_oper.Text = Id_Op;
             txtMonto.Text = Monto;
 
@@ -69,66 +69,76 @@ namespace ProyectoTienda.Vistas
 
         public void actualizar()
         {
+            try { 
+                if (Dfechita.Text != "" && txtcod_oper.Text != "" && txtMonto.Text != "")
+                {
+                 SqlCommand cmd = new SqlCommand("spCargos", Conexion.conex);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@CRUD", 3);
+                    cmd.Parameters.AddWithValue("@Id_car", Idd.ToString());
+                    cmd.Parameters.AddWithValue("@Fecha_cargo",Convert.ToString( Dfechita));
+                    cmd.Parameters.AddWithValue("@Id_op", txtcod_oper.Text);
+                    cmd.Parameters.AddWithValue("@Monto_cobro", Convert.ToDecimal(txtMonto.Text));
 
-            if (txtFecha.Text != "" && txtcod_oper.Text != "" && txtMonto.Text != "")
-            {
-                SqlCommand cmd = new SqlCommand("spCargos", Conexion.conex);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Crud", 3);
-                cmd.Parameters.AddWithValue("@Id_car", Idd.ToString());
-                cmd.Parameters.AddWithValue("@Fecha_cargo",txtFecha.Text);
-                cmd.Parameters.AddWithValue("@Id_op", txtcod_oper.Text);
-                cmd.Parameters.AddWithValue("@Monto_cobro", Convert.ToDecimal(txtMonto.Text));
-
-                Conexion.conex.Open();
-                cmd.ExecuteNonQuery();
-                Conexion.conex.Close();
+                    Conexion.conex.Open();
+                    cmd.ExecuteNonQuery();
+                    Conexion.conex.Close();
 
 
+
+
+                }
+
+                    else
+                     {
+                         MessageBox.Show("Los campos no deben quedar vacios.");
+                         Conexion.conex.Close();
+                     }
             }
 
-            else
+             catch (Exception w)
             {
-                MessageBox.Show("Los campos no deben quedar vacios.");
+                w.ToString();
                 Conexion.conex.Close();
             }
-
         }
     
         
 
         public void Guardar()
         {
-            
-                if (txtFecha.Text != "" && txtcod_oper.Text != "" )
+            try
+            {
+                if (Dfechita.Text != "" && txtcod_oper.Text != "" && txtMonto.Text != "")
                 {
                     SqlCommand cmd = new SqlCommand("spCargos", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@crud", 1);
                     cmd.Parameters.AddWithValue("@Id_car", Idd.ToString());
-                    cmd.Parameters.AddWithValue("@Fecha_cargo", txtFecha.Text);
+                    cmd.Parameters.AddWithValue("@Fecha_cargo", Convert.ToString(Dfechita));
                     cmd.Parameters.AddWithValue("@Id_op", txtcod_oper.Text);
                     cmd.Parameters.AddWithValue("@Monto_cobro", txtMonto.Text);
 
-                Conexion.conex.Open();
+                    Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();
+
+                }
+
+                
+                  else MessageBox.Show("fallo");
                     
-                }
+                
+            }
+            catch (Exception asdd)
+            {
+                asdd.ToString();
+                Conexion.conex.Close();
+            }
 
-                else
-                {
-                    MessageBox.Show("Los campos no deben quedar vacios.");
-                    Conexion.conex.Close();
-                }
-
-            
-            
-
-               
-           
         }
 
-       
+
+
     }
 }

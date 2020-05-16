@@ -33,7 +33,7 @@ namespace ProyectoTienda.Vistas
 
         private void btnAceptar(object sender, RoutedEventArgs e)
         {
-            if (txtFecha.Text != "" && txtcod_empleado.Text != "" && txtComentarios.Text != "")
+            if (Dfechita.Text != "" && txtcod_empleado.Text != "" && txtComentarios.Text != "" && txtMonto.Text != "")
             {
                 if (Opcion == 1) { Guardar(); }
                 else if (Opcion == 2) { actualizar(); }
@@ -61,7 +61,7 @@ namespace ProyectoTienda.Vistas
 
         public void incluirDatos()
         {
-            txtFecha.Text = Fecha;
+            Dfechita.Text = Fecha;
             txtcod_empleado.Text = Id_Empleado;
             txtComentarios.Text = Comentarios;
             txtMonto.Text = Monto;
@@ -71,14 +71,14 @@ namespace ProyectoTienda.Vistas
 
         public void actualizar()
         {
-
-            if (txtFecha.Text != "" && txtcod_empleado.Text != "" && txtComentarios.Text != "")
+            try { 
+            if (Dfechita.Text != "" && txtcod_empleado.Text != "" && txtComentarios.Text != "" && txtMonto.Text != "")
             {
                 SqlCommand cmd = new SqlCommand("spCaja", Conexion.conex);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@crud", 3);
                 cmd.Parameters.AddWithValue("@Id_caja", Idd.ToString());
-                cmd.Parameters.AddWithValue("@Fecha", txtFecha.Text);
+                cmd.Parameters.AddWithValue("@Fecha", Convert.ToString(Dfechita));
                 cmd.Parameters.AddWithValue("@Id_Empleado", txtcod_empleado.Text);
                 cmd.Parameters.AddWithValue("@Comentarios", txtComentarios.Text);
                 cmd.Parameters.AddWithValue("@Monto", Convert.ToDecimal(txtMonto.Text));
@@ -95,6 +95,12 @@ namespace ProyectoTienda.Vistas
                 MessageBox.Show("Los campos no deben quedar vacios.");
                 Conexion.conex.Close();
             }
+            }
+            catch (Exception w)
+            {
+                w.ToString();
+                Conexion.conex.Close();
+            }
 
         }
     
@@ -102,14 +108,15 @@ namespace ProyectoTienda.Vistas
 
         public void Guardar()
         {
-            
-                if (txtFecha.Text != "" && txtcod_empleado.Text != "" && txtComentarios.Text != "")
+            try
+            {
+                if (Dfechita.Text != "" && txtcod_empleado.Text != "" && txtComentarios.Text != "")
                 {
                     SqlCommand cmd = new SqlCommand("spCaja", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@crud", 1);
                     cmd.Parameters.AddWithValue("@Id_caja", Idd);
-                    cmd.Parameters.AddWithValue("@Fecha",txtFecha.Text);
+                    cmd.Parameters.AddWithValue("@Fecha", Convert.ToString(Dfechita));
                     cmd.Parameters.AddWithValue("@Id_empleado", txtcod_empleado.Text);
                     cmd.Parameters.AddWithValue("@Comentarios", txtComentarios.Text);
                     cmd.Parameters.AddWithValue("@Monto", txtMonto.Text);
@@ -117,20 +124,23 @@ namespace ProyectoTienda.Vistas
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();
-                    
+
                 }
 
-                else
-                {
-                    MessageBox.Show("Los campos no deben quedar vacios.");
-                    Conexion.conex.Close();
-                }
+                       else MessageBox.Show("fallo");
 
-            
-            
+            }
 
-               
-           
+            catch (Exception asdd)
+            {
+                asdd.ToString();
+                Conexion.conex.Close();
+            }
+
+
+
+
+
         }
 
        

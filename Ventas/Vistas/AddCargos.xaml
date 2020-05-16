@@ -23,14 +23,15 @@
         <Label Content="Fecha:" HorizontalAlignment="Left" Margin="20,200,0,0" VerticalAlignment="Top" Height="25"/>
         <Label Content="Codigo Operacion:" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Height="25"/>
 
-        <TextBox x:Name="txtcod_oper" HorizontalAlignment="Left" Height="28" Margin="135,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal" Width="323"/>
-        <TextBox x:Name="txtFecha" HorizontalAlignment="Left" Height="28" Margin="70,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal" Width="390"/>
+        <TextBox x:Name="txtcod_oper" HorizontalAlignment="Left" Height="28" Margin="135,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal" Width="250"/>
 
         <Button Content="Cancelar" HorizontalAlignment="Left" Margin="252,533,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="btnCancel"/>
         <Button Content="Aceptar" HorizontalAlignment="Left" Margin="383,533,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed"  Padding="1" Click="btnAceptar"/>
-        <TextBox x:Name="txtMonto" HorizontalAlignment="Left" Height="28" Margin="70,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal"  Width="385"/>
+        <TextBox x:Name="txtMonto" HorizontalAlignment="Left" Height="28" Margin="70,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal"  Width="195"/>
         <Label Content="Monto:" HorizontalAlignment="Left" Margin="15,150,0,0" VerticalAlignment="Top" Height="25"/>
-        
+        <Button Content=">>" HorizontalAlignment="Left" Margin="405,93,0,0" VerticalAlignment="Top" Width="60" RenderTransformOrigin="0.331,0.371"/>
+        <DatePicker Name="Dfechita" HorizontalAlignment="Left" Margin="70,200,0,0" VerticalAlignment="Top"  RenderTransformOrigin="0.5,0.5" Width="200"/>
+
 
     </Grid>
 </Window>

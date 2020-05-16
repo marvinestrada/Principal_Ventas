@@ -18,7 +18,7 @@
             <RowDefinition Height="93*"/>
         </Grid.RowDefinitions>
         <materialDesign:ColorZone Mode="PrimaryDark" Background="Teal" HorizontalAlignment="Stretch" Height="33" >
-            <TextBlock HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="Permiso Personas" VerticalAlignment="Top" Width="153" Height="24" Foreground="White" FontSize="18"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" Height="24" Foreground="White" FontSize="18"><Run Text="Permisos Empleados"/><LineBreak/><Run/></TextBlock>
 
         </materialDesign:ColorZone>
         <Button Height="Auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  BorderBrush="#FFB9AFCB" Background="Teal" Margin="562,0,0,303" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="38" Click="Button_Click_1" >

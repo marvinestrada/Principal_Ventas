@@ -23,10 +23,10 @@ namespace ProyectoTienda.Vistas
     /// </summary>
     public partial class AddPermiso_Personas : Window
     {
-        int Opcion, Ids, Perm, Empl;
-        public string Descripcion;  
+        int Opcion, Ids;
+        public string Descripcion, Perm, Empl;  
        
-        public AddPermiso_Personas(int opcion, int id = 0, int id_empleado = 0, int id_emple_per = 0, string descrip = "")
+        public AddPermiso_Personas(int opcion, int id = 0, string id_empleado = "", string id_emple_per = "", string descrip = "")
         {
             InitializeComponent();
             Opcion = opcion;
@@ -85,18 +85,19 @@ namespace ProyectoTienda.Vistas
 
                 if (txtpermiso.Text != "" )
                 {
-                    SqlCommand cmd = new SqlCommand("spPermisos", Conexion.conex);
+                    SqlCommand cmd = new SqlCommand("spPermisosEmpleado", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@CRUD", 3);
-                    cmd.Parameters.AddWithValue("@Id_permiso", Ids.ToString());
-                    cmd.Parameters.AddWithValue("@Descripcion", txtpermiso.Text);
+                    cmd.Parameters.AddWithValue("@id_emple_per", Ids.ToString());
+                    cmd.Parameters.AddWithValue("@Id_empleado", txtempleado.Text);
+                    cmd.Parameters.AddWithValue("@Id_permiso", txtpermiso.Text);
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();
                     this.Close();
                     MessageBox.Show("Id Permiso " + Ids + " Actualizado correctamente");
                 }
-
+         //MI AMIGO.... :c
                 else
                 {
                     MessageBox.Show("Los campos no deben quedar vacios.");
@@ -123,16 +124,15 @@ namespace ProyectoTienda.Vistas
             {
                 if (txtpermiso.Text != "" )
                 {
-                    SqlCommand cmd = new SqlCommand("spPermisos", Conexion.conex);
+                    SqlCommand cmd = new SqlCommand("spPermisosEmpleado", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@CRUD", 1);
-                    cmd.Parameters.AddWithValue("@Descripcion", txtpermiso.Text);
-                   
+                    cmd.Parameters.AddWithValue("@Id_empleado", txtempleado.Text);
+                    cmd.Parameters.AddWithValue("@Id_permiso", txtpermiso.Text);
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();
                     this.Close();
-
                 }
                 else MessageBox.Show("fallo");
             }

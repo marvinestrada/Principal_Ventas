@@ -54,11 +54,10 @@ namespace ProyectoTienda.Vistas
             if (mostrarDatos.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-                int id_permiso = (int)(vista["Id"]);
-                int id_empleado = (int)(vista)["Id Empleados"];
+                string id_permiso = (vista["ID"]).ToString();
+                string id_empleado = (vista)["Id Empleado"].ToString();
                 int id_emple_per = (int)(vista)["Id Permiso Empleados"];
-                String Descripcion = (vista["Descripcion"]).ToString();
-                AddPermiso_Personas abrir = new AddPermiso_Personas(2, id_permiso,id_empleado, id_emple_per, Descripcion);
+                AddPermiso_Personas abrir = new AddPermiso_Personas(2, id_emple_per, id_empleado, id_permiso);
                 abrir.ShowDialog();
                 abrir.Close();
                 Conexiones();
@@ -70,9 +69,6 @@ namespace ProyectoTienda.Vistas
         {
             this.Close();
         }
-
-     
-
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Conexiones();
@@ -81,29 +77,24 @@ namespace ProyectoTienda.Vistas
         private void Button_Click_3(object sender, RoutedEventArgs e)
             {
 
-            
-
             if (mostrarDatos.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-                int result = (int)(vista["Id"]);
+                int result = (int)(vista["Permiso Empleado"]);
                 MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro de eliminar?",
                                             "confirmar", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (respuesta == MessageBoxResult.Yes)
                     {                        
-                        SqlCommand cmd = new SqlCommand("spPermisos", Conexion.conex);                        
+                        SqlCommand cmd = new SqlCommand("spPermisosEmpleado", Conexion.conex);                        
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@CRUD", 4);                        
-                        cmd.Parameters.AddWithValue("@Id_permiso", result);
-                        cmd.Parameters.AddWithValue("@Id_empleado", result);
-                        cmd.Parameters.AddWithValue("@Id_Empleado_Permiso", result);
+                        cmd.Parameters.AddWithValue("@CRUD", 4);
+                        cmd.Parameters.AddWithValue("@id_emple_per", result);
                         Conexion.conex.Open();                
                         cmd.ExecuteNonQuery();           
                         Conexion.conex.Close();
                         Conexiones();
                     }
-                
-               
+
             }
             else System.Windows.MessageBox.Show("Seleccione algun dato de la tabla");
         }
@@ -114,7 +105,7 @@ namespace ProyectoTienda.Vistas
             mostrar.ShowDialog();
             mostrar.Close();
             Conexiones();
-            //estaba llamando a la tabla que agrega personas
+            //estaba llamando a la tabla que agrega Permiso Personas 
         }
     }
 }

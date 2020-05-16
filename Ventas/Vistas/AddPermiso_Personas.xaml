@@ -26,8 +26,8 @@
         <Button Content="Aceptar" HorizontalAlignment="Left" Margin="383,533,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_2"/>
         <Label Content="Id Empleado:" HorizontalAlignment="Left" Margin="10,182,0,0" VerticalAlignment="Top" Height="25"/>
         <TextBox x:Name="txtempleado" TextOptions.TextFormattingMode="Ideal" HorizontalAlignment="Left" Height="28" Margin="126,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
-        <Button x:Name="button" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="383,88,0,0" VerticalAlignment="Top" Width="51" Click="button_Click_3"/>
-        <Button x:Name="button_Copy" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="383,171,0,0" VerticalAlignment="Top" Width="51"/>
+        <Button x:Name="button" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="383,92,0,0" VerticalAlignment="Top" Width="51" Click="button_Click_3" Height="25"/>
+        <Button x:Name="button_Copy" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="383,175,0,0" VerticalAlignment="Top" Width="51" Height="28"/>
 
     </Grid>
 </Window>

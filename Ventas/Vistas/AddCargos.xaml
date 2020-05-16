@@ -1,4 +1,4 @@
-﻿<Window x:Class="ProyectoTienda.Vistas.AddCajas"
+﻿<Window x:Class="ProyectoTienda.Vistas.AddCargos"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"
@@ -11,21 +11,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoTienda.Vistas"
         mc:Ignorable="d"
-        Title="AddCajas"  ResizeMode="NoResize" Height="575" Width="480" WindowState="Normal" WindowStartupLocation="CenterScreen" WindowStyle="None" Closing="Window_Closing">
+        Title="AddCargos"  ResizeMode="NoResize" Height="575" Width="480" WindowState="Normal" WindowStartupLocation="CenterScreen" WindowStyle="None" Closing="Window_Closing">
     <Grid>
         <materialDesign:ColorZone Mode="PrimaryDark" Background="Teal" HorizontalAlignment="Stretch" Height="33">
-            <TextBlock HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="Cajas" VerticalAlignment="Top" Width="153" Height="24" Foreground="White" FontSize="18"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="Cargos" VerticalAlignment="Top" Width="153" Height="24" Foreground="White" FontSize="18"/>
 
         </materialDesign:ColorZone>
         <Button Height="32" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  BorderBrush="#FFB9AFCB" Background="Teal" Margin="442,0,0,542" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="38" Click="btnCerrar">
             <materialDesign:PackIcon Kind="WindowClose" Background="Teal"/>
         </Button>
         <Label Content="Fecha:" HorizontalAlignment="Left" Margin="20,200,0,0" VerticalAlignment="Top" Height="25"/>
-        <Label Content="Comentarios:" HorizontalAlignment="Left" Margin="14,261,0,0" VerticalAlignment="Top" Height="24"/>
-        <Label Content="Codigo Empleado:" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Height="25"/>
+        <Label Content="Codigo Operacion:" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Height="25"/>
 
-        <TextBox x:Name="txtcod_empleado" HorizontalAlignment="Left" Height="28" Margin="135,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal" Width="323"/>
-        <TextBox x:Name="txtComentarios" HorizontalAlignment="Left" Height="28" Margin="105,260,0,0" TextWrapping="Wrap" TextOptions.TextFormattingMode="Ideal" VerticalAlignment="Top" Width="353"/>
+        <TextBox x:Name="txtcod_oper" HorizontalAlignment="Left" Height="28" Margin="135,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal" Width="323"/>
         <TextBox x:Name="txtFecha" HorizontalAlignment="Left" Height="28" Margin="70,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal" Width="390"/>
 
         <Button Content="Cancelar" HorizontalAlignment="Left" Margin="252,533,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="btnCancel"/>

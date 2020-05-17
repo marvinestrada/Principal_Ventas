@@ -86,6 +86,12 @@
     <Compile Include="Vistas\AddOperacionesTi.xaml.cs">
       <DependentUpon>AddOperacionesTi.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Include="Vistas\AddStock.xaml.cs">
+      <DependentUpon>AddStock.xaml</DependentUpon>
+    </Compile>
+>>>>>>> dec07e4f37393c2ce691d6984bfaa5ef595b66a2
     <Compile Include="Vistas\AddProducto.xaml.cs">
       <DependentUpon>AddProducto.xaml</DependentUpon>
     </Compile>
@@ -98,6 +104,12 @@
     <Compile Include="Vistas\OperacionesTi.xaml.cs">
       <DependentUpon>OperacionesTi.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Include="Vistas\Stock.xaml.cs">
+      <DependentUpon>Stock.xaml</DependentUpon>
+    </Compile>
+>>>>>>> dec07e4f37393c2ce691d6984bfaa5ef595b66a2
     <Compile Include="Vistas\Productos.xaml.cs">
       <DependentUpon>Productos.xaml</DependentUpon>
     </Compile>
@@ -121,6 +133,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+<<<<<<< HEAD
+=======
+    <Page Include="Vistas\AddStock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+>>>>>>> dec07e4f37393c2ce691d6984bfaa5ef595b66a2
     <Page Include="Vistas\AddProducto.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -137,6 +156,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+<<<<<<< HEAD
+=======
+    <Page Include="Vistas\Stock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+>>>>>>> dec07e4f37393c2ce691d6984bfaa5ef595b66a2
     <Page Include="Vistas\Productos.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -20,14 +20,10 @@ namespace ProyectoTienda.Vistas
     /// <summary>
     /// Lógica de interacción para Personas.xaml
     /// </summary>
-    public partial class Productos : Window
+    public partial class Stock : Window
     {
-        public delegate void enviar(string pasar);
-        public event enviar enviarlo;
-        
-        public Productos()
+        public Stock()
         {
-            
             InitializeComponent();
             Conexiones();
             
@@ -35,7 +31,7 @@ namespace ProyectoTienda.Vistas
 
         public void Conexiones()
         {
-              SqlCommand cmd = new SqlCommand("spProductos", Conexion.conex);
+              SqlCommand cmd = new SqlCommand("spStock", Conexion.conex);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("Opcion", 2);
                 DataTable productoss = new DataTable();
@@ -58,13 +54,15 @@ namespace ProyectoTienda.Vistas
             if (mostrarDatos.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-                int id_persona = (int)(vista["Id Producto"]);
-                String Descripcion = (vista["Descripcion"]).ToString();
-                Decimal precio_venta = (Decimal)(vista["Precio de Venta"]);
-                int minimo = (int)(vista["Unidades Minimas"]);
-                
+                int idStock = (int)(vista["Id"]);
+                int cantidad = (int)(vista["Cantidad"]);
+                decimal precio = (decimal)(vista["Precio"]);
+                int idOperaciones = (int)(vista["Id Operaciones"]);
+                int idProducto = (int)(vista["Id Producto"]);
+                int idEstado = (int)(vista["Id Estado"]);
 
-                AddProducto abrir = new AddProducto(2, id_persona, Descripcion, precio_venta, minimo);
+
+                AddStock abrir = new AddStock(2, idStock,cantidad, precio, idEstado,idOperaciones, idProducto );
                 abrir.ShowDialog();
                 abrir.Close();
                 Conexiones();
@@ -92,13 +90,13 @@ namespace ProyectoTienda.Vistas
             if (mostrarDatos.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-                int result = (int)(vista["Id Producto"]);
+                int result = (int)(vista["Id"]);
 
                 MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro de eliminar?",
                                             "confirmar", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (respuesta == MessageBoxResult.Yes)
                     {                        
-                        SqlCommand cmd = new SqlCommand("spProductos", Conexion.conex);                        
+                        SqlCommand cmd = new SqlCommand("spStock", Conexion.conex);                        
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@Opcion", 4);                        
                         cmd.Parameters.AddWithValue("@Id", result);                       
@@ -115,25 +113,11 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            AddProducto mostrar = new AddProducto(1);
+            AddStock mostrar = new AddStock(1);
             mostrar.ShowDialog();
             mostrar.Close();
             Conexiones();
 
-        }
-
-     
-
-        private void btnEnviarDato_Click(object sender, RoutedEventArgs e)
-        {
-            if (mostrarDatos.SelectedCells.Count > 0)
-            {
-                DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-                string result = (vista["Id Producto"]).ToString();
-
-                enviarlo(result);
-                this.Close();
-            }
         }
     }
 }

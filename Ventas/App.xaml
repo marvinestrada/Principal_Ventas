@@ -3,7 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ProyectoTienda"
 
+<<<<<<< HEAD
              StartupUri="Vistas/Permiso_Persona.xaml">
+=======
+             StartupUri="Vistas/Cajas.xaml">
+>>>>>>> master
 
     <Application.Resources>
         <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">

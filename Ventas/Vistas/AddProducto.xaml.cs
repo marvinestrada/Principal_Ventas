@@ -26,8 +26,6 @@ namespace ProyectoTienda.Vistas
         int Opcion, Ids, Unidad_minima;
         public string Descripcion;
         Decimal Precio_venta;
-
-        
         public AddProducto(int opcion, int id = 0, string descrip = "", Decimal precio_ven = 0, int unidad_min = 0)
         {
             InitializeComponent();
@@ -94,7 +92,7 @@ namespace ProyectoTienda.Vistas
                     cmd.Parameters.AddWithValue("@Opcion", 3);
                     cmd.Parameters.AddWithValue("@Id", Ids.ToString());
                     cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
-                    cmd.Parameters.AddWithValue("@PrecioVenta", Convert.ToDecimal(txtPrecioVenta.Text));
+                    cmd.Parameters.AddWithValue("@PrecioVenta", txtPrecioVenta.Text);
                     cmd.Parameters.AddWithValue("@UnidadMin", txtUnidadMin.Text);
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();

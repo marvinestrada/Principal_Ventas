@@ -86,9 +86,6 @@
     <Compile Include="Vistas\AddOperacionesTi.xaml.cs">
       <DependentUpon>AddOperacionesTi.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\AddStock.xaml.cs">
-      <DependentUpon>AddStock.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\AddProducto.xaml.cs">
       <DependentUpon>AddProducto.xaml</DependentUpon>
     </Compile>
@@ -103,9 +100,6 @@
     </Compile>
     <Compile Include="Vistas\OperacionesTi.xaml.cs">
       <DependentUpon>OperacionesTi.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Stock.xaml.cs">
-      <DependentUpon>Stock.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Productos.xaml.cs">
       <DependentUpon>Productos.xaml</DependentUpon>
@@ -130,10 +124,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Vistas\AddStock.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Vistas\AddProducto.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -151,10 +141,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\OperacionesTi.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Vistas\Stock.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

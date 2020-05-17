@@ -22,12 +22,8 @@ namespace ProyectoTienda.Vistas
     /// </summary>
     public partial class Productos : Window
     {
-        public delegate void enviar(string pasar);
-        public event enviar enviarlo;
-        
         public Productos()
         {
-            
             InitializeComponent();
             Conexiones();
             
@@ -120,20 +116,6 @@ namespace ProyectoTienda.Vistas
             mostrar.Close();
             Conexiones();
 
-        }
-
-     
-
-        private void btnEnviarDato_Click(object sender, RoutedEventArgs e)
-        {
-            if (mostrarDatos.SelectedCells.Count > 0)
-            {
-                DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-                string result = (vista["Id Producto"]).ToString();
-
-                enviarlo(result);
-                this.Close();
-            }
         }
     }
 }

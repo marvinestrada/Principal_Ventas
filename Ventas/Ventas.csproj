@@ -89,11 +89,22 @@
     <Compile Include="Vistas\AddOperacionesTi.xaml.cs">
       <DependentUpon>AddOperacionesTi.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+    <Compile Include="Vistas\AddPermiso_Personas.xaml.cs">
+      <DependentUpon>AddPermiso_Personas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\AddPermisos.xaml.cs">
+      <DependentUpon>AddPermisos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\AddEmpleados.xaml.cs">
+      <DependentUpon>AddEmpleados.xaml</DependentUpon>
+=======
     <Compile Include="Vistas\AddPermisos.xaml.cs">
       <DependentUpon>AddPermisos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\AddCajas.xaml.cs">
       <DependentUpon>AddCajas.xaml</DependentUpon>
+>>>>>>> master
     </Compile>
     <Compile Include="Vistas\AddProducto.xaml.cs">
       <DependentUpon>AddProducto.xaml</DependentUpon>
@@ -110,11 +121,22 @@
     <Compile Include="Vistas\OperacionesTi.xaml.cs">
       <DependentUpon>OperacionesTi.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+    <Compile Include="Vistas\Permiso_Persona.xaml.cs">
+      <DependentUpon>Permiso_Persona.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Permisos.xaml.cs">
+      <DependentUpon>Permisos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Empleados.xaml.cs">
+      <DependentUpon>Empleados.xaml</DependentUpon>
+=======
     <Compile Include="Vistas\Permisos.xaml.cs">
       <DependentUpon>Permisos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Cajas.xaml.cs">
       <DependentUpon>Cajas.xaml</DependentUpon>
+>>>>>>> master
     </Compile>
     <Compile Include="Vistas\Productos.xaml.cs">
       <DependentUpon>Productos.xaml</DependentUpon>
@@ -146,11 +168,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+<<<<<<< HEAD
+    <Page Include="Vistas\AddPermiso_Personas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+=======
+>>>>>>> master
     <Page Include="Vistas\AddPermisos.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+<<<<<<< HEAD
+    <Page Include="Vistas\AddEmpleados.xaml">
+=======
     <Page Include="Vistas\AddCajas.xaml">
+>>>>>>> master
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -174,11 +207,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+<<<<<<< HEAD
+    <Page Include="Vistas\Permiso_Persona.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+=======
+>>>>>>> master
     <Page Include="Vistas\Permisos.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+<<<<<<< HEAD
+    <Page Include="Vistas\Empleados.xaml">
+=======
     <Page Include="Vistas\Cajas.xaml">
+>>>>>>> master
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

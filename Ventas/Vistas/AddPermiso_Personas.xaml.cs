@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,20 +21,18 @@ namespace ProyectoTienda.Vistas
     /// <summary>
     /// Lógica de interacción para AddPersonas.xaml
     /// </summary>
-    public partial class AddPermisos : Window
+    public partial class AddPermiso_Personas : Window
     {
         int Opcion, Ids;
-        public string Descripcion;
+        public string  Perm, Empl;  
        
-        public AddPermisos(int opcion, int id = 0, string descrip = "")
+        public AddPermiso_Personas(int opcion, int id = 0, string id_empleado = "", string id_emple_per = "")
         {
-
             InitializeComponent();
             Opcion = opcion;
             Ids = id;
-            Descripcion = descrip;
-           
-            
+            Perm = id_empleado;
+            Empl = id_emple_per;
             if (Opcion == 2) incluirDatos();
         }
 
@@ -45,12 +43,14 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if (txtDesceipcion.Text != ""  )
+            if (txtpermiso.Text != ""  )
             {
                 if (Opcion == 1) { Guardar(); }
                 else if (Opcion == 2) { actualizar(); }
             }
-            else MessageBox.Show("Los campos no deben quedar vacios.");  
+            else MessageBox.Show("Los campos no deben quedar vacios.");
+
+            
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -71,79 +71,57 @@ namespace ProyectoTienda.Vistas
 
        public void incluirDatos()
         {
-            txtDesceipcion.Text = Descripcion;
-           
-            txtDesceipcion.Focus();
+            txtpermiso.Text = Perm;
+            txtempleado.Text = Empl;
+            txtpermiso.Focus();
   
         }
 
         public void actualizar()
         {
-            try
-            {
 
-                if (txtDesceipcion.Text != "" )
+                if (txtpermiso.Text != "" )
                 {
-                    SqlCommand cmd = new SqlCommand("spPermisos", Conexion.conex);
+                    SqlCommand cmd = new SqlCommand("spPermisosEmpleado", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@CRUD", 3);
-                    cmd.Parameters.AddWithValue("@Id_permiso", Ids.ToString());
-                    cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
-                 
+                    cmd.Parameters.AddWithValue("@id_emple_per", Ids.ToString());
+                    cmd.Parameters.AddWithValue("@Id_empleado", txtempleado.Text);
+                    cmd.Parameters.AddWithValue("@Id_permiso", txtpermiso.Text);
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();
                     this.Close();
                     MessageBox.Show("Id Permiso " + Ids + " Actualizado correctamente");
-
-
                 }
-
                 else
                 {
                     MessageBox.Show("Los campos no deben quedar vacios.");
                     
                 }
-            }
-            catch (Exception w)
-            {
-                w.ToString();
-                Conexion.conex.Close();
-            }
+        }
 
-            
+        private void button_Click_3(object sender, RoutedEventArgs e)
+        {
+
         }
 
         public void Guardar()
         {
-            try
-            {
-                if (txtDesceipcion.Text != "" )
+                if (txtpermiso.Text != "")
                 {
-                    SqlCommand cmd = new SqlCommand("spPermisos", Conexion.conex);
+                    SqlCommand cmd = new SqlCommand("spPermisosEmpleado", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@CRUD", 1);
-                    cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
-                   
+                    cmd.Parameters.AddWithValue("@Id_empleado", txtempleado.Text);
+                    cmd.Parameters.AddWithValue("@Id_permiso", txtpermiso.Text);
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();
                     this.Close();
-
                 }
                 else MessageBox.Show("fallo");
-            }
-            catch(Exception asdd)
-            {
-                asdd.ToString();
-                Conexion.conex.Close();
-            }
-
-                
-
             
         }
-
-       
     }
 }

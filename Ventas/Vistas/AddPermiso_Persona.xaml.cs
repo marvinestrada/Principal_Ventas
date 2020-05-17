@@ -50,7 +50,9 @@ namespace ProyectoTienda.Vistas
                 if (Opcion == 1) { Guardar(); }
                 else if (Opcion == 2) { actualizar(); }
             }
-            else MessageBox.Show("Los campos no deben quedar vacios.");  
+            else MessageBox.Show("Los campos no deben quedar vacios.");
+
+            
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)

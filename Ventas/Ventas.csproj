@@ -83,17 +83,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Vistas\AddCargos.xaml.cs">
-      <DependentUpon>AddCargos.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\AddOperacionesTi.xaml.cs">
       <DependentUpon>AddOperacionesTi.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\AddPermisos.xaml.cs">
-      <DependentUpon>AddPermisos.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\AddCajas.xaml.cs">
-      <DependentUpon>AddCajas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\AddProducto.xaml.cs">
       <DependentUpon>AddProducto.xaml</DependentUpon>
@@ -101,20 +92,17 @@
     <Compile Include="Vistas\AddPersonas.xaml.cs">
       <DependentUpon>AddPersonas.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Cargos.xaml.cs">
-      <DependentUpon>Cargos.xaml</DependentUpon>
+    <Compile Include="Vistas\AddStock.xaml.cs">
+      <DependentUpon>AddStock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\borrar.xaml.cs">
+      <DependentUpon>borrar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\OperacionesTi.xaml.cs">
       <DependentUpon>OperacionesTi.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Permisos.xaml.cs">
-      <DependentUpon>Permisos.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Cajas.xaml.cs">
-      <DependentUpon>Cajas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Productos.xaml.cs">
       <DependentUpon>Productos.xaml</DependentUpon>
@@ -127,9 +115,6 @@
     </Compile>
     <Compile Include="Vistas\Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Prueba.xaml.cs">
-      <DependentUpon>Prueba.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -144,19 +129,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Vistas\AddCargos.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Vistas\AddOperacionesTi.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Vistas\AddPermisos.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Vistas\AddCajas.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -168,7 +141,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\Cargos.xaml">
+    <Page Include="Vistas\AddStock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\borrar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -180,14 +157,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Vistas\Permisos.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Vistas\Cajas.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Vistas\Productos.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -196,7 +165,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-
     <Page Include="Vistas\Stock.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -204,10 +172,6 @@
     <Page Include="Vistas\Window1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Vistas\Prueba.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

@@ -122,6 +122,12 @@
     <Compile Include="Vistas\Personas.xaml.cs">
       <DependentUpon>Personas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Stock.xaml.cs">
+      <DependentUpon>Stock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Prueba.xaml.cs">
       <DependentUpon>Prueba.xaml</DependentUpon>
     </Compile>
@@ -189,6 +195,15 @@
     <Page Include="Vistas\Personas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+
+    <Page Include="Vistas\Stock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\Window1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Vistas\Prueba.xaml">
       <SubType>Designer</SubType>

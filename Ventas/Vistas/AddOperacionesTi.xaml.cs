@@ -111,6 +111,8 @@ namespace ProyectoTienda.Vistas
             
         }
 
+     
+
         public void Guardar()
         {
             try

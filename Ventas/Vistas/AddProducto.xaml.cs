@@ -81,6 +81,26 @@ namespace ProyectoTienda.Vistas
             txtDesceipcion.Focus();
   
         }
+        //solo numeros en el textbox
+        private void txtPrecioVenta_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || (e.Key == Key.Back) || (e.Key == Key.Decimal))
+            { e.Handled = false; }
+            else if ((e.Key >= Key.D0 && e.Key <= Key.D9))
+            { e.Handled = false; }
+            else
+            { e.Handled = true; }
+        }
+
+        private void txtUnidadMin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || (e.Key == Key.Back))
+            { e.Handled = false; }
+            else if ((e.Key >= Key.D0 && e.Key <= Key.D9))
+            { e.Handled = false; }
+            else
+            { e.Handled = true; }
+        }
 
         public void actualizar()
         {

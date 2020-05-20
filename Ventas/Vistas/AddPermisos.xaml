@@ -1,4 +1,4 @@
-﻿<Window x:Class="ProyectoTienda.Vistas.AddPermisos"
+﻿<Window x:Class="ProyectoTienda.Vistas.AddPermisos_"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"

@@ -113,9 +113,6 @@
     <Compile Include="Vistas\AddStock.xaml.cs">
       <DependentUpon>AddStock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\borrar.xaml.cs">
-      <DependentUpon>borrar.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\Cajas.xaml.cs">
       <DependentUpon>Cajas.xaml</DependentUpon>
     </Compile>
@@ -199,10 +196,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\AddStock.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Vistas\borrar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

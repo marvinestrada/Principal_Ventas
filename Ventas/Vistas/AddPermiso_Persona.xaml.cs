@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.ComponentModel;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Data.SqlClient;
-using System.Data.Sql;
 using System.Data;
 
 namespace ProyectoTienda.Vistas
@@ -21,12 +9,12 @@ namespace ProyectoTienda.Vistas
     /// <summary>
     /// Lógica de interacción para AddPersonas.xaml
     /// </summary>
-    public partial class AddPermisos_ : Window
+    public partial class AddPermisos : Window
     {
         int Opcion, Ids;
         public string Descripcion;
        
-        public AddPermisos_(int opcion, int id = 0, string descrip = "")
+        public AddPermisos(int opcion, int id = 0, string descrip = "")
         {
 
             InitializeComponent();
@@ -50,7 +38,9 @@ namespace ProyectoTienda.Vistas
                 if (Opcion == 1) { Guardar(); }
                 else if (Opcion == 2) { actualizar(); }
             }
-            else MessageBox.Show("Los campos no deben quedar vacios.");  
+            else MessageBox.Show("Los campos no deben quedar vacios.");
+
+            
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)

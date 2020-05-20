@@ -89,11 +89,20 @@
     <Compile Include="Vistas\AddCargos.xaml.cs">
       <DependentUpon>AddCargos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\AddEmpleados.xaml.cs">
+      <DependentUpon>AddEmpleados.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\AddOperacionesTi.xaml.cs">
       <DependentUpon>AddOperacionesTi.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\AddPermisos.xaml.cs">
       <DependentUpon>AddPermisos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\AddPermiso_Persona.xaml.cs">
+      <DependentUpon>AddPermiso_Persona.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\AddPermiso_Personas.xaml.cs">
+      <DependentUpon>AddPermiso_Personas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\AddProducto.xaml.cs">
       <DependentUpon>AddProducto.xaml</DependentUpon>
@@ -113,6 +122,9 @@
     <Compile Include="Vistas\Cargos.xaml.cs">
       <DependentUpon>Cargos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Empleados.xaml.cs">
+      <DependentUpon>Empleados.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -122,20 +134,20 @@
     <Compile Include="Vistas\Permisos.xaml.cs">
       <DependentUpon>Permisos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\Permiso_Persona.xaml.cs">
+      <DependentUpon>Permiso_Persona.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Permiso_Personas.xaml.cs">
+      <DependentUpon>Permiso_Personas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Productos.xaml.cs">
       <DependentUpon>Productos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Personas.xaml.cs">
       <DependentUpon>Personas.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Prueba.xaml.cs">
-      <DependentUpon>Prueba.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\Stock.xaml.cs">
       <DependentUpon>Stock.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -158,11 +170,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Vistas\AddEmpleados.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Vistas\AddOperacionesTi.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Vistas\AddPermisos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\AddPermiso_Persona.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\AddPermiso_Personas.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -190,6 +214,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Vistas\Empleados.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Vistas\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -202,6 +230,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Vistas\Permiso_Persona.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\Permiso_Personas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Vistas\Productos.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -210,15 +246,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Vistas\Prueba.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Vistas\Stock.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Vistas\Window1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

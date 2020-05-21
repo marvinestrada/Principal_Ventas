@@ -1,4 +1,4 @@
-﻿<Window x:Class="ProyectoTienda.Vistas.Permisos_"
+﻿<Window x:Class="ProyectoTienda.Vistas.Stock"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"
@@ -18,7 +18,7 @@
             <RowDefinition Height="93*"/>
         </Grid.RowDefinitions>
         <materialDesign:ColorZone Mode="PrimaryDark" Background="Teal" HorizontalAlignment="Stretch" Height="33" >
-            <TextBlock HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="Permisos" VerticalAlignment="Top" Width="153" Height="24" Foreground="White" FontSize="18"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="Stock" VerticalAlignment="Top" Width="153" Height="24" Foreground="White" FontSize="18"/>
 
         </materialDesign:ColorZone>
         <Button Height="Auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  BorderBrush="#FFB9AFCB" Background="Teal" Margin="562,0,0,303" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="38" Click="Button_Click_1" >

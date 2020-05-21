@@ -9,11 +9,11 @@ namespace ProyectoTienda.Vistas
     /// <summary>
     /// Lógica de interacción para AddPersonas.xaml
     /// </summary>
-    public partial class AddPersonas : Window
+    public partial class AddEmpleados : Window
     {
         int Opcion, Ids;
         public string Nombre, Direccion, Telefono, Empresa;
-        public AddPersonas(int opcion, int id = 0, string nombre = "", string empresa = "", string telefono = "", string direccion = "")
+        public AddEmpleados(int opcion, int id = 0, string nombre = "", string empresa = "", string telefono = "", string direccion = "")
         {
             InitializeComponent();
             Opcion = opcion;
@@ -37,9 +37,7 @@ namespace ProyectoTienda.Vistas
                 if (Opcion == 1) { Guardar(); }
                 else if (Opcion == 2) { actualizar(); }
             }
-            else MessageBox.Show("Los campos no deben quedar vacios.");
-
-            
+            else MessageBox.Show("Los campos no pueden estar vacios.");  
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -91,7 +89,7 @@ namespace ProyectoTienda.Vistas
 
                 else
                 {
-                    MessageBox.Show("Los campos no deben quedar vacios.");
+                    MessageBox.Show("Los campos no pueden estar vacios.");
                     Conexion.conex.Close();
                 }
             }
@@ -111,7 +109,7 @@ namespace ProyectoTienda.Vistas
 
                 if (txtNombre.Text != "" && txtEmpresa.Text != "" && txtDireccion.Text != "" && txtTelefono.Text != "")
                 {
-                    SqlCommand cmd = new SqlCommand("spPersonas", Conexion.conex);
+                    SqlCommand cmd = new SqlCommand("spEmpleados", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Opcion", 1);
                     cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text);
@@ -127,7 +125,7 @@ namespace ProyectoTienda.Vistas
 
                 else
                 {
-                    MessageBox.Show("Los campos no deben quedar vacios.");
+                    MessageBox.Show("Los campos no pueden estar vacios.");
                     Conexion.conex.Close();
                 }
             }
@@ -135,12 +133,7 @@ namespace ProyectoTienda.Vistas
             {
                 asda.ToString();
                 Conexion.conex.Close();
-            }
-
-
-            
-        }
-
-       
+            }   
+        }  
     }
 }

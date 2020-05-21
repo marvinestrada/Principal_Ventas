@@ -20,9 +20,9 @@ namespace ProyectoTienda.Vistas
     /// <summary>
     /// Lógica de interacción para Personas.xaml
     /// </summary>
-    public partial class Permisos_ : Window
+    public partial class Permisos : Window
     {
-        public Permisos_()
+        public Permisos()
         {
             InitializeComponent();
             Conexiones();

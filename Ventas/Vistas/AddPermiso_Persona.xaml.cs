@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.ComponentModel;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Data.SqlClient;
-using System.Data.Sql;
 using System.Data;
 
 namespace ProyectoTienda.Vistas
@@ -21,16 +9,19 @@ namespace ProyectoTienda.Vistas
     /// <summary>
     /// Lógica de interacción para AddPersonas.xaml
     /// </summary>
-    public partial class AddOpreracionesTi : Window
+    public partial class AddPermisos : Window
     {
         int Opcion, Ids;
         public string Descripcion;
-        public AddOpreracionesTi(int opcion, int id = 0, string descrip = "")
+       
+        public AddPermisos(int opcion, int id = 0, string descrip = "")
         {
+
             InitializeComponent();
             Opcion = opcion;
             Ids = id;
-            Descripcion = descrip;           
+            Descripcion = descrip;
+           
             
             if (Opcion == 2) incluirDatos();
         }
@@ -71,6 +62,7 @@ namespace ProyectoTienda.Vistas
        public void incluirDatos()
         {
             txtDesceipcion.Text = Descripcion;
+           
             txtDesceipcion.Focus();
   
         }
@@ -82,16 +74,17 @@ namespace ProyectoTienda.Vistas
 
                 if (txtDesceipcion.Text != "" )
                 {
-                    SqlCommand cmd = new SqlCommand("spTipoOperaciones", Conexion.conex);
+                    SqlCommand cmd = new SqlCommand("spPermisos", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Crud", 2);
-                    cmd.Parameters.AddWithValue("@Id_Operaciones", Ids.ToString());
-                    cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);                    
+                    cmd.Parameters.AddWithValue("@CRUD", 3);
+                    cmd.Parameters.AddWithValue("@Id_permiso", Ids.ToString());
+                    cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
+                 
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();
                     this.Close();
-                    MessageBox.Show("Id Operacion " + Ids + " Actualizado correctamente");
+                    MessageBox.Show("Id Permiso " + Ids + " Actualizado correctamente");
 
 
                 }
@@ -117,10 +110,11 @@ namespace ProyectoTienda.Vistas
             {
                 if (txtDesceipcion.Text != "" )
                 {
-                    SqlCommand cmd = new SqlCommand("spTipoOperaciones", Conexion.conex);
+                    SqlCommand cmd = new SqlCommand("spPermisos", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Crud", 0);
+                    cmd.Parameters.AddWithValue("@CRUD", 1);
                     cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
+                   
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();

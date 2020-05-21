@@ -1,4 +1,4 @@
-﻿<Window x:Class="ProyectoTienda.Vistas.AddPersonas"
+﻿<Window x:Class="ProyectoTienda.Vistas.AddEmpleados"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"
@@ -14,7 +14,7 @@
         Title="AddPersonas"  ResizeMode="NoResize" Height="575" Width="480" WindowState="Normal" WindowStartupLocation="CenterScreen" WindowStyle="None" Closing="Window_Closing">
     <Grid>
         <materialDesign:ColorZone Mode="PrimaryDark" Background="Teal" HorizontalAlignment="Stretch" Height="33">
-            <TextBlock HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="Personas" VerticalAlignment="Top" Width="153" Height="24" Foreground="White" FontSize="18"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="Empleados" VerticalAlignment="Top" Width="153" Height="24" Foreground="White" FontSize="18"/>
 
         </materialDesign:ColorZone>
         <Button Height="32" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  BorderBrush="#FFB9AFCB" Background="Teal" Margin="442,0,0,542" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="38" Click="Button_Click">

@@ -21,12 +21,12 @@ namespace ProyectoTienda.Vistas
     /// <summary>
     /// Lógica de interacción para AddPersonas.xaml
     /// </summary>
-    public partial class AddPermisos : Window
+    public partial class AddPermisos_ : Window
     {
         int Opcion, Ids;
         public string Descripcion;
        
-        public AddPermisos(int opcion, int id = 0, string descrip = "")
+        public AddPermisos_(int opcion, int id = 0, string descrip = "")
         {
 
             InitializeComponent();
@@ -50,9 +50,7 @@ namespace ProyectoTienda.Vistas
                 if (Opcion == 1) { Guardar(); }
                 else if (Opcion == 2) { actualizar(); }
             }
-            else MessageBox.Show("Los campos no deben quedar vacios.");
-
-            
+            else MessageBox.Show("Los campos no deben quedar vacios.");  
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)

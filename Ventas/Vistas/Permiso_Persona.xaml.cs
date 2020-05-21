@@ -62,7 +62,7 @@ namespace ProyectoTienda.Vistas
                 Conexiones();
             }
             else System.Windows.MessageBox.Show("Seleccione algun dato de la tabla.");
-
+           //Muestra los valores de los procedimientos almacenados y abre la ventan para llenar el formulario seleccionado
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -93,7 +93,7 @@ namespace ProyectoTienda.Vistas
                         Conexion.conex.Close();
                         Conexiones();
                     }
-
+                //Conexion con la Bd y Borra dato seleccionado
             }
             else System.Windows.MessageBox.Show("Seleccione algun dato de la tabla");
         }

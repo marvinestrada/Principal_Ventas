@@ -25,7 +25,7 @@ namespace ProyectoTienda.Vistas
     {
         int Opcion, Ids;
         public string  Perm, Empl;  
-       
+       //Mis variables
         public AddPermiso_Personas(int opcion, int id = 0, string id_empleado = "", string id_emple_per = "")
         {
             InitializeComponent();
@@ -34,11 +34,13 @@ namespace ProyectoTienda.Vistas
             Perm = id_empleado;
             Empl = id_emple_per;
             if (Opcion == 2) incluirDatos();
+            // El contructor para darle un valor inical
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Cerrar();
+            //cierra la ventana XD haha...
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -50,7 +52,7 @@ namespace ProyectoTienda.Vistas
             }
             else MessageBox.Show("Los campos no deben quedar vacios.");
 
-            
+            //Condición por si hay valor que guarde, de lo contrario solo que refresque
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -74,6 +76,7 @@ namespace ProyectoTienda.Vistas
             txtpermiso.Text = Perm;
             txtempleado.Text = Empl;
             txtpermiso.Focus();
+            // rellena mis texbox
   
         }
 
@@ -99,6 +102,27 @@ namespace ProyectoTienda.Vistas
                     MessageBox.Show("Los campos no deben quedar vacios.");
                     
                 }
+            //Conexcion con la BD mostrando los datos y modicando los ya ingresados
+        }
+
+        private void txtpermiso_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || (e.Key == Key.Back))
+            { e.Handled = false; }
+            else if ((e.Key >= Key.D0 && e.Key <= Key.D9))
+            { e.Handled = false; }
+            else
+            { e.Handled = true; }
+        }
+
+        private void txtempleado_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || (e.Key == Key.Back))
+            { e.Handled = false; }
+            else if ((e.Key >= Key.D0 && e.Key <= Key.D9))
+            { e.Handled = false; }
+            else
+            { e.Handled = true; }
         }
 
         private void button_Click_3(object sender, RoutedEventArgs e)
@@ -121,7 +145,7 @@ namespace ProyectoTienda.Vistas
                     this.Close();
                 }
                 else MessageBox.Show("fallo");
-            
+            //Guarda los datos que se van a ingresar a la BD
         }
     }
 }

@@ -98,9 +98,6 @@
     <Compile Include="Vistas\AddPermisos.xaml.cs">
       <DependentUpon>AddPermisos.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\AddPermiso_Persona.xaml.cs">
-      <DependentUpon>AddPermiso_Persona.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Vistas\AddPermiso_Personas.xaml.cs">
       <DependentUpon>AddPermiso_Personas.xaml</DependentUpon>
     </Compile>
@@ -133,9 +130,6 @@
     </Compile>
     <Compile Include="Vistas\Permiso_Persona.xaml.cs">
       <DependentUpon>Permiso_Persona.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\Permiso_Personas.xaml.cs">
-      <DependentUpon>Permiso_Personas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Productos.xaml.cs">
       <DependentUpon>Productos.xaml</DependentUpon>
@@ -176,10 +170,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Vistas\AddPermisos.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Vistas\AddPermiso_Persona.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -224,10 +214,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Vistas\Permiso_Persona.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Vistas\Permiso_Personas.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

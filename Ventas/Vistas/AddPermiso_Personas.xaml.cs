@@ -123,10 +123,27 @@ namespace ProyectoTienda.Vistas
             { e.Handled = false; }
             else
             { e.Handled = true; }
-        }
 
+            //Evita que el usuario escriba letras
+        }
+        public void ejecutar(string dato)
+        {
+            txtpermiso.Text = dato;
+            //Enviar datos al Texbox
+        }
         private void button_Click_3(object sender, RoutedEventArgs e)
         {
+
+            Permisos_ abrir = new Permisos_();
+            abrir.enviarlo += new Permisos_.enviar(ejecutar);
+            abrir.Agregar.Visibility = Visibility;
+            abrir.Insert.Visibility = Visibility.Hidden;
+            abrir.Refres.Visibility = Visibility.Hidden;
+            abrir.Borrar.Visibility = Visibility.Hidden;
+            abrir.Actualizar.Visibility = Visibility.Hidden;
+
+            abrir.ShowDialog();
+            //Ocultar botoncitos :3
 
         }
 

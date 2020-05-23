@@ -33,9 +33,9 @@ namespace ProyectoTienda.Vistas
         public void Conexiones()
         {
             
-                SqlCommand cmd = new SqlCommand("spEmpleados", Conexion.conex);
+                SqlCommand cmd = new SqlCommand("spEmpleado", Conexion.conex);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Opcion", 2);
+                cmd.Parameters.AddWithValue("@Crud", 2);
                 DataTable tabla = new DataTable();
                 Conexion.conex.Open();
                 SqlDataAdapter puente = new SqlDataAdapter(cmd);
@@ -53,12 +53,11 @@ namespace ProyectoTienda.Vistas
             if (ventana.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)ventana.SelectedItem;
-                int id_persona = (int)(vista["Id"]);
-                String nombres = (vista["Nombre"]).ToString();
-                String direcciones = (vista["Direccion"]).ToString();
-                String telefonos = (vista["Telefono"]).ToString();
-                String empresas = (vista["Empresa"]).ToString();
-
+                int id_persona = (int)(vista["Id_Empleado"]);
+                String nombres = (vista["Id_persona"]).ToString();
+                String direcciones = (vista["Id_puesto"]).ToString();
+                String telefonos = (vista["Alias"]).ToString();
+                String empresas = (vista["Pass"]).ToString();
                 AddPersonas abrir = new AddPersonas(2, id_persona, nombres, empresas, telefonos, direcciones);
                 abrir.ShowDialog();
                 abrir.Close();
@@ -93,7 +92,7 @@ namespace ProyectoTienda.Vistas
                     {                        
                         SqlCommand cmd = new SqlCommand("spEmpleados", Conexion.conex);                        
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@Opcion", 4);                        
+                        cmd.Parameters.AddWithValue("@Crud", 4);                        
                         cmd.Parameters.AddWithValue("@Id", result);                       
                         Conexion.conex.Open();                
                         cmd.ExecuteNonQuery();           

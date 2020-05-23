@@ -25,10 +25,11 @@
             <materialDesign:PackIcon Kind="WindowClose" Background="Teal"/>
         </Button>
         <DataGrid x:Name="mostrarDatos" SelectionUnit="FullRow" SelectionMode="Single" IsReadOnly="True" CanUserSortColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" ItemsSource="{Binding}" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="278" Margin="10,47,0,0" VerticalAlignment="Top" Width="580"/>
-        <Button Content="Insertar" HorizontalAlignment="Left" Margin="70,10,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Grid.Row="1" Click="Button_Click_4"/>
-        <Button Content="Borrar" HorizontalAlignment="Left" Margin="194,10,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Grid.Row="1" Click="Button_Click_3"/>
-        <Button Content="Actualizar" HorizontalAlignment="Left" Margin="325,10,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Grid.Row="1" Click="Button_Click"/>
-        <Button Content="Refrescar" HorizontalAlignment="Left" Margin="449,10,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Grid.Row="1" Click="Button_Click_2"/>
+        <Button x:Name="Insert" Content="Insertar" HorizontalAlignment="Left" Margin="70,10,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Grid.Row="1" Click="Button_Click_4"/>
+        <Button x:Name="Borrar" Content="Borrar" HorizontalAlignment="Left" Margin="194,10,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Grid.Row="1" Click="Button_Click_3"/>
+        <Button x:Name="Actualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="325,10,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Grid.Row="1" Click="Button_Click"/>
+        <Button x:Name="Refres" Content="Refrescar" HorizontalAlignment="Left" Margin="449,10,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Grid.Row="1" Click="Button_Click_2"/>
+        <Button x:Name="Agregar" Content="Agregar" HorizontalAlignment="Left" Margin="258,10,0,0" Padding="0" Grid.Row="1" VerticalAlignment="Top" Width="75" Visibility="Hidden" Click="Agregar_Click_5"/>
 
     </Grid>
 </Window>

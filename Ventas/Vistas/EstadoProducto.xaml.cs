@@ -20,9 +20,9 @@ namespace ProyectoTienda.Vistas
     /// <summary>
     /// Lógica de interacción para Personas.xaml
     /// </summary>
-    public partial class Productos : Window
+    public partial class EstadoProducto : Window
     {
-        public Productos()
+        public EstadoProducto()
         {
             InitializeComponent();
             Conexiones();
@@ -31,7 +31,7 @@ namespace ProyectoTienda.Vistas
 
         public void Conexiones()
         {
-              SqlCommand cmd = new SqlCommand("spProductos", Conexion.conex);
+              SqlCommand cmd = new SqlCommand("spEstadoProducto", Conexion.conex);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("Opcion", 2);
                 DataTable productoss = new DataTable();
@@ -54,13 +54,12 @@ namespace ProyectoTienda.Vistas
             if (mostrarDatos.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-                int id_persona = (int)(vista["Id Producto"]);
+                int Id_EstadoProducto = (int)(vista["Id EstadoProductos"]);
                 String Descripcion = (vista["Descripcion"]).ToString();
-                Decimal precio_venta = (Decimal)(vista["Precio de Venta"]);
-                int minimo = (int)(vista["Unidades Minimas"]);
+            
                 
 
-                AddProducto abrir = new AddProducto(2, id_persona, Descripcion, precio_venta, minimo);
+                AddProducto abrir = new AddProducto(2, Id_EstadoProducto, Descripcion);
                 abrir.ShowDialog();
                 abrir.Close();
                 Conexiones();
@@ -88,13 +87,13 @@ namespace ProyectoTienda.Vistas
             if (mostrarDatos.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-                int result = (int)(vista["Id Producto"]);
+                int result = (int)(vista["Id EstadoProductos"]);
 
                 MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro de eliminar?",
                                             "confirmar", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (respuesta == MessageBoxResult.Yes)
                     {                        
-                        SqlCommand cmd = new SqlCommand("spProductos", Conexion.conex);                        
+                        SqlCommand cmd = new SqlCommand("spEstadpProducto", Conexion.conex);                        
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@Opcion", 4);                        
                         cmd.Parameters.AddWithValue("@Id", result);                       

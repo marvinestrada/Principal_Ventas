@@ -83,7 +83,7 @@ namespace ProyectoTienda.Vistas
             if (ventana.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)ventana.SelectedItem;
-                int result = (int)(vista["Id"]);
+                int result = (int)(vista["Id_empleado"]);
                 try
                 {
                     MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro que desea eliminar?",

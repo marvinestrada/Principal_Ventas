@@ -78,8 +78,7 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
             {
-            
-
+           
             if (ventana.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)ventana.SelectedItem;

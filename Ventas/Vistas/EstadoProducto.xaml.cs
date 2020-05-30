@@ -20,9 +20,9 @@ namespace ProyectoTienda.Vistas
     /// <summary>
     /// Lógica de interacción para Personas.xaml
     /// </summary>
-    public partial class Permiso_Persona : Window
+    public partial class EstadoProducto : Window
     {
-        public Permiso_Persona()
+        public EstadoProducto()
         {
             InitializeComponent();
             Conexiones();
@@ -31,18 +31,19 @@ namespace ProyectoTienda.Vistas
 
         public void Conexiones()
         {
-              SqlCommand cmd = new SqlCommand("spPermisosEmpleado", Conexion.conex);
+              SqlCommand cmd = new SqlCommand("spEstadoProducto", Conexion.conex);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("Crud", 2);
+                cmd.Parameters.AddWithValue("Opcion", 2);
                 DataTable productoss = new DataTable();
                 Conexion.conex.Open();
                 SqlDataAdapter puente = new SqlDataAdapter(cmd);
                 puente.Fill(productoss);
                 Conexion.conex.Close();
-                mostrarDatos.DataContext = productoss;     
+                mostrarDatos.DataContext = productoss;
+                
            //Establece la conexion con el procedimiento almacenado
+            
         }
-
 
         private void mover(object sender, MouseButtonEventArgs e)
         {
@@ -53,21 +54,26 @@ namespace ProyectoTienda.Vistas
             if (mostrarDatos.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-                string id_permiso = (vista["ID"]).ToString();
-                string id_empleado = (vista)["Id Empleado"].ToString();
-                int id_emple_per = (int)(vista)["Permiso Empleado"];
-                AddPermiso_Personas abrir = new AddPermiso_Personas(2, id_emple_per, id_empleado, id_permiso);
+                int Id_EstadoProducto = (int)(vista["Id EstadoProductos"]);
+                String Descripcion = (vista["Descripcion"]).ToString();
+            
+                
+
+                AddProducto abrir = new AddProducto(2, Id_EstadoProducto, Descripcion);
                 abrir.ShowDialog();
                 abrir.Close();
                 Conexiones();
             }
             else System.Windows.MessageBox.Show("Seleccione algun dato de la tabla.");
-           //Muestra los valores de los procedimientos almacenados y abre la ventan para llenar el formulario seleccionado
+
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
+     
+
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Conexiones();
@@ -76,35 +82,39 @@ namespace ProyectoTienda.Vistas
         private void Button_Click_3(object sender, RoutedEventArgs e)
             {
 
+            
+
             if (mostrarDatos.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-                int result = (int)(vista["Permiso Empleado"]);
+                int result = (int)(vista["Id EstadoProductos"]);
+
                 MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro de eliminar?",
                                             "confirmar", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (respuesta == MessageBoxResult.Yes)
                     {                        
-                        SqlCommand cmd = new SqlCommand("spPermisosEmpleado", Conexion.conex);                        
+                        SqlCommand cmd = new SqlCommand("spEstadpProducto", Conexion.conex);                        
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@CRUD", 4);
-                        cmd.Parameters.AddWithValue("@id_emple_per", result);
+                        cmd.Parameters.AddWithValue("@Opcion", 4);                        
+                        cmd.Parameters.AddWithValue("@Id", result);                       
                         Conexion.conex.Open();                
                         cmd.ExecuteNonQuery();           
                         Conexion.conex.Close();
                         Conexiones();
                     }
-                //Conexion con la Bd y Borra dato seleccionado
+                
+               
             }
             else System.Windows.MessageBox.Show("Seleccione algun dato de la tabla");
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            AddPermiso_Personas mostrar = new AddPermiso_Personas(1);
+            AddProducto mostrar = new AddProducto(1);
             mostrar.ShowDialog();
             mostrar.Close();
             Conexiones();
-            //estaba llamando a la tabla que agrega Permiso Personas 
+
         }
     }
 }

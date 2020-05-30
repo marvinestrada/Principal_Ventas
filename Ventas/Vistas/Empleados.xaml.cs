@@ -35,7 +35,7 @@ namespace ProyectoTienda.Vistas
             
                 SqlCommand cmd = new SqlCommand("spEmpleado", Conexion.conex);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Opcion", 2);
+                cmd.Parameters.AddWithValue("@Crud", 2);
                 DataTable tabla = new DataTable();
                 Conexion.conex.Open();
                 SqlDataAdapter puente = new SqlDataAdapter(cmd);
@@ -53,12 +53,11 @@ namespace ProyectoTienda.Vistas
             if (ventana.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)ventana.SelectedItem;
-                int id_persona = (int)(vista["Id"]);
-                String nombres = (vista["Nombre"]).ToString();
-                String direcciones = (vista["Direccion"]).ToString();
-                String telefonos = (vista["Telefono"]).ToString();
-                String empresas = (vista["Empresa"]).ToString();
-
+                int id_persona = (int)(vista["Codigo empleado"]);
+                String nombres = (vista["Codigo persona"]).ToString();
+                String direcciones = (vista["Codigo puesto"]).ToString();
+                String telefonos = (vista["Alias"]).ToString();
+                String empresas = (vista["Contraseña"]).ToString();
                 AddPersonas abrir = new AddPersonas(2, id_persona, nombres, empresas, telefonos, direcciones);
                 abrir.ShowDialog();
                 abrir.Close();
@@ -79,22 +78,21 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
             {
-            
-
+           
             if (ventana.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)ventana.SelectedItem;
-                int result = (int)(vista["Id"]);
+                int result = (int)(vista["Codigo Empleado"]);
                 try
                 {
                     MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro que desea eliminar?",
                                             "confirmar", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (respuesta == MessageBoxResult.Yes)
                     {                        
-                        SqlCommand cmd = new SqlCommand("spEmpleados", Conexion.conex);                        
+                        SqlCommand cmd = new SqlCommand("spEmpleado", Conexion.conex);                        
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@Opcion", 4);                        
-                        cmd.Parameters.AddWithValue("@Id", result);                       
+                        cmd.Parameters.AddWithValue("@Crud", 4);                        
+                        cmd.Parameters.AddWithValue("@Id_Empleado", result);                       
                         Conexion.conex.Open();                
                         cmd.ExecuteNonQuery();           
                         Conexion.conex.Close();

@@ -12,16 +12,16 @@ namespace ProyectoTienda.Vistas
     public partial class AddEmpleados : Window
     {
         int Opcion, Ids;
-        public string Nombre, Direccion, Telefono, Empresa;
-        public AddEmpleados(int opcion, int id = 0, string nombre = "", string empresa = "", string telefono = "", string direccion = "")
+        public string CodPerso, CodPuest, Alias, Pass;
+        public AddEmpleados(int opcion, int id = 0, string codperso = "", string codpuesto = "", string alias = "", string pass = "")
         {
             InitializeComponent();
             Opcion = opcion;
             Ids = id;
-            Nombre = nombre;
-            Direccion = direccion;
-            Telefono = telefono;
-            Empresa = empresa;
+            CodPerso = codperso;
+            CodPuest = codpuesto;
+            Alias = alias;
+            Pass = pass;
             if (Opcion == 2) incluirDatos();
         }
 
@@ -32,7 +32,7 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if (txtNombre.Text != "" && txtEmpresa.Text != "" && txtDireccion.Text != "" && txtTelefono.Text != "")
+            if (txtCodper.Text != "" && txtCodpuesto.Text != "" && txtAlias.Text != "" && txtContra.Text != "")
             {
                 if (Opcion == 1) { Guardar(); }
                 else if (Opcion == 2) { actualizar(); }
@@ -58,11 +58,11 @@ namespace ProyectoTienda.Vistas
 
        public void incluirDatos()
         {
-            txtNombre.Text = Nombre;
-            txtDireccion.Text = Direccion;
-            txtTelefono.Text = Telefono;
-            txtEmpresa.Text = Empresa;
-            txtNombre.Focus();
+            txtCodper.Text = CodPerso;
+            txtCodpuesto.Text = CodPuest;
+            txtAlias.Text = Alias;
+            txtContra.Text =Pass;
+            txtCodper.Focus();
   
         }
 
@@ -70,16 +70,16 @@ namespace ProyectoTienda.Vistas
         {
             try
             {
-                if (txtNombre.Text != "" && txtEmpresa.Text != "" && txtDireccion.Text != "" && txtTelefono.Text != "")
+                if (txtCodper.Text != "" && txtCodpuesto.Text != "" && txtAlias.Text != "" && txtContra.Text != "")
                 {
-                    SqlCommand cmd = new SqlCommand("spPersonas", Conexion.conex);
+                    SqlCommand cmd = new SqlCommand("spEmpleado", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Opcion", 3);
+                    cmd.Parameters.AddWithValue("@Crud", 3);
                     cmd.Parameters.AddWithValue("@Id", Ids.ToString());
-                    cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text);
-                    cmd.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
-                    cmd.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
-                    cmd.Parameters.AddWithValue("@Empresa", txtEmpresa.Text);
+                    cmd.Parameters.AddWithValue("@Id_persona", txtCodper.Text);
+                    cmd.Parameters.AddWithValue("@Id_puesto", txtCodpuesto.Text);
+                    cmd.Parameters.AddWithValue("@Alias", txtAlias.Text);
+                    cmd.Parameters.AddWithValue("@Pass", txtContra.Text);
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();
@@ -107,15 +107,15 @@ namespace ProyectoTienda.Vistas
             {
 
 
-                if (txtNombre.Text != "" && txtEmpresa.Text != "" && txtDireccion.Text != "" && txtTelefono.Text != "")
+                if (txtCodper.Text != "" && txtCodpuesto.Text != "" && txtAlias.Text != "" && txtContra.Text != "")
                 {
                     SqlCommand cmd = new SqlCommand("spEmpleados", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Opcion", 1);
-                    cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text);
-                    cmd.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
-                    cmd.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
-                    cmd.Parameters.AddWithValue("@Empresa", txtEmpresa.Text);
+                    cmd.Parameters.AddWithValue("@Crud", 1);
+                    cmd.Parameters.AddWithValue("@Id_persona", txtCodper.Text);
+                    cmd.Parameters.AddWithValue("@Id_puesto", txtCodpuesto.Text);
+                    cmd.Parameters.AddWithValue("@Alias", txtAlias.Text);
+                    cmd.Parameters.AddWithValue("@Pass", txtContra.Text);
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();

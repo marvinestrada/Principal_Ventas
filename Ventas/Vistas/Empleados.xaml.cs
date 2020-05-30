@@ -35,7 +35,7 @@ namespace ProyectoTienda.Vistas
             
                 SqlCommand cmd = new SqlCommand("spEmpleado", Conexion.conex);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Crud", 2);
+                cmd.Parameters.AddWithValue("@opcion", 2);
                 DataTable tabla = new DataTable();
                 Conexion.conex.Open();
                 SqlDataAdapter puente = new SqlDataAdapter(cmd);
@@ -92,7 +92,7 @@ namespace ProyectoTienda.Vistas
                     {                        
                         SqlCommand cmd = new SqlCommand("spEmpleados", Conexion.conex);                        
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@Crud", 4);                        
+                        cmd.Parameters.AddWithValue("@opcion", 4);                        
                         cmd.Parameters.AddWithValue("@Id", result);                       
                         Conexion.conex.Open();                
                         cmd.ExecuteNonQuery();           

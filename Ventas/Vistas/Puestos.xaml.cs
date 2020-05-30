@@ -19,11 +19,11 @@ using System.Windows.Forms;
 namespace ProyectoTienda.Vistas
 {
     /// <summary>
-    /// Lógica de interacción para Personas.xaml
+    /// Lógica de interacción para Puestos.xaml
     /// </summary>
-    public partial class Personas : Window
+    public partial class Puestos : Window
     {
-        public Personas()
+        public Puestos()
         {
             InitializeComponent();
             Conexiones();

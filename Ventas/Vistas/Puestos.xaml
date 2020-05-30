@@ -1,4 +1,4 @@
-﻿<Window x:Class="ProyectoTienda.Vistas.Personas"
+﻿<Window x:Class="ProyectoTienda.Vistas.Puestos"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"
@@ -11,7 +11,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoTienda.Vistas"
         mc:Ignorable="d"
-        Title="Personas" Height="400" Width="600" WindowState="Normal" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Puestos" Height="400" Width="600" WindowState="Normal" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid MouseLeftButtonDown="mover">
         <Grid.RowDefinitions>
             <RowDefinition Height="482*"/>

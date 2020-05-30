@@ -11,7 +11,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoTienda.Vistas"
         mc:Ignorable="d"
-        Title="AddPersonas"  ResizeMode="NoResize" Height="575" Width="480" WindowState="Normal" WindowStartupLocation="CenterScreen" WindowStyle="None" Closing="Window_Closing">
+        Title="AddEmpleados"  ResizeMode="NoResize" Height="575" Width="480" WindowState="Normal" WindowStartupLocation="CenterScreen" WindowStyle="None" Closing="Window_Closing">
     <Grid>
         <materialDesign:ColorZone Mode="PrimaryDark" Background="Teal" HorizontalAlignment="Stretch" Height="33">
             <TextBlock HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="Empleados" VerticalAlignment="Top" Width="153" Height="24" Foreground="White" FontSize="18"/>
@@ -30,6 +30,10 @@
         <TextBox x:Name="txtCodpuesto" HorizontalAlignment="Left" Height="24" Margin="123,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="323" FontWeight="SemiBold" TextOptions.TextFormattingMode="Ideal"/>
         <Button Content="Cancelar" HorizontalAlignment="Left" Margin="252,533,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_1"/>
         <Button Content="Aceptar" HorizontalAlignment="Left" Margin="383,533,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_2"/>
+        <CheckBox x:Name="checkBox" Content="CheckBox" HorizontalAlignment="Left" Height="26" Margin="86,280,0,0" VerticalAlignment="Top" Width="171"/>
+        <Label Content="Activo:" HorizontalAlignment="Left" Margin="16,282,0,0" VerticalAlignment="Top" Height="25"/>
+        <Label Content="Reset Pass:" HorizontalAlignment="Left" Margin="16,329,0,0" VerticalAlignment="Top" Height="25"/>
+        <Button Content="Resetear" HorizontalAlignment="Left" Margin="116,322,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_1" RenderTransformOrigin="0.796,0.539"/>
 
     </Grid>
 </Window>

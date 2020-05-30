@@ -11,7 +11,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoTienda.Vistas"
         mc:Ignorable="d"
-        Title="AddPersonas"  ResizeMode="NoResize" Height="575" Width="480" WindowState="Normal" WindowStartupLocation="CenterScreen" WindowStyle="None" Closing="Window_Closing">
+        Title="AddEmpleados"  ResizeMode="NoResize" Height="575" Width="480" WindowState="Normal" WindowStartupLocation="CenterScreen" WindowStyle="None" Closing="Window_Closing">
     <Grid>
         <materialDesign:ColorZone Mode="PrimaryDark" Background="Teal" HorizontalAlignment="Stretch" Height="33">
             <TextBlock HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="Empleados" VerticalAlignment="Top" Width="153" Height="24" Foreground="White" FontSize="18"/>

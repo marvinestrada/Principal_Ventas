@@ -33,7 +33,7 @@ namespace ProyectoTienda.Vistas
         public void Conexiones()
         {
             
-                SqlCommand cmd = new SqlCommand("spEmpleados", Conexion.conex);
+                SqlCommand cmd = new SqlCommand("spEmpleado", Conexion.conex);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Opcion", 2);
                 DataTable tabla = new DataTable();

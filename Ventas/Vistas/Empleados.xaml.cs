@@ -107,7 +107,7 @@ namespace ProyectoTienda.Vistas
                     Conexion.conex.Close();
                 }
             }
-            else System.Windows.MessageBox.Show("Por favor seleccione algun dato de la tabla");
+            else System.Windows.MessageBox.Show("Por favor seleccionar algun dato de la tabla");
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)

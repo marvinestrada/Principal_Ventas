@@ -51,6 +51,21 @@ namespace ProyectoTienda.Vistas
             base.Close();
         }
 
+        private void checkBox_Checked()
+        {
+
+        }
+
+        private void radioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void radioButton_Copy_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Cerrar();

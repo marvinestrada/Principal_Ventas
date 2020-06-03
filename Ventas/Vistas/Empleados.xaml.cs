@@ -69,6 +69,7 @@ namespace ProyectoTienda.Vistas
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
+            //Cierra la Ventana
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

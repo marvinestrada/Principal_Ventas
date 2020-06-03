@@ -53,9 +53,9 @@ namespace ProyectoTienda.Vistas
             if (ventana.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)ventana.SelectedItem;
-                int id_persona = (int)(vista["Codigo empleado"]);
-                String nombres = (vista["Codigo persona"]).ToString();
-                String direcciones = (vista["Codigo puesto"]).ToString();
+                int id_persona = (int)(vista["Cod empleado"]);
+                String nombres = (vista["Cod persona"]).ToString();
+                String direcciones = (vista["Cod puesto"]).ToString();
                 String telefonos = (vista["Alias"]).ToString();
                 String empresas = (vista["Contraseña"]).ToString();
                 AddEmpleados abrir = new AddEmpleados(2, id_persona, nombres, empresas, telefonos, direcciones);
@@ -63,7 +63,7 @@ namespace ProyectoTienda.Vistas
                 abrir.Close();
                 Conexiones();
             }
-            else System.Windows.MessageBox.Show("Seleccione algun dato de la tabla.");
+            else System.Windows.MessageBox.Show("Por favor seleccione algun dato de la tabla.");
 
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)

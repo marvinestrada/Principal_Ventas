@@ -10,9 +10,6 @@
         <Label x:Name="label" Content="Empleado:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="84"/>
         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Height="26" Margin="94,10,0,0" VerticalAlignment="Top" Width="705"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="333" Margin="10,87,0,0" VerticalAlignment="Top" Width="332"/>
-        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="252,533,0,-111" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_1" Height="32"/>
-        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="252,533,0,-111" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_1" Height="32"/>
-        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="252,533,0,-111" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_1" Height="32"/>
         <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="333" Margin="473,87,0,0" VerticalAlignment="Top" Width="326"/>
         <Label x:Name="label1" Content="Permisos Disponibles" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="332"/>
         <Label x:Name="label2" Content="Permisos Asignados" HorizontalAlignment="Left" Margin="473,55,0,0" VerticalAlignment="Top" Width="326"/>

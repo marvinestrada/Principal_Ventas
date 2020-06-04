@@ -20,10 +20,14 @@ namespace ProyectoTienda.Vistas
     /// <summary>
     /// Lógica de interacción para Personas.xaml
     /// </summary>
-    public partial class EstadoProducto : Window
+    public partial class Estado_Producto : Window
     {
-        public EstadoProducto()
+        public delegate void enviar(string pasar);
+        public event enviar enviarlo;
+        
+        public Estado_Producto()
         {
+            
             InitializeComponent();
             Conexiones();
             
@@ -33,7 +37,7 @@ namespace ProyectoTienda.Vistas
         {
               SqlCommand cmd = new SqlCommand("spEstadoProducto", Conexion.conex);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("Opcion", 2);
+                cmd.Parameters.AddWithValue("@Crud", 2);
                 DataTable productoss = new DataTable();
                 Conexion.conex.Open();
                 SqlDataAdapter puente = new SqlDataAdapter(cmd);
@@ -54,12 +58,11 @@ namespace ProyectoTienda.Vistas
             if (mostrarDatos.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-                int Id_EstadoProducto = (int)(vista["Id EstadoProductos"]);
+                int id_esProd = (int)(vista["Id EstadoProductos"]);
                 String Descripcion = (vista["Descripcion"]).ToString();
-            
-                
-
-                AddProducto abrir = new AddProducto(2, Id_EstadoProducto, Descripcion);
+             
+               
+                AddEstadoProducto abrir = new AddEstadoProducto(2, id_esProd, Descripcion);
                 abrir.ShowDialog();
                 abrir.Close();
                 Conexiones();
@@ -93,10 +96,10 @@ namespace ProyectoTienda.Vistas
                                             "confirmar", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (respuesta == MessageBoxResult.Yes)
                     {                        
-                        SqlCommand cmd = new SqlCommand("spEstadpProducto", Conexion.conex);                        
+                        SqlCommand cmd = new SqlCommand("spEstadoProducto", Conexion.conex);                        
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@Opcion", 4);                        
-                        cmd.Parameters.AddWithValue("@Id", result);                       
+                        cmd.Parameters.AddWithValue("@Crud", 4);                        
+                        cmd.Parameters.AddWithValue("@Id_estado_prod", result);                       
                         Conexion.conex.Open();                
                         cmd.ExecuteNonQuery();           
                         Conexion.conex.Close();
@@ -110,11 +113,25 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            AddProducto mostrar = new AddProducto(1);
+            AddEstadoProducto mostrar = new AddEstadoProducto(1);
             mostrar.ShowDialog();
             mostrar.Close();
             Conexiones();
 
+        }
+
+     
+
+        private void btnEnviarDato_Click(object sender, RoutedEventArgs e)
+        {
+            if (mostrarDatos.SelectedCells.Count > 0)
+            {
+                DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
+                string result = (vista["Id EstadoProductos"]).ToString();
+
+                enviarlo(result);
+                this.Close();
+            }
         }
     }
 }

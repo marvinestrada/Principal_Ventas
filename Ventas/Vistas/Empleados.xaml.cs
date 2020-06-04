@@ -58,9 +58,15 @@ namespace ProyectoTienda.Vistas
             {
                 DataRowView vista = (DataRowView)ventana.SelectedItem;
 
-                int id_persona = (int)(vista["Id_Empleado"]);
-                String nombres = (vista["Id_persona"]).ToString();
-                String direcciones = (vista["Id_puesto"]).ToString();
+                int id_persona = (int)(vista["Cod empleado"]);
+                String nombres = (vista["Cod persona"]).ToString();
+                String direcciones = (vista["Cod puesto"]).ToString();
+
+
+                //int id_persona = (int)(vista["Id_Empleado"]);
+                //String nombres = (vista["Id_persona"]).ToString();
+                //String direcciones = (vista["Id_puesto"]).ToString();
+
                 String telefonos = (vista["Alias"]).ToString();
                 String empresas = (vista["Pass"]).ToString();
                 AddPersonas abrir = new AddPersonas(2, id_persona, nombres, empresas, telefonos, direcciones);
@@ -69,12 +75,13 @@ namespace ProyectoTienda.Vistas
                 abrir.Close();
                 Conexiones();
             }
-            else System.Windows.MessageBox.Show("Seleccione algun dato de la tabla.");
+            else System.Windows.MessageBox.Show("Por favor seleccione algun dato de la tabla.");
 
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
+            //Cierra la Ventana
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -121,7 +128,7 @@ namespace ProyectoTienda.Vistas
                     Conexion.conex.Close();
                 }
             }
-            else System.Windows.MessageBox.Show("Por favor seleccione algun dato de la tabla");
+            else System.Windows.MessageBox.Show("Por favor seleccionar algun dato de la tabla");
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)

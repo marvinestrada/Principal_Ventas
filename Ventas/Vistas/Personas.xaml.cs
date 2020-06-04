@@ -58,8 +58,9 @@ namespace ProyectoTienda.Vistas
                 String direcciones = (vista["Direccion"]).ToString();
                 String telefonos = (vista["Telefono"]).ToString();
                 String empresas = (vista["Empresa"]).ToString();
+                String Nit = (vista["Nit"]).ToString();
 
-                AddPersonas abrir = new AddPersonas(2, id_persona, nombres, empresas, telefonos, direcciones);
+                AddPersonas abrir = new AddPersonas(2, id_persona, nombres, empresas, telefonos, direcciones, Nit);
                 abrir.ShowDialog();
                 abrir.Close();
                 Conexiones();

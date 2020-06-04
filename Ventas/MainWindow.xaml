@@ -1,15 +1,16 @@
-﻿<Window x:Class="ProyectoTienda.MainWindow"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Background="{DynamicResource MaterialDesignPaper}"
-        TextElement.FontWeight="Medium"
-        TextElement.FontSize="14"
-        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+﻿<Window
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoTienda"
+        xmlns:dxrud="http://schemas.devexpress.com/winfx/2008/xaml/reports/userdesigner" x:Class="ProyectoTienda.MainWindow"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         mc:Ignorable="d"
         Title="MainWindow" Height="768" Width="1366" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized"  WindowStyle="None">
     <Grid>
@@ -17,7 +18,6 @@
             <TextBlock HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="Menu Principal" VerticalAlignment="Top" Width="153" Height="24" Foreground="White" FontSize="18"/>
 
         </materialDesign:ColorZone>
-        <DataGrid x:Name="datosMostrar" HorizontalAlignment="Left" Height="269" Margin="10,171,0,0" VerticalAlignment="Top" Width="780"/>
         <Button Height="Auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  BorderBrush="#FFB9AFCB" Background="Teal" Margin="1328,0,0,738" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="38" Click="Button_Click">
             <materialDesign:PackIcon Kind="WindowClose" Background="Teal"/>
         </Button>

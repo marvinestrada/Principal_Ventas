@@ -30,6 +30,8 @@
         <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="24" Margin="86,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" FontWeight="SemiBold" TextOptions.TextFormattingMode="Ideal"/>
         <Button Content="Cancelar" HorizontalAlignment="Left" Margin="252,533,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_1"/>
         <Button Content="Aceptar" HorizontalAlignment="Left" Margin="383,533,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_2"/>
+        <Label Content="Nit:" HorizontalAlignment="Left" Margin="9,283,0,0" VerticalAlignment="Top" Height="25"/>
+        <TextBox x:Name="txtNit" HorizontalAlignment="Left" Height="25" Margin="86,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" FontWeight="SemiBold" TextOptions.TextFormattingMode="Ideal"/>
 
     </Grid>
 </Window>

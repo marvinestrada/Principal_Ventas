@@ -17,7 +17,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="Menu Principal" VerticalAlignment="Top" Width="153" Height="24" Foreground="White" FontSize="18"/>
 
         </materialDesign:ColorZone>
-        <DataGrid x:Name="datosMostrar" HorizontalAlignment="Left" Height="269" Margin="10,171,0,0" VerticalAlignment="Top" Width="780"/>
+        <DataGrid x:Name="datosMostrar" HorizontalAlignment="Left" Height="501" Margin="10,214,0,0" VerticalAlignment="Top" Width="1346" SelectionChanged="datosMostrar_SelectionChanged"/>
         <Button Height="Auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  BorderBrush="#FFB9AFCB" Background="Teal" Margin="1328,0,0,738" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="38" Click="Button_Click">
             <materialDesign:PackIcon Kind="WindowClose" Background="Teal"/>
         </Button>

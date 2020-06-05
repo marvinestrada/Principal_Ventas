@@ -34,5 +34,10 @@ namespace ProyectoTienda
         {
             this.Close();
         }
+
+        private void datosMostrar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -20,10 +20,14 @@ namespace ProyectoTienda.Vistas
     /// <summary>
     /// Lógica de interacción para Personas.xaml
     /// </summary>
-    public partial class Permisos : Window
+    public partial class Estado_Producto : Window
     {
-        public Permisos()
+        public delegate void enviar(string pasar);
+        public event enviar enviarlo;
+        
+        public Estado_Producto()
         {
+            
             InitializeComponent();
             Conexiones();
             
@@ -31,9 +35,9 @@ namespace ProyectoTienda.Vistas
 
         public void Conexiones()
         {
-              SqlCommand cmd = new SqlCommand("spPermisos", Conexion.conex);
+              SqlCommand cmd = new SqlCommand("spEstadoProducto", Conexion.conex);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("CRUD", 2);
+                cmd.Parameters.AddWithValue("@Crud", 2);
                 DataTable productoss = new DataTable();
                 Conexion.conex.Open();
                 SqlDataAdapter puente = new SqlDataAdapter(cmd);
@@ -54,12 +58,11 @@ namespace ProyectoTienda.Vistas
             if (mostrarDatos.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-                int id_permiso = (int)(vista["Id"]);
+                int id_esProd = (int)(vista["Id EstadoProductos"]);
                 String Descripcion = (vista["Descripcion"]).ToString();
+             
                
-                
-
-                AddPermisos abrir = new AddPermisos(2, id_permiso, Descripcion);
+                AddEstadoProducto abrir = new AddEstadoProducto(2, id_esProd, Descripcion);
                 abrir.ShowDialog();
                 abrir.Close();
                 Conexiones();
@@ -87,16 +90,16 @@ namespace ProyectoTienda.Vistas
             if (mostrarDatos.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
-                int result = (int)(vista["Id"]);
+                int result = (int)(vista["Id EstadoProductos"]);
 
                 MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro de eliminar?",
                                             "confirmar", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (respuesta == MessageBoxResult.Yes)
                     {                        
-                        SqlCommand cmd = new SqlCommand("spPermisos", Conexion.conex);                        
+                        SqlCommand cmd = new SqlCommand("spEstadoProducto", Conexion.conex);                        
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@CRUD", 4);                        
-                        cmd.Parameters.AddWithValue("@Id_permiso", result);                       
+                        cmd.Parameters.AddWithValue("@Crud", 4);                        
+                        cmd.Parameters.AddWithValue("@Id_estado_prod", result);                       
                         Conexion.conex.Open();                
                         cmd.ExecuteNonQuery();           
                         Conexion.conex.Close();
@@ -110,11 +113,25 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            AddPermisos mostrar = new AddPermisos(1);
+            AddEstadoProducto mostrar = new AddEstadoProducto(1);
             mostrar.ShowDialog();
             mostrar.Close();
             Conexiones();
-            //estaba llamando a la tabla producto aca
+
+        }
+
+     
+
+        private void btnEnviarDato_Click(object sender, RoutedEventArgs e)
+        {
+            if (mostrarDatos.SelectedCells.Count > 0)
+            {
+                DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
+                string result = (vista["Id EstadoProductos"]).ToString();
+
+                enviarlo(result);
+                this.Close();
+            }
         }
     }
 }

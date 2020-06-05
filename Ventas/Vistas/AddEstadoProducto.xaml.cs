@@ -1,7 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.ComponentModel;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using System.Data.SqlClient;
+using System.Data.Sql;
 using System.Data;
 
 namespace ProyectoTienda.Vistas
@@ -9,19 +21,20 @@ namespace ProyectoTienda.Vistas
     /// <summary>
     /// Lógica de interacción para AddPersonas.xaml
     /// </summary>
-    public partial class AddPermisos : Window
+    public partial class AddEstadoProducto : Window
     {
         int Opcion, Ids;
         public string Descripcion;
        
-        public AddPermisos(int opcion, int id = 0, string descrip = "")
-        {
 
+        
+        public AddEstadoProducto(int opcion, int id = 0, string descrip = "")
+        {
             InitializeComponent();
             Opcion = opcion;
             Ids = id;
             Descripcion = descrip;
-           
+          
             
             if (Opcion == 2) incluirDatos();
         }
@@ -74,17 +87,17 @@ namespace ProyectoTienda.Vistas
 
                 if (txtDesceipcion.Text != "" )
                 {
-                    SqlCommand cmd = new SqlCommand("spPermisos", Conexion.conex);
+                    SqlCommand cmd = new SqlCommand("spEstadoProducto", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@CRUD", 3);
-                    cmd.Parameters.AddWithValue("@Id_permiso", Ids.ToString());
+                    cmd.Parameters.AddWithValue("@Crud", 3);
+                    cmd.Parameters.AddWithValue("@Id_estado_prod", Ids.ToString());
                     cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
-                 
+                    
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();
                     this.Close();
-                    MessageBox.Show("Id Permiso " + Ids + " Actualizado correctamente");
+                    MessageBox.Show("Id EstadoProducto " + Ids + " Actualizado correctamente");
 
 
                 }
@@ -110,11 +123,11 @@ namespace ProyectoTienda.Vistas
             {
                 if (txtDesceipcion.Text != "" )
                 {
-                    SqlCommand cmd = new SqlCommand("spPermisos", Conexion.conex);
+                    SqlCommand cmd = new SqlCommand("spEstadoProducto", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@CRUD", 1);
+                    cmd.Parameters.AddWithValue("@Crud", 1);
                     cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
-                   
+                    
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();

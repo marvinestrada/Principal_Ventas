@@ -28,6 +28,13 @@
         <Button Height="Auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  BorderBrush="#FFB9AFCB" Background="Teal" Margin="517,0,0,303.429" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="38"  Grid.Column="1" >
             <materialDesign:PackIcon Kind="WindowClose" Background="Teal"/>
         </Button>
+        <Label Content="Total:" HorizontalAlignment="Left" Margin="38,80,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="25" Width="47"/>
+        <Rectangle Grid.Column="1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="20" Margin="34.857,80,0,0" Stroke="Black" VerticalAlignment="Top" Width="95" RenderTransformOrigin="-0.105,0.75"/>
+        <Label Content="00.00" Grid.Column="1" HorizontalAlignment="Left" Margin="82.857,80,0,0" VerticalAlignment="Top"/>
+        <Label Content="Cambio:" HorizontalAlignment="Left" Margin="277.857,180,0,0" VerticalAlignment="Top" Height="25" Width="97" Grid.Column="1"/>
+        <Label Content="Efectivo:" HorizontalAlignment="Left" Margin="272.857,70,0,0" VerticalAlignment="Top" Height="25" Width="97" Grid.Column="1"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="279.857,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="284.857,215,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
 
     </Grid>
 </Window>

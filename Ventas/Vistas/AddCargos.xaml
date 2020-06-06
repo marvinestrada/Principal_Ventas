@@ -23,6 +23,7 @@
         <Label Content="Fecha:" HorizontalAlignment="Left" Margin="20,209,0,0" VerticalAlignment="Top" Height="25"/>
         <Label Content="Codigo Operacion:" HorizontalAlignment="Left" Margin="20,86,0,0" VerticalAlignment="Top" Height="25"/>
 
+
         <TextBox x:Name="txtcod_oper" HorizontalAlignment="Left" Height="28" Margin="155,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal" Width="59"/>
 
         <Button Content="Cancelar" HorizontalAlignment="Left" Margin="252,533,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="btnCancel"/>
@@ -31,6 +32,16 @@
         <Label Content="Monto:" HorizontalAlignment="Left" Margin="20,148,0,0" VerticalAlignment="Top" Height="25"/>
         <Button Content=">>" HorizontalAlignment="Left" Margin="237,90,0,0" VerticalAlignment="Top" Width="60" RenderTransformOrigin="0.331,0.371"/>
         <DatePicker Name="Dfechita" HorizontalAlignment="Left" Margin="73,208,0,0" VerticalAlignment="Top"  RenderTransformOrigin="0.5,0.5" Width="200"/>
+
+
+
+
+
+
+
+
+
+
 
 
     </Grid>

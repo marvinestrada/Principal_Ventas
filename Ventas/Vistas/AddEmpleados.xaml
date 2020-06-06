@@ -20,6 +20,7 @@
         <Button Height="32" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  BorderBrush="#FFB9AFCB" Background="Teal" Margin="442,0,0,542" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="38" Click="Button_Click">
             <materialDesign:PackIcon Kind="WindowClose" Background="Teal"/>
         </Button>
+
         <Label Content="Codigo Persona:" Margin="20,81,346,0" VerticalAlignment="Top" Height="25"/>
         <Label Content="Contraseña:" HorizontalAlignment="Left" Margin="20,229,0,0" VerticalAlignment="Top" Height="25"/>
         <Label Content="Alias:" HorizontalAlignment="Left" Margin="20,182,0,0" VerticalAlignment="Top" Height="24"/>
@@ -35,5 +36,8 @@
         <Label Content="Reset Pass:" HorizontalAlignment="Left" Margin="283,339,0,0" VerticalAlignment="Top" Height="25"/>
         <Button Content="Resetear" HorizontalAlignment="Left" Margin="383,332,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_1" RenderTransformOrigin="0.796,0.539"/>
 
+
+
     </Grid>
 </Window>
+J7

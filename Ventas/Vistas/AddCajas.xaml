@@ -24,6 +24,7 @@
         <Label Content="Comentarios:" HorizontalAlignment="Left" Margin="20,265,0,0" VerticalAlignment="Top" Height="24"/>
         <Label Content="Codigo Empleado:" HorizontalAlignment="Left" Margin="20,86,0,0" VerticalAlignment="Top" Height="25" RenderTransformOrigin="0.492,-0.36"/>
 
+
         <TextBox x:Name="txtcod_empleado" HorizontalAlignment="Left" Height="28" Margin="149,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal" Width="78"/>
         <TextBox x:Name="txtComentarios" HorizontalAlignment="Left" Height="28" Margin="117,261,0,0" TextWrapping="Wrap" TextOptions.TextFormattingMode="Ideal" VerticalAlignment="Top" Width="285"/>
 
@@ -32,6 +33,17 @@
         <TextBox x:Name="txtMonto" HorizontalAlignment="Left" Height="28" Margin="79,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal"  Width="106"/>
         <Label Content="Monto:" HorizontalAlignment="Left" Margin="20,148,0,0" VerticalAlignment="Top" Height="25"/>
         <DatePicker Name="Dfechita" HorizontalAlignment="Left" Margin="73,207,0,0" VerticalAlignment="Top"  RenderTransformOrigin="0.491,0.625" Width="224"/>
+
+
+
+
+
+
+        
+
+
+
+        
 
 
     </Grid>

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,32 +10,35 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data.Sql;
-using System.Data.SqlClient;
-
 
 namespace ProyectoTienda
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para ReportVentas.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ReportVentas : Window
     {
-        public MainWindow()
+        public ReportVentas()
         {
             InitializeComponent();
-           
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void mover(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+
+        private void btnCerrar(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void datosMostrar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Vent_reporte(object sender, RoutedEventArgs e)
         {
+            ReporteVentas abrir = new ReporteVentas();
+            abrir.Load(@"ReporteVentas.rep");
+            VerDatos.ViewerCore.ReportSource = abrir;
 
         }
     }

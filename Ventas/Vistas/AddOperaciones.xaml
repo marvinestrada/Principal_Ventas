@@ -20,16 +20,16 @@
         <Button Height="32" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  BorderBrush="#FFB9AFCB" Background="Teal" Margin="442,0,0,542" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="38" Click="btnCerrar">
             <materialDesign:PackIcon Kind="WindowClose" Background="Teal"/>
         </Button>
-        <Label Content="Fecha de Operación:" HorizontalAlignment="Left" Margin="7,216,0,0" VerticalAlignment="Top" Height="25"/>
-        <Label Content="Tipo de Operación:" HorizontalAlignment="Left" Margin="15,106,0,0" VerticalAlignment="Top" Height="25"/>
+        <Label Content="Fecha de Operación:" HorizontalAlignment="Left" Margin="20,224,0,0" VerticalAlignment="Top" Height="25"/>
+        <Label Content="Tipo de Operación:" HorizontalAlignment="Left" Margin="20,106,0,0" VerticalAlignment="Top" Height="25"/>
 
-        <TextBox x:Name="txttipooperacion" HorizontalAlignment="Left" Height="28" Margin="172,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal" Width="260"/>
+        <TextBox x:Name="txttipooperacion" HorizontalAlignment="Left" Height="28" Margin="154,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal" Width="260"/>
 
         <Button Content="Cancelar" HorizontalAlignment="Left" Margin="252,533,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="btnCancel"/>
         <Button Content="Aceptar" HorizontalAlignment="Left" Margin="383,533,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed"  Padding="1" Click="btnAceptar"/>
-        <TextBox x:Name="txtIdempleado" HorizontalAlignment="Left" Height="28" Margin="172,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal"  Width="260"/>
-        <Label Content="Id Empleado:" HorizontalAlignment="Left" Margin="53,158,0,0" VerticalAlignment="Top" Height="25"/>
-        <DatePicker Name="Dfechita" HorizontalAlignment="Left" Margin="172,207,0,0" VerticalAlignment="Top"  RenderTransformOrigin="0.491,0.625" Width="260"/>
+        <TextBox x:Name="txtIdempleado" HorizontalAlignment="Left" Height="28" Margin="116,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal"  Width="60"/>
+        <Label Content="Id Empleado:" HorizontalAlignment="Left" Margin="20,168,0,0" VerticalAlignment="Top" Height="25"/>
+        <DatePicker Name="Dfechita" HorizontalAlignment="Left" Margin="162,223,0,0" VerticalAlignment="Top"  RenderTransformOrigin="0.491,0.625" Width="252"/>
 
 
     </Grid>

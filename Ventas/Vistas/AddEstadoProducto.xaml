@@ -20,8 +20,8 @@
         <Button Height="32" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  BorderBrush="#FFB9AFCB" Background="Teal" Margin="442,0,0,542" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="38" Click="Button_Click">
             <materialDesign:PackIcon Kind="WindowClose" Background="Teal"/>
         </Button>
-        <Label Content="Descripcion:" HorizontalAlignment="Left" Margin="38,109,0,0" VerticalAlignment="Top" Height="25"/>
-        <TextBox x:Name="txtDesceipcion" TextOptions.TextFormattingMode="Ideal" HorizontalAlignment="Left" Height="28" Margin="146,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" RenderTransformOrigin="0.5,0.5">
+        <Label Content="Descripcion:" HorizontalAlignment="Left" Margin="19,99,0,0" VerticalAlignment="Top" Height="25"/>
+        <TextBox x:Name="txtDesceipcion" TextOptions.TextFormattingMode="Ideal" HorizontalAlignment="Left" Height="28" Margin="122,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" RenderTransformOrigin="0.5,0.5">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

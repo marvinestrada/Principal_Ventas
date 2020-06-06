@@ -20,19 +20,19 @@
         <Button Height="32" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  BorderBrush="#FFB9AFCB" Background="Teal" Margin="442,0,0,542" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="38" Click="btnCerrar">
             <materialDesign:PackIcon Kind="WindowClose" Background="Teal"/>
         </Button>
-        <Label Content="Fecha:" HorizontalAlignment="Left" Margin="20,200,0,0" VerticalAlignment="Top" Height="25"/>
-        <Label Content="Comentarios:" HorizontalAlignment="Left" Margin="14,261,0,0" VerticalAlignment="Top" Height="24"/>
-        <Label Content="Codigo Empleado:" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Height="25"/>
+        <Label Content="Fecha:" HorizontalAlignment="Left" Margin="20,208,0,0" VerticalAlignment="Top" Height="25"/>
+        <Label Content="Comentarios:" HorizontalAlignment="Left" Margin="20,265,0,0" VerticalAlignment="Top" Height="24"/>
+        <Label Content="Codigo Empleado:" HorizontalAlignment="Left" Margin="20,86,0,0" VerticalAlignment="Top" Height="25" RenderTransformOrigin="0.492,-0.36"/>
 
-        <TextBox x:Name="txtcod_empleado" HorizontalAlignment="Left" Height="28" Margin="135,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal" Width="323"/>
-        <TextBox x:Name="txtComentarios" HorizontalAlignment="Left" Height="28" Margin="105,260,0,0" TextWrapping="Wrap" TextOptions.TextFormattingMode="Ideal" VerticalAlignment="Top" Width="353"/>
+        <TextBox x:Name="txtcod_empleado" HorizontalAlignment="Left" Height="28" Margin="149,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal" Width="78"/>
+        <TextBox x:Name="txtComentarios" HorizontalAlignment="Left" Height="28" Margin="117,261,0,0" TextWrapping="Wrap" TextOptions.TextFormattingMode="Ideal" VerticalAlignment="Top" Width="285"/>
 
         <Button Content="Cancelar" HorizontalAlignment="Left" Margin="252,533,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="btnCancel"/>
         <Button Content="Aceptar" HorizontalAlignment="Left" Margin="383,533,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed"  Padding="1" Click="btnAceptar"/>
-        <TextBox x:Name="txtMonto" HorizontalAlignment="Left" Height="28" Margin="70,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal"  Width="385"/>
-        <Label Content="Monto:" HorizontalAlignment="Left" Margin="15,150,0,0" VerticalAlignment="Top" Height="25"/>
-        <DatePicker Name="Dfechita" HorizontalAlignment="Left" Margin="85,194,0,0" VerticalAlignment="Top"  RenderTransformOrigin="0.491,0.625" Width="215"/>
-        
+        <TextBox x:Name="txtMonto" HorizontalAlignment="Left" Height="28" Margin="79,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextOptions.TextFormattingMode="Ideal"  Width="106"/>
+        <Label Content="Monto:" HorizontalAlignment="Left" Margin="20,148,0,0" VerticalAlignment="Top" Height="25"/>
+        <DatePicker Name="Dfechita" HorizontalAlignment="Left" Margin="73,207,0,0" VerticalAlignment="Top"  RenderTransformOrigin="0.491,0.625" Width="224"/>
+
 
     </Grid>
 </Window>

@@ -55,8 +55,7 @@ namespace ProyectoTienda.Vistas
 
             if (ventana.SelectedCells.Count > 0)
             {
-                try
-                {
+
                     DataRowView vista = (DataRowView)ventana.SelectedItem;
                 int id_persona = (int)(vista["Cod empleado"]);
                 String nombres = (vista["Cod persona"]).ToString();
@@ -70,12 +69,7 @@ namespace ProyectoTienda.Vistas
                 abrir.ShowDialog();
                 abrir.Close();
                 Conexiones();
-                }
-                catch (Exception ea)
-            {
-                ea.ToString();
-                Conexion.conex.Close();
-            }
+
         }
             else System.Windows.MessageBox.Show("Por favor seleccione algun dato de la tabla.");
 
@@ -102,8 +96,7 @@ namespace ProyectoTienda.Vistas
 
                 //int result = (int)(vista["Codigo Empleado"]);
 
-                try
-                {
+
                     MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro que desea eliminar?",
                                             "confirmar", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (respuesta == MessageBoxResult.Yes)
@@ -120,12 +113,7 @@ namespace ProyectoTienda.Vistas
                         Conexiones();
                         System.Windows.MessageBox.Show("Eliminado exitosamente");
                     }
-                }
-                catch (Exception ea)
-                {
-                    ea.ToString();
-                    Conexion.conex.Close();
-                }
+
             }
             else System.Windows.MessageBox.Show("Por favor seleccionar algun dato de la tabla");
         }

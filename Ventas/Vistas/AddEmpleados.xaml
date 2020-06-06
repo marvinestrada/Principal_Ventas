@@ -36,8 +36,8 @@
 
         <CheckBox x:Name="checkBox" Content="CheckBox" HorizontalAlignment="Left" Height="26" Margin="86,280,0,0" VerticalAlignment="Top" Width="171"/>
         <Label Content="Activo:" HorizontalAlignment="Left" Margin="16,282,0,0" VerticalAlignment="Top" Height="25"/>
-        <Label Content="Reset Pass:" HorizontalAlignment="Left" Margin="16,329,0,0" VerticalAlignment="Top" Height="25"/>
-        <Button Content="Resetear" HorizontalAlignment="Left" Margin="116,322,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_1" RenderTransformOrigin="0.796,0.539"/>
+        <Label Content="Reset Pass:" HorizontalAlignment="Left" Margin="16,382,0,0" VerticalAlignment="Top" Height="25"/>
+        <Button Content="Resetear" HorizontalAlignment="Left" Margin="135,382,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_1" RenderTransformOrigin="0.796,0.539"/>
 
 
     </Grid>

@@ -85,6 +85,8 @@ namespace ProyectoTienda.Vistas
 
                 if (txtpermiso.Text != "" )
                 {
+                try
+                { 
                     SqlCommand cmd = new SqlCommand("spPermisosEmpleado", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@CRUD", 3);
@@ -97,6 +99,12 @@ namespace ProyectoTienda.Vistas
                     this.Close();
                     MessageBox.Show("Id Permiso " + Ids + " Actualizado correctamente");
                 }
+                catch (Exception ea)
+            {
+                ea.ToString();
+                Conexion.conex.Close();
+            }
+        }
                 else
                 {
                     MessageBox.Show("Los campos no deben quedar vacios.");
@@ -151,6 +159,8 @@ namespace ProyectoTienda.Vistas
         {
                 if (txtpermiso.Text != "")
                 {
+                    try
+                    { 
                     SqlCommand cmd = new SqlCommand("spPermisosEmpleado", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@CRUD", 1);
@@ -160,7 +170,13 @@ namespace ProyectoTienda.Vistas
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();
                     this.Close();
+                    }
+                catch (Exception ea)
+                {
+                    ea.ToString();
+                    Conexion.conex.Close();
                 }
+            }
                 else MessageBox.Show("fallo");
             //Guarda los datos que se van a ingresar a la BD
         }

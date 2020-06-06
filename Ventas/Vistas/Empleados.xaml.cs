@@ -56,7 +56,7 @@ namespace ProyectoTienda.Vistas
             if (ventana.SelectedCells.Count > 0)
             {
 
-                    DataRowView vista = (DataRowView)ventana.SelectedItem;
+                DataRowView vista = (DataRowView)ventana.SelectedItem;
                 int id_persona = (int)(vista["Cod empleado"]);
                 String nombres = (vista["Cod persona"]).ToString();
                 String direcciones = (vista["Cod puesto"]).ToString();
@@ -65,7 +65,7 @@ namespace ProyectoTienda.Vistas
                 //String direcciones = (vista["Id_puesto"]).ToString();
                 String telefonos = (vista["Alias"]).ToString();
                 String empresas = (vista["Contraseña"]).ToString();
-                AddPersonas abrir = new AddPersonas(2, id_persona, nombres, empresas, telefonos, direcciones);
+                AddEmpleados abrir = new AddEmpleados(2, id_persona, nombres, empresas, telefonos, direcciones);
                 abrir.ShowDialog();
                 abrir.Close();
                 Conexiones();

@@ -69,6 +69,8 @@ namespace ProyectoTienda.Vistas
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Cerrar();
+            Random Lte = new Random();
+            Focus();
         }
 
        public void incluirDatos()
@@ -83,14 +85,13 @@ namespace ProyectoTienda.Vistas
 
         public void actualizar()
         {
-            try
-            {
+
                 if (txtCodper.Text != "" && txtCodpuesto.Text != "" && txtAlias.Text != "" && txtContra.Text != "")
                 {
                     SqlCommand cmd = new SqlCommand("spEmpleado", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Crud", 3);
-                    cmd.Parameters.AddWithValue("@Id", Ids.ToString());
+                   //cmd.Parameters.AddWithValue("@Id", Ids.ToString());
                     cmd.Parameters.AddWithValue("@Id_persona", txtCodper.Text);
                     cmd.Parameters.AddWithValue("@Id_puesto", txtCodpuesto.Text);
                     cmd.Parameters.AddWithValue("@Alias", txtAlias.Text);
@@ -107,24 +108,15 @@ namespace ProyectoTienda.Vistas
                     MessageBox.Show("Los campos no pueden estar vacios.");
                     Conexion.conex.Close();
                 }
-            }
-            catch (Exception b)
-            {
-                b.ToString();
-                Conexion.conex.Close();
-            }
          
         }
 
         public void Guardar()
         {
-            try
-            {
-
 
                 if (txtCodper.Text != "" && txtCodpuesto.Text != "" && txtAlias.Text != "" && txtContra.Text != "")
                 {
-                    SqlCommand cmd = new SqlCommand("spEmpleados", Conexion.conex);
+                    SqlCommand cmd = new SqlCommand("spEmpleado", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Crud", 1);
                     cmd.Parameters.AddWithValue("@Id_persona", txtCodper.Text);
@@ -143,12 +135,7 @@ namespace ProyectoTienda.Vistas
                     MessageBox.Show("Los campos no pueden estar vacios.");
                     Conexion.conex.Close();
                 }
-            }
-            catch(Exception asda)
-            {
-                asda.ToString();
-                Conexion.conex.Close();
-            }   
+            
         }  
     }
 }

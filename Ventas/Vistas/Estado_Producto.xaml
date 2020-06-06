@@ -1,4 +1,4 @@
-﻿<Window x:Class="ProyectoTienda.Vistas.Productos"
+﻿<Window x:Class="ProyectoTienda.Vistas.Estado_Producto"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"
@@ -18,7 +18,7 @@
             <RowDefinition Height="93*"/>
         </Grid.RowDefinitions>
         <materialDesign:ColorZone Mode="PrimaryDark" Background="Teal" HorizontalAlignment="Stretch" Height="33" >
-            <TextBlock HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="Productos" VerticalAlignment="Top" Width="153" Height="24" Foreground="White" FontSize="18"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="Estado de los Productos" VerticalAlignment="Top" Width="207" Height="24" Foreground="White" FontSize="18"/>
 
         </materialDesign:ColorZone>
         <Button Height="Auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  BorderBrush="#FFB9AFCB" Background="Teal" Margin="562,0,0,303" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="38" Click="Button_Click_1" >
@@ -30,7 +30,6 @@
         <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="325,10,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Grid.Row="1" Click="Button_Click"/>
         <Button x:Name="btnRefrescar" Content="Refrescar" HorizontalAlignment="Left" Margin="449,10,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Grid.Row="1" Click="Button_Click_2"/>
         <Button x:Name="btnEnviarDato" Content="Enviar Dato" HorizontalAlignment="Left" Margin="269,10,0,23" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Grid.Row="1" Height="Auto" Visibility="Hidden" Click="btnEnviarDato_Click" />
-        <Button x:Name="btnAddProducto" Padding="0" Content="Agregar Producto" HorizontalAlignment="Left" Margin="269,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Visibility="Hidden" Click="btnAddProducto_Click"/>
 
     </Grid>
 </Window>

@@ -120,6 +120,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Facturacion\Compras.xaml.cs">
+      <DependentUpon>Compras.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\Factura.xaml.cs">
       <DependentUpon>Factura.xaml</DependentUpon>
     </Compile>
@@ -186,6 +189,10 @@
     <Compile Include="Vistas\Stock.xaml.cs">
       <DependentUpon>Stock.xaml</DependentUpon>
     </Compile>
+    <Page Include="Facturacion\Compras.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Facturacion\Factura.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -302,6 +309,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Properties\Licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

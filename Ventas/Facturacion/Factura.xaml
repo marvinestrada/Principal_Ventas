@@ -1,24 +1,48 @@
-﻿<Window x:Class="ProyectoTienda.Facturacion.Factura"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Background="{DynamicResource MaterialDesignPaper}"
-        TextElement.FontWeight="Medium"
-        TextElement.FontSize="14"
-        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+﻿<Window
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoTienda.Facturacion"
+        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" x:Class="ProyectoTienda.Facturacion.Factura"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         mc:Ignorable="d"
-        Title="Factura" Height="450" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode ="NoResize">
-    <Grid>
-        <materialDesign:ColorZone Mode="PrimaryDark" Background="Teal" HorizontalAlignment="Stretch" Height="33" >
+        Title="Factura" Height="700" Width="800" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode ="NoResize">
+    <Grid Loaded="Grid_Loaded">
+        <materialDesign:ColorZone Mode="PrimaryDark" Background="Teal" HorizontalAlignment="Stretch" Height="34" >
             <TextBlock HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="Factura" VerticalAlignment="Top" Width="153" Height="24" Foreground="White" FontSize="18"/>
 
         </materialDesign:ColorZone>
-        <Label Content="Nit:" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtNit" HorizontalAlignment="Left" Height="25" Margin="58,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="106" FontWeight="SemiBold" TextOptions.TextFormattingMode="Ideal"/>
+        <Label Content="Nit:" HorizontalAlignment="Left" Margin="13,100,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNit" HorizontalAlignment="Left" Height="25" Margin="87,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" FontWeight="SemiBold" TextOptions.TextFormattingMode="Ideal" KeyDown="txtNit_KeyDown"/>
+        <TextBox x:Name="txtFecha" IsEnabled="False" HorizontalAlignment="Left" Height="25" Margin="63,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" FontWeight="SemiBold" TextOptions.TextFormattingMode="Ideal"/>
+        <Label Content="Direccion:" HorizontalAlignment="Left" Margin="343,147,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDireccion" IsEnabled="False" HorizontalAlignment="Left" Height="25" Margin="425,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="341" FontWeight="SemiBold" TextOptions.TextFormattingMode="Ideal"/>
+        <Label Content="Fecha:" HorizontalAlignment="Left" Margin="13,147,0,0" VerticalAlignment="Top"/>
+        <Button Height="33"  Padding="0"  BorderBrush="#FFB9AFCB" Background="Teal" Margin="266,106,0,0" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="51" Click="Button_Click_1" FontSize="36" VerticalAlignment="Top"  >
+            <materialDesign:PackIcon Kind="SearchAdd" Background="Teal" Height="23"/>
+        </Button>
+        <Label Content="Detalles de la Factura" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top" RenderTransformOrigin="-5.31,-0.76"/>
+        <Button Height="Auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  BorderBrush="#FFB9AFCB" Background="Teal" Margin="762,0,0,667" VerticalAlignment="Stretch" Click="Button_Click"  >
+            <materialDesign:PackIcon Kind="WindowClose" Background="Teal"/>
+        </Button>
+        <Label Content="Nombre:" HorizontalAlignment="Left" Margin="343,109,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNombre" IsEnabled="False" HorizontalAlignment="Left" Height="25" Margin="425,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="341" FontWeight="SemiBold" TextOptions.TextFormattingMode="Ideal"/>
+        <TextBox x:Name="txtCodBarras" materialDesign:HintAssist.Hint="Ingrese codigo del producto" materialDesign:HintAssist.IsFloating="True" Margin="89,177,483,468"/>
+        <TextBox x:Name="txtCantidad" materialDesign:HintAssist.Hint="Cant." materialDesign:HintAssist.IsFloating="True" Margin="13,177,739,468"/>
+        <DataGrid x:Name="ventana" CanUserResizeColumns="True" HorizontalAlignment="Left" Height="269" Margin="37,261,0,0" VerticalAlignment="Top" Width="753"/>
+        <Label Content="Factura No:" HorizontalAlignment="Left" Margin="343,207,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNit_Copy" HorizontalAlignment="Left" Height="25" Margin="431,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" FontWeight="SemiBold" TextOptions.TextFormattingMode="Ideal"/>
+        <Button x:Name="btnBuscarProducto" Content="Buscar Productos" Padding="0" HorizontalAlignment="Left" Margin="606,238,0,0" VerticalAlignment="Top" Width="136" Height="36" Click="btnBuscarProducto_Click"/>
+        <Button x:Name="btnAgregarFactura" Content="Generar Factura" Padding="0" HorizontalAlignment="Left" Margin="602,598,0,0" VerticalAlignment="Top" Width="140" FontSize="16"/>
+        <Label Content="Total a Pagar:" HorizontalAlignment="Left" Margin="569,554,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label x:Name="TotalProducto" Content="" HorizontalAlignment="Left" Margin="711,554,0,0" VerticalAlignment="Top" FontSize="18"/>
 
+        
     </Grid>
 </Window>

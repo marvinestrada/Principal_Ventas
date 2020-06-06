@@ -9,7 +9,6 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Data;
-using System.ComponentModel;
 using System.Configuration;
 using ProyectoTienda.Vistas;
 using System.Windows.Forms;
@@ -21,10 +20,14 @@ namespace ProyectoTienda.Vistas
     /// <summary>
     /// Lógica de interacción para Personas.xaml
     /// </summary>
-    public partial class Personas : Window
+    public partial class Puestos : Window
     {
-        public Personas()
+        public delegate void enviar(string pasar);
+        public event enviar enviarlo;
+        
+        public Puestos()
         {
+            
             InitializeComponent();
             Conexiones();
             
@@ -32,16 +35,18 @@ namespace ProyectoTienda.Vistas
 
         public void Conexiones()
         {
-            
-                SqlCommand cmd = new SqlCommand("spPersonas", Conexion.conex);
+              SqlCommand cmd = new SqlCommand("spPuestos", Conexion.conex);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Opcion", 2);
-                DataTable tabla = new DataTable();
+                cmd.Parameters.AddWithValue("@Crud", 2);
+                DataTable productoss = new DataTable();
                 Conexion.conex.Open();
                 SqlDataAdapter puente = new SqlDataAdapter(cmd);
-                puente.Fill(tabla);
+                puente.Fill(productoss);
                 Conexion.conex.Close();
-                ventana.DataContext = tabla;           
+                mostrarDatos.DataContext = productoss;
+                
+           //Establece la conexion con el procedimiento almacenado
+            
         }
 
         private void mover(object sender, MouseButtonEventArgs e)
@@ -50,18 +55,14 @@ namespace ProyectoTienda.Vistas
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //obtiene los datos del dataGrid
-            if (ventana.SelectedCells.Count > 0)
+            if (mostrarDatos.SelectedCells.Count > 0)
             {
-                DataRowView vista = (DataRowView)ventana.SelectedItem;
-                int id_persona = (int)(vista["Id"]);
-                String nombres = (vista["Nombre"]).ToString();
-                String direcciones = (vista["Direccion"]).ToString();
-                String telefonos = (vista["Telefono"]).ToString();
-                String empresas = (vista["Empresa"]).ToString();
-                String Nit = (vista["Nit"]).ToString();
-
-                AddPersonas abrir = new AddPersonas(2, id_persona, nombres, empresas, telefonos, direcciones, Nit);
+                DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
+                int id_esProd = (int)(vista["Id"]);
+                String Descripcion = (vista["Descripcion"]).ToString();
+             
+               
+                AddPuestos abrir = new AddPuestos(2, id_esProd, Descripcion);
                 abrir.ShowDialog();
                 abrir.Close();
                 Conexiones();
@@ -74,6 +75,8 @@ namespace ProyectoTienda.Vistas
             this.Close();
         }
 
+     
+
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Conexiones();
@@ -81,45 +84,54 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
             {
+
             
 
-            if (ventana.SelectedCells.Count > 0)
+            if (mostrarDatos.SelectedCells.Count > 0)
             {
-                DataRowView vista = (DataRowView)ventana.SelectedItem;
+                DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
                 int result = (int)(vista["Id"]);
-                try
-                {
-                    MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro de eliminar?",
+
+                MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro de eliminar?",
                                             "confirmar", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (respuesta == MessageBoxResult.Yes)
                     {                        
-                        SqlCommand cmd = new SqlCommand("spPersonas", Conexion.conex);                        
+                        SqlCommand cmd = new SqlCommand("spPuestos", Conexion.conex);                        
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@Opcion", 4);                        
-                        cmd.Parameters.AddWithValue("@Id", result);                       
+                        cmd.Parameters.AddWithValue("@Crud", 4);                        
+                        cmd.Parameters.AddWithValue("@Id_puesto", result);                       
                         Conexion.conex.Open();                
                         cmd.ExecuteNonQuery();           
                         Conexion.conex.Close();
                         Conexiones();
-                        System.Windows.MessageBox.Show("Eliminado exitosamente");
                     }
-                }
-                catch (Exception ea)
-                {
-                    ea.ToString();
-                    Conexion.conex.Close();
-                }
+                
+               
             }
             else System.Windows.MessageBox.Show("Seleccione algun dato de la tabla");
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            AddPersonas mostrar = new AddPersonas(1);
+            AddPuestos mostrar = new AddPuestos(1);
             mostrar.ShowDialog();
             mostrar.Close();
             Conexiones();
 
+        }
+
+     
+
+        private void btnEnviarDato_Click(object sender, RoutedEventArgs e)
+        {
+            if (mostrarDatos.SelectedCells.Count > 0)
+            {
+                DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
+                string result = (vista["Id"]).ToString();
+
+                enviarlo(result);
+                this.Close();
+            }
         }
     }
 }

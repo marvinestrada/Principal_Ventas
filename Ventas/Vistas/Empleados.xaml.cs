@@ -52,10 +52,11 @@ namespace ProyectoTienda.Vistas
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            
             if (ventana.SelectedCells.Count > 0)
             {
-
+            try
+            { 
                 DataRowView vista = (DataRowView)ventana.SelectedItem;
                 int id_persona = (int)(vista["Cod empleado"]);
                 String nombres = (vista["Cod persona"]).ToString();
@@ -69,6 +70,12 @@ namespace ProyectoTienda.Vistas
                 abrir.ShowDialog();
                 abrir.Close();
                 Conexiones();
+            }
+            catch (Exception b)
+            {
+                b.ToString();
+                Conexion.conex.Close();
+            }
 
         }
             else System.Windows.MessageBox.Show("Por favor seleccione algun dato de la tabla.");
@@ -92,10 +99,10 @@ namespace ProyectoTienda.Vistas
             {
                 DataRowView vista = (DataRowView)ventana.SelectedItem;
 
-                int result = (int)(vista["Id_empleado"]);
+                int result = (int)(vista["Cod Empleado"]);
 
                 //int result = (int)(vista["Codigo Empleado"]);
-
+                
 
                     MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro que desea eliminar?",
                                             "confirmar", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -104,7 +111,7 @@ namespace ProyectoTienda.Vistas
                         SqlCommand cmd = new SqlCommand("spEmpleado", Conexion.conex);                        
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@Crud", 4);                        
-                        cmd.Parameters.AddWithValue("@Id", result);                       
+                        cmd.Parameters.AddWithValue("@Id_empleado", result);                       
                         //cmd.Parameters.AddWithValue("@Crud", 4);                        
                         //cmd.Parameters.AddWithValue("@Id_Empleado", result);                       
                         Conexion.conex.Open();                
@@ -113,8 +120,9 @@ namespace ProyectoTienda.Vistas
                         Conexiones();
                         System.Windows.MessageBox.Show("Eliminado exitosamente");
                     }
+           
 
-            }
+        }
             else System.Windows.MessageBox.Show("Por favor seleccionar algun dato de la tabla");
         }
 

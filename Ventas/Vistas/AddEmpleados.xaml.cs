@@ -85,13 +85,14 @@ namespace ProyectoTienda.Vistas
 
         public void actualizar()
         {
-
+            try
+            { 
                 if (txtCodper.Text != "" && txtCodpuesto.Text != "" && txtAlias.Text != "" && txtContra.Text != "")
                 {
                     SqlCommand cmd = new SqlCommand("spEmpleado", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Crud", 3);
-                   //cmd.Parameters.AddWithValue("@Id", Ids.ToString());
+                    cmd.Parameters.AddWithValue("@Id_empleado", Ids);
                     cmd.Parameters.AddWithValue("@Id_persona", txtCodper.Text);
                     cmd.Parameters.AddWithValue("@Id_puesto", txtCodpuesto.Text);
                     cmd.Parameters.AddWithValue("@Alias", txtAlias.Text);
@@ -108,17 +109,26 @@ namespace ProyectoTienda.Vistas
                     MessageBox.Show("Los campos no pueden estar vacios.");
                     Conexion.conex.Close();
                 }
-         
+
+           
+
+            }
+            catch (Exception b)
+            {
+                b.ToString();
+                Conexion.conex.Close();
+            }
         }
 
         public void Guardar()
         {
-
+            try { 
                 if (txtCodper.Text != "" && txtCodpuesto.Text != "" && txtAlias.Text != "" && txtContra.Text != "")
                 {
                     SqlCommand cmd = new SqlCommand("spEmpleado", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Crud", 1);
+                    
                     cmd.Parameters.AddWithValue("@Id_persona", txtCodper.Text);
                     cmd.Parameters.AddWithValue("@Id_puesto", txtCodpuesto.Text);
                     cmd.Parameters.AddWithValue("@Alias", txtAlias.Text);
@@ -127,6 +137,7 @@ namespace ProyectoTienda.Vistas
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();
                     this.Close();
+              
 
                 }
 
@@ -135,7 +146,16 @@ namespace ProyectoTienda.Vistas
                     MessageBox.Show("Los campos no pueden estar vacios.");
                     Conexion.conex.Close();
                 }
-            
-        }  
+
+        }
+            catch (Exception b)
+            {
+                b.ToString();
+                Conexion.conex.Close();
+            }
+
+
+
+}  
     }
 }

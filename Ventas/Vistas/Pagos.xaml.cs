@@ -25,12 +25,12 @@ namespace ProyectoTienda
         }
 
 
-        private void btnCerrar(object sender, RoutedEventArgs e)
+        private void btnCerrar(object sender, RoutedEventArgs e) //Boton que cierra la ventana
         {
             this.Close();
         }
 
-        private void mover(object sender, MouseButtonEventArgs e)
+        private void mover(object sender, MouseButtonEventArgs e) //Permite el moviemiento de la ventana
         {
             this.DragMove();
         }

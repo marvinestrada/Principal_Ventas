@@ -12,7 +12,7 @@
         xmlns:local="clr-namespace:ProyectoTienda"
         mc:Ignorable="d"
         Title="Pagos" Height="400" Width="600" WindowState="Normal" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid>
+    <Grid MouseLeftButtonDown="mover">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="37*"/>
@@ -25,7 +25,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="Pago" VerticalAlignment="Top" Width="153" Height="24" Foreground="White" FontSize="18"/>
 
         </materialDesign:ColorZone>
-        <Button Height="Auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  BorderBrush="#FFB9AFCB" Background="Teal" Margin="517,0,0,303.429" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="38"  Grid.Column="1" >
+        <Button Height="Auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  BorderBrush="#FFB9AFCB" Background="Teal" Margin="517,0,0,303.429" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="38"  Grid.Column="1" Click="btnCerrar">
             <materialDesign:PackIcon Kind="WindowClose" Background="Teal"/>
         </Button>
         <Label Content="Total:" HorizontalAlignment="Left" Margin="38,80,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="25" Width="47"/>

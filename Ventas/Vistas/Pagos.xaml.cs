@@ -23,5 +23,16 @@ namespace ProyectoTienda
         {
             InitializeComponent();
         }
+
+
+        private void btnCerrar(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void mover(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

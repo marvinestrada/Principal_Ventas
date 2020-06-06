@@ -4,11 +4,7 @@
              xmlns:local="clr-namespace:ProyectoTienda"
 
 
-             StartupUri="Vistas/ReportVentas.xaml">
-
-
-             
-
+             StartupUri="Vistas/Pagos.xaml">
 
 
     <Application.Resources>

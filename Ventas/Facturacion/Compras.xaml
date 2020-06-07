@@ -27,7 +27,7 @@
         <Label Content="Compra No:" HorizontalAlignment="Left" Margin="361,158,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtNit_Copy" HorizontalAlignment="Left" Height="25" Margin="449,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" FontWeight="SemiBold" TextOptions.TextFormattingMode="Ideal"/>
         <Button x:Name="btnBuscarProducto" Content="Agregar Productos" Padding="0" HorizontalAlignment="Left" Margin="528,212,0,0" VerticalAlignment="Top" Width="136" Height="36" />
-        <DataGrid HorizontalAlignment="Left" Height="267" Margin="13,272,0,0" VerticalAlignment="Top" Width="651">
+        <DataGrid HorizontalAlignment="Left" Height="267" Margin="13,272,0,0" VerticalAlignment="Top" Width="651" SelectionChanged="DataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Codigo" />
                 <DataGridTextColumn Header="Cantidad"/>
@@ -41,6 +41,9 @@
         <Label VerticalAlignment="Top" Margin="410,579,0,0" HorizontalAlignment="Left" FontSize="18" Content="Total de la Compra"/>
         <Label x:Name="TotalProducto" VerticalAlignment="Top" Margin="583,579,0,0" HorizontalAlignment="Left" FontSize="18" Content=""/>
         <ComboBox HorizontalAlignment="Left" Margin="95,96,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Height="Auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  BorderBrush="#FFB9AFCB" Background="Teal" Margin="662,0,0,667" VerticalAlignment="Stretch" Click="Button_Click"  >
+            <materialDesign:PackIcon Kind="WindowClose" Background="Teal"/>
+        </Button>
 
 
 

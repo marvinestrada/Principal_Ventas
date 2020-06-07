@@ -36,6 +36,12 @@
         <Label Content="Reset Pass:" HorizontalAlignment="Left" Margin="283,339,0,0" VerticalAlignment="Top" Height="25"/>
         <Button Content="Resetear" HorizontalAlignment="Left" Margin="383,332,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_1" RenderTransformOrigin="0.796,0.539"/>
 
+        <RadioButton x:Name="radioButton" Content="Activo" HorizontalAlignment="Left" Margin="17,320,0,0" VerticalAlignment="Top" Checked="radioButton_Checked"/>
+        <RadioButton x:Name="radioButton_Copy" Content="Desactivar" HorizontalAlignment="Left" Margin="123,320,0,0" VerticalAlignment="Top" Checked="radioButton_Copy_Checked"/>
+        <Label Content="Estado del Usuario : " HorizontalAlignment="Left" Margin="16,282,0,0" VerticalAlignment="Top" Height="25"/>
+        <Label Content="Reset Pass:" HorizontalAlignment="Left" Margin="16,382,0,0" VerticalAlignment="Top" Height="25"/>
+        <Button Content="Resetear" HorizontalAlignment="Left" Margin="135,382,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_1" RenderTransformOrigin="0.796,0.539"/>
+
 
 
     </Grid>

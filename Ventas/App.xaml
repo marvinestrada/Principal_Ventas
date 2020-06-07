@@ -4,17 +4,7 @@
              xmlns:local="clr-namespace:ProyectoTienda"
 
 
-
-             StartupUri="Vistas/Principal.xaml">
-
-
-
-
-
-
-             
-
-
+             StartupUri="Vistas/Empleados.xaml">
 
 
 

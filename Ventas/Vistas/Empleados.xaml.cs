@@ -27,54 +27,57 @@ namespace ProyectoTienda.Vistas
         {
             InitializeComponent();
             Conexiones();
-            
         }
 
         public void Conexiones()
         {
-            
+           
                 SqlCommand cmd = new SqlCommand("spEmpleado", Conexion.conex);
                 cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@opcion", 2);
-
+                //cmd.Parameters.AddWithValue("@Crud", 2);
                 cmd.Parameters.AddWithValue("@Crud", 2);
-
                 DataTable tabla = new DataTable();
                 Conexion.conex.Open();
                 SqlDataAdapter puente = new SqlDataAdapter(cmd);
                 puente.Fill(tabla);
                 Conexion.conex.Close();
-                ventana.DataContext = tabla;           
+                ventana.DataContext = tabla;  
+            
+            
         }
-
+        
         private void mover(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             if (ventana.SelectedCells.Count > 0)
             {
+            try
+            { 
                 DataRowView vista = (DataRowView)ventana.SelectedItem;
-
                 int id_persona = (int)(vista["Cod empleado"]);
                 String nombres = (vista["Cod persona"]).ToString();
                 String direcciones = (vista["Cod puesto"]).ToString();
-
-
                 //int id_persona = (int)(vista["Id_Empleado"]);
                 //String nombres = (vista["Id_persona"]).ToString();
                 //String direcciones = (vista["Id_puesto"]).ToString();
-
                 String telefonos = (vista["Alias"]).ToString();
-                String empresas = (vista["Pass"]).ToString();
-                AddPersonas abrir = new AddPersonas(2, id_persona, nombres, empresas, telefonos, direcciones);
-
+                String empresas = (vista["Contraseña"]).ToString();
+                AddEmpleados abrir = new AddEmpleados(2, id_persona, nombres, empresas, telefonos, direcciones);
                 abrir.ShowDialog();
                 abrir.Close();
                 Conexiones();
             }
+            catch (Exception b)
+            {
+                b.ToString();
+                Conexion.conex.Close();
+            }
+
+        }
             else System.Windows.MessageBox.Show("Por favor seleccione algun dato de la tabla.");
 
         }
@@ -96,38 +99,30 @@ namespace ProyectoTienda.Vistas
             {
                 DataRowView vista = (DataRowView)ventana.SelectedItem;
 
-                int result = (int)(vista["Id_empleado"]);
+                int result = (int)(vista["Cod Empleado"]);
 
                 //int result = (int)(vista["Codigo Empleado"]);
+                
 
-                try
-                {
                     MessageBoxResult respuesta = System.Windows.MessageBox.Show("Esta seguro que desea eliminar?",
                                             "confirmar", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (respuesta == MessageBoxResult.Yes)
                     {                        
                         SqlCommand cmd = new SqlCommand("spEmpleado", Conexion.conex);                        
                         cmd.CommandType = CommandType.StoredProcedure;
-
-                        cmd.Parameters.AddWithValue("@opcion", 4);                        
-                        cmd.Parameters.AddWithValue("@Id", result);                       
-
+                        cmd.Parameters.AddWithValue("@Crud", 4);                        
+                        cmd.Parameters.AddWithValue("@Id_empleado", result);                       
                         //cmd.Parameters.AddWithValue("@Crud", 4);                        
                         //cmd.Parameters.AddWithValue("@Id_Empleado", result);                       
-
                         Conexion.conex.Open();                
                         cmd.ExecuteNonQuery();           
                         Conexion.conex.Close();
                         Conexiones();
                         System.Windows.MessageBox.Show("Eliminado exitosamente");
                     }
-                }
-                catch (Exception ea)
-                {
-                    ea.ToString();
-                    Conexion.conex.Close();
-                }
-            }
+           
+
+        }
             else System.Windows.MessageBox.Show("Por favor seleccionar algun dato de la tabla");
         }
 
@@ -137,6 +132,11 @@ namespace ProyectoTienda.Vistas
             mostrar.ShowDialog();
             mostrar.Close();
             Conexiones();
+
+        }
+
+        private void ventana_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
 
         }
     }

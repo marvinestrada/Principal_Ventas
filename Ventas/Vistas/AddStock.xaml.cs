@@ -46,6 +46,7 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            //procesos de seleccion de datos
             if (txtCantidad.Text != "" && txtIdEstado.Text != "" && txtPrecio.Text != "" && txtIdOperaciones.Text != "" && txtIdProducto.Text != "" )
             {
                 if (Opcion == 1) { Guardar(); }
@@ -64,6 +65,7 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+            // abre la ventana de productos con la informacion para recibir en el delegado
             
             Productos abrir = new Productos();
             abrir.enviarlo += new Productos.enviar(ejecutar);
@@ -86,6 +88,7 @@ namespace ProyectoTienda.Vistas
 
         private void txtPrecio_KeyDown(object sender, KeyEventArgs e)
         {
+            //solo permite numeros
             if ((e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || (e.Key == Key.Back))
             { e.Handled = false; }
             else if ((e.Key >= Key.D0 && e.Key <= Key.D9))
@@ -101,6 +104,7 @@ namespace ProyectoTienda.Vistas
 
        public void incluirDatos()
         {
+            //datoa a incluir para actualizar
             txtCantidad.Text = Cantidad.ToString();
             txtPrecio.Text = Precio.ToString();
             txtIdEstado.Text = Id_estado.ToString();
@@ -178,7 +182,7 @@ namespace ProyectoTienda.Vistas
                 Conexion.conex.Close();
              }
 
-
+            
 
 
 

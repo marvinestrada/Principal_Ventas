@@ -12,8 +12,8 @@ namespace ProyectoTienda.Vistas
     public partial class AddPersonas : Window
     {
         int Opcion, Ids;
-        public string Nombre, Direccion, Telefono, Empresa;
-        public AddPersonas(int opcion, int id = 0, string nombre = "", string empresa = "", string telefono = "", string direccion = "")
+        public string Nombre, Direccion, Telefono, Empresa, Nit;
+        public AddPersonas(int opcion, int id = 0, string nombre = "", string empresa = "", string telefono = "", string direccion = "", string nit = "")
         {
             InitializeComponent();
             Opcion = opcion;
@@ -22,6 +22,7 @@ namespace ProyectoTienda.Vistas
             Direccion = direccion;
             Telefono = telefono;
             Empresa = empresa;
+            Nit = nit;
             if (Opcion == 2) incluirDatos();
         }
 
@@ -32,7 +33,7 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if (txtNombre.Text != "" && txtEmpresa.Text != "" && txtDireccion.Text != "" && txtTelefono.Text != "")
+            if (txtNombre.Text != "" && txtEmpresa.Text != "" && txtDireccion.Text != "" && txtTelefono.Text != "" && txtNit.Text != "")
             {
                 if (Opcion == 1) { Guardar(); }
                 else if (Opcion == 2) { actualizar(); }
@@ -64,6 +65,7 @@ namespace ProyectoTienda.Vistas
             txtDireccion.Text = Direccion;
             txtTelefono.Text = Telefono;
             txtEmpresa.Text = Empresa;
+            txtNit.Text = Nit;
             txtNombre.Focus();
   
         }
@@ -72,7 +74,7 @@ namespace ProyectoTienda.Vistas
         {
             try
             {
-                if (txtNombre.Text != "" && txtEmpresa.Text != "" && txtDireccion.Text != "" && txtTelefono.Text != "")
+                if (txtNombre.Text != "" && txtEmpresa.Text != "" && txtDireccion.Text != "" && txtTelefono.Text != "" && txtNit.Text != "")
                 {
                     SqlCommand cmd = new SqlCommand("spPersonas", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -82,6 +84,8 @@ namespace ProyectoTienda.Vistas
                     cmd.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
                     cmd.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
                     cmd.Parameters.AddWithValue("@Empresa", txtEmpresa.Text);
+                    cmd.Parameters.AddWithValue("@Nit", txtNit.Text);
+
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();
@@ -109,7 +113,7 @@ namespace ProyectoTienda.Vistas
             {
 
 
-                if (txtNombre.Text != "" && txtEmpresa.Text != "" && txtDireccion.Text != "" && txtTelefono.Text != "")
+                if (txtNombre.Text != "" && txtEmpresa.Text != "" && txtDireccion.Text != "" && txtTelefono.Text != "" && txtNit.Text != "")
                 {
                     SqlCommand cmd = new SqlCommand("spPersonas", Conexion.conex);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -118,6 +122,7 @@ namespace ProyectoTienda.Vistas
                     cmd.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
                     cmd.Parameters.AddWithValue("@Telefono", txtTelefono.Text);
                     cmd.Parameters.AddWithValue("@Empresa", txtEmpresa.Text);
+                    cmd.Parameters.AddWithValue("@Nit", txtNit.Text);
                     Conexion.conex.Open();
                     cmd.ExecuteNonQuery();
                     Conexion.conex.Close();

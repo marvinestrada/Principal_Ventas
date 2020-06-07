@@ -47,6 +47,7 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            //proceso de verificacion de metodo, guardar o actualizar
             if (txtDesceipcion.Text != "" && txtPrecioVenta.Text != "" && txtUnidadMin.Text != "" )
             {
                 if (Opcion == 1) { Guardar(); }

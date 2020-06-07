@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Data;
 using System.Configuration;
 using ProyectoTienda.Vistas;
+using ProyectoTienda.Facturacion;
 using System.Windows.Forms;
 
 
@@ -22,9 +23,12 @@ namespace ProyectoTienda.Vistas
     /// </summary>
     public partial class Productos : Window
     {
+        //delegados para enviar, recibir datos
         public delegate void enviar(string pasar);
         public event enviar enviarlo;
-        
+
+        public delegate void enviarproducto(string id_producto, string descrip, decimal preciodeventa, string codigo);
+        public event enviarproducto enviarFactura;
         public Productos()
         {
             
@@ -55,6 +59,7 @@ namespace ProyectoTienda.Vistas
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //selecciona los datos en el datagrid
             if (mostrarDatos.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
@@ -63,7 +68,7 @@ namespace ProyectoTienda.Vistas
                 Decimal precio_venta = (Decimal)(vista["Precio de Venta"]);
                 int minimo = (int)(vista["Unidades Minimas"]);
                 
-
+    
                 AddProducto abrir = new AddProducto(2, id_persona, Descripcion, precio_venta, minimo);
                 abrir.ShowDialog();
                 abrir.Close();
@@ -87,7 +92,7 @@ namespace ProyectoTienda.Vistas
         private void Button_Click_3(object sender, RoutedEventArgs e)
             {
 
-            
+            //elimina una fila del datagrid
 
             if (mostrarDatos.SelectedCells.Count > 0)
             {
@@ -115,6 +120,7 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
+            //metodo de guardar
             AddProducto mostrar = new AddProducto(1);
             mostrar.ShowDialog();
             mostrar.Close();
@@ -126,13 +132,30 @@ namespace ProyectoTienda.Vistas
 
         private void btnEnviarDato_Click(object sender, RoutedEventArgs e)
         {
+            //metodo de delegado para obtener el valor del dato y pasarlo a otro formulario
             if (mostrarDatos.SelectedCells.Count > 0)
             {
                 DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
                 string result = (vista["Id Producto"]).ToString();
-
                 enviarlo(result);
                 this.Close();
+            }
+        }
+
+        private void btnAddProducto_Click(object sender, RoutedEventArgs e)
+        {
+            //delegado para enviar datos a datagrid de factura
+            if (mostrarDatos.SelectedCells.Count > 0)
+            {
+                DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
+                string id_product = (vista["Id Producto"]).ToString();
+                String descripcion = (vista["Descripcion"]).ToString();
+                decimal precio_venta = (decimal)(vista["Precio de Venta"]);
+                string Codigo = (vista["Codigo"]).ToString();
+
+                enviarFactura(Codigo, descripcion, precio_venta, id_product);
+                
+                
             }
         }
     }

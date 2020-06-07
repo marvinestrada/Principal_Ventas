@@ -51,17 +51,12 @@ namespace ProyectoTienda.Vistas
             base.Close();
         }
 
-        private void checkBox_Checked()
+        private void rbtnActivo_Checked(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void radioButton_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void radioButton_Copy_Checked(object sender, RoutedEventArgs e)
+        private void rbtnDesactivo_Checked(object sender, RoutedEventArgs e)
         {
 
         }
@@ -110,14 +105,52 @@ namespace ProyectoTienda.Vistas
                     Conexion.conex.Close();
                 }
 
-           
-
             }
             catch (Exception b)
             {
                 b.ToString();
                 Conexion.conex.Close();
             }
+        }
+        public void Conexiones2()
+        {
+            
+            SqlCommand cmd = new SqlCommand("spEmpleados", Conexion.conex);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Crud", 5);
+            cmd.Parameters.AddWithValue("@Id_empleado", Ids);
+            Conexion.conex.Open();
+            SqlDataReader leer = cmd.ExecuteReader();
+            
+            if (leer.Read() == true)
+            {
+                string estado = leer["Activo"].ToString();
+                switch (estado)
+                {
+                    case "True":
+                    
+                    rbtnActivo.IsChecked = true;
+                    rbtnDesactivar.IsChecked = false;
+                    break;
+
+                    case "False":
+                    
+                    rbtnActivo.IsChecked = false;
+                    rbtnDesactivar.IsChecked = true;
+                    break;
+                }
+                Conexion.conex.Close();
+                leer.Close();
+
+            }
+            else
+            {
+
+                Conexion.conex.Close();
+                leer.Close();
+            }
+            Conexion.conex.Close();
+            leer.Close();
         }
 
         public void Guardar()

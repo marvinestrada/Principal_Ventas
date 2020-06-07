@@ -3,6 +3,7 @@ using System.Windows;
 using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Input;
 
 namespace ProyectoTienda.Vistas
 {
@@ -43,6 +44,7 @@ namespace ProyectoTienda.Vistas
             this.Close();
         }
 
+
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             e.Cancel = true;
@@ -52,6 +54,28 @@ namespace ProyectoTienda.Vistas
         {
             this.Closing -= Window_Closing;
             base.Close();
+        }
+
+        private void TxtMonto_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if ((e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || (e.Key == Key.Back) || (e.Key == Key.Decimal))
+            { e.Handled = false; }
+            else if ((e.Key >= Key.D0 && e.Key <= Key.D9))  //solo permite la entrada de numeros y no de letras eb el textbox
+            { e.Handled = false; }
+            else
+            { e.Handled = true; }
+        } 
+
+        private void Txtcod_empleado_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || (e.Key == Key.Back) || (e.Key == Key.Decimal))
+
+
+            { e.Handled = false; }
+            else if ((e.Key >= Key.D0 && e.Key <= Key.D9))      //solo permite la entrada de numeros y no de letras eb el textbox
+            { e.Handled = false; }
+            else
+            { e.Handled = true; }
         }
 
         private void btnCerrar(object sender, RoutedEventArgs e)

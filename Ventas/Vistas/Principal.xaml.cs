@@ -23,5 +23,37 @@ namespace ProyectoTienda.Vistas
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Operaciones JalarVetana = new Operaciones();
+            JalarVetana.Owner = this;
+            JalarVetana.ShowDialog();
+
+        }
+
+        private void btnOperaciones(object sender, RoutedEventArgs e)
+        {
+            Operaciones JalarVetana = new Operaciones();
+            JalarVetana.Owner = this;
+            JalarVetana.ShowDialog();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCerrar(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnCatalogos(object sender, RoutedEventArgs e)
+        {
+            Stock JalarVetana1 = new Stock();
+            JalarVetana1.Owner = this;
+            JalarVetana1.ShowDialog();
+        }
     }
 }

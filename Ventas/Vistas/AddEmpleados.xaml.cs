@@ -114,7 +114,7 @@ namespace ProyectoTienda.Vistas
         }
         public void Conexiones2()
         {
-            
+           
             SqlCommand cmd = new SqlCommand("spEmpleados", Conexion.conex);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Crud", 5);

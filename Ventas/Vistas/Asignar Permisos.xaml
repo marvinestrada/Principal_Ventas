@@ -17,6 +17,7 @@
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="333" Margin="10,87,0,0" VerticalAlignment="Top" Width="332"/>
         <Button Content="Cancelar" HorizontalAlignment="Left" Margin="371,309,0,0" VerticalAlignment="Top" Width="63" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_1" Height="32"/>
         <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="333" Margin="35,87,0,0" VerticalAlignment="Top" Width="326" Grid.Column="1" Grid.ColumnSpan="2"/>
+
         <Label x:Name="label1" Content="Permisos Disponibles" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="332"/>
         <Label x:Name="label2" Content="Permisos Asignados" HorizontalAlignment="Left" Margin="35,55,0,0" VerticalAlignment="Top" Width="326" Grid.Column="1" Grid.ColumnSpan="2"/>
         <Button x:Name="button" Content="&gt;&gt;" HorizontalAlignment="Left" Height="52" Margin="371,148,0,0" VerticalAlignment="Top" Width="63" FontSize="18" Click="button_Click"/>

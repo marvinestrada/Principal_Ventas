@@ -20,7 +20,7 @@ namespace ProyectoTienda.Vistas
             
         }
 
-        public void Conexiones()
+        public void Conexiones()  //Establece y extrae los datos de la base de datos para mostrarlos 
         {
             try
             {
@@ -29,7 +29,7 @@ namespace ProyectoTienda.Vistas
                 cmd.Parameters.AddWithValue("@crud", 2);
                 DataTable tabla = new DataTable();
                 Conexion.conex.Open();
-                SqlDataAdapter puente = new SqlDataAdapter(cmd);
+                SqlDataAdapter puente = new SqlDataAdapter(cmd);         
                 puente.Fill(tabla);
                 Conexion.conex.Close();
                 Ventana.DataContext = tabla;
@@ -43,11 +43,11 @@ namespace ProyectoTienda.Vistas
             
         }
 
-        private void mover(object sender, MouseButtonEventArgs e)
+        private void mover(object sender, MouseButtonEventArgs e)  //Permite el moviemiento de la ventana
         {
             this.DragMove();
         }
-        private void btnActualizar(object sender, RoutedEventArgs e)
+        private void btnActualizar(object sender, RoutedEventArgs e) //Abre y extrae los datos de la ventanda que actualiza datos
         {
             if (Ventana.SelectedCells.Count > 0)
             {
@@ -73,13 +73,13 @@ namespace ProyectoTienda.Vistas
 
      
 
-        private void btnRefresh(object sender, RoutedEventArgs e)
+        private void btnRefresh(object sender, RoutedEventArgs e) //Este buton refresca los datos que se muestran 
         {
             Conexiones();
         }
 
-        private void btnDelete(object sender, RoutedEventArgs e)
-            {
+        private void btnDelete(object sender, RoutedEventArgs e) //Elimina los datos que el usuario no quiera dentro de la base de datos
+        {
 
             if (Ventana.SelectedCells.Count > 0)
             {
@@ -111,7 +111,7 @@ namespace ProyectoTienda.Vistas
             else System.Windows.MessageBox.Show("Seleccione algun dato de la tabla");
         }
 
-        private void btnInser(object sender, RoutedEventArgs e)
+        private void btnInser(object sender, RoutedEventArgs e) //crea y agrega datos nuevos a la base de datos
         {
             AddCargos mostrar = new AddCargos(1);
             mostrar.ShowDialog();

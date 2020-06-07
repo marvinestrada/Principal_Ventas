@@ -11,7 +11,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoTienda.Vistas"
         mc:Ignorable="d"
-        Title="AddPersonas"  ResizeMode="NoResize" Height="575" Width="480" WindowState="Normal" WindowStartupLocation="CenterScreen" WindowStyle="None" Closing="Window_Closing">
+        Title="AddEmpleados"  ResizeMode="NoResize" Height="575" Width="480" WindowState="Normal" WindowStartupLocation="CenterScreen" WindowStyle="None" Closing="Window_Closing">
     <Grid>
         <materialDesign:ColorZone Mode="PrimaryDark" Background="Teal" HorizontalAlignment="Stretch" Height="33">
             <TextBlock HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="Empleados" VerticalAlignment="Top" Width="153" Height="24" Foreground="White" FontSize="18"/>
@@ -20,16 +20,30 @@
         <Button Height="32" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0"  BorderBrush="#FFB9AFCB" Background="Teal" Margin="442,0,0,542" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="38" Click="Button_Click">
             <materialDesign:PackIcon Kind="WindowClose" Background="Teal"/>
         </Button>
-        <Label Content="Nombre:" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Height="25"/>
-        <Label Content="Empresa:" HorizontalAlignment="Left" Margin="11,235,0,0" VerticalAlignment="Top" Height="25"/>
-        <Label Content="Telefono:" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Height="24"/>
-        <Label Content="Direccion:" HorizontalAlignment="Left" Margin="10,137,0,0" VerticalAlignment="Top" Height="25"/>
-        <TextBox x:Name="txtNombre" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="25" Margin="86,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" FontWeight="SemiBold" TextOptions.TextFormattingMode="Ideal"/>
-        <TextBox x:Name="txtEmpresa" HorizontalAlignment="Left" Height="25" Margin="86,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" FontWeight="SemiBold" TextOptions.TextFormattingMode="Ideal"/>
-        <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Height="26" Margin="86,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" FontWeight="SemiBold" TextOptions.TextFormattingMode="Ideal"/>
-        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="24" Margin="86,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" FontWeight="SemiBold" TextOptions.TextFormattingMode="Ideal"/>
+
+        <Label Content="Codigo Persona:" Margin="20,81,346,0" VerticalAlignment="Top" Height="25"/>
+        <Label Content="Contraseña:" HorizontalAlignment="Left" Margin="20,229,0,0" VerticalAlignment="Top" Height="25"/>
+        <Label Content="Alias:" HorizontalAlignment="Left" Margin="20,182,0,0" VerticalAlignment="Top" Height="24"/>
+        <Label Content="Codigo Puesto:" HorizontalAlignment="Left" Margin="20,130,0,0" VerticalAlignment="Top" Height="25"/>
+        <TextBox x:Name="txtCodper" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="25" Margin="139,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" FontWeight="SemiBold" TextOptions.TextFormattingMode="Ideal"/>
+        <TextBox x:Name="txtContra" HorizontalAlignment="Left" Height="25" Margin="108,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontWeight="SemiBold" TextOptions.TextFormattingMode="Ideal"/>
+        <TextBox x:Name="txtAlias" HorizontalAlignment="Left" Height="26" Margin="66,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" FontWeight="SemiBold" TextOptions.TextFormattingMode="Ideal"/>
+        <TextBox x:Name="txtCodpuesto" HorizontalAlignment="Left" Height="24" Margin="129,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" FontWeight="SemiBold" TextOptions.TextFormattingMode="Ideal"/>
         <Button Content="Cancelar" HorizontalAlignment="Left" Margin="252,533,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_1"/>
         <Button Content="Aceptar" HorizontalAlignment="Left" Margin="383,533,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_2"/>
+        <CheckBox x:Name="checkBox" Content="CheckBox" HorizontalAlignment="Left" Height="26" Margin="353,290,-44,0" VerticalAlignment="Top" Width="171"/>
+        <Label Content="Activo:" HorizontalAlignment="Left" Margin="283,292,0,0" VerticalAlignment="Top" Height="25"/>
+        <Label Content="Reset Pass:" HorizontalAlignment="Left" Margin="283,339,0,0" VerticalAlignment="Top" Height="25"/>
+        <Button Content="Resetear" HorizontalAlignment="Left" Margin="383,332,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_1" RenderTransformOrigin="0.796,0.539"/>
+
+        <RadioButton x:Name="radioButton" Content="Activo" HorizontalAlignment="Left" Margin="17,320,0,0" VerticalAlignment="Top" Checked="radioButton_Checked"/>
+        <RadioButton x:Name="radioButton_Copy" Content="Desactivar" HorizontalAlignment="Left" Margin="123,320,0,0" VerticalAlignment="Top" Checked="radioButton_Copy_Checked"/>
+        <Label Content="Estado del Usuario : " HorizontalAlignment="Left" Margin="16,282,0,0" VerticalAlignment="Top" Height="25"/>
+        <Label Content="Reset Pass:" HorizontalAlignment="Left" Margin="16,382,0,0" VerticalAlignment="Top" Height="25"/>
+        <Button Content="Resetear" HorizontalAlignment="Left" Margin="135,382,0,0" VerticalAlignment="Top" Width="75" FontFamily="Microsoft Sans Serif" FontSize="12" FontStretch="Condensed" Padding="1" Click="Button_Click_1" RenderTransformOrigin="0.796,0.539"/>
+
+
 
     </Grid>
 </Window>
+J7

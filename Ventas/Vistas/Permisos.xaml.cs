@@ -22,6 +22,8 @@ namespace ProyectoTienda.Vistas
     /// </summary>
     public partial class Permisos_ : Window
     {
+        public delegate void enviar(string pasar); //delegado
+        public event enviar enviarlo; //Evento
         public Permisos_()
         {
             InitializeComponent();
@@ -59,7 +61,7 @@ namespace ProyectoTienda.Vistas
                
                 
 
-                AddPermisos abrir = new AddPermisos(2, id_permiso, Descripcion);
+                AddPermiso_Personas abrir = new AddPermiso_Personas(2, id_permiso, Descripcion);
                 abrir.ShowDialog();
                 abrir.Close();
                 Conexiones();
@@ -110,11 +112,25 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            AddPermisos mostrar = new AddPermisos(1);
+            AddPermiso_Personas mostrar = new AddPermiso_Personas(1);
             mostrar.ShowDialog();
             mostrar.Close();
             Conexiones();
             //estaba llamando a la tabla producto aca
+        }
+
+        private void Agregar_Click_5(object sender, RoutedEventArgs e)
+        {
+            if (mostrarDatos.SelectedCells.Count > 0)
+            {
+                DataRowView vista = (DataRowView)mostrarDatos.SelectedItem;
+                string result = (vista["Id"]).ToString();
+
+                enviarlo(result);
+                this.Close();
+
+                //Enviar datos atravez del delegado B-)
+            }
         }
     }
 }

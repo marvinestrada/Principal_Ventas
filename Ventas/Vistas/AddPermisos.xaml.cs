@@ -29,7 +29,7 @@ namespace ProyectoTienda.Vistas
         public AddPermisos_(int opcion, int id = 0, string descrip = "")
         {
 
-            InitializeComponent();
+            //InitializeComponent();
             Opcion = opcion;
             Ids = id;
             Descripcion = descrip;
@@ -45,12 +45,12 @@ namespace ProyectoTienda.Vistas
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if (txtDesceipcion.Text != ""  )
-            {
-                if (Opcion == 1) { Guardar(); }
-                else if (Opcion == 2) { actualizar(); }
-            }
-            else MessageBox.Show("Los campos no deben quedar vacios.");  
+            //if (txtDesceipcion.Text != ""  )
+            //{
+            //    if (Opcion == 1) { Guardar(); }
+            //    else if (Opcion == 2) { actualizar(); }
+            //}
+            //else MessageBox.Show("Los campos no deben quedar vacios.");  
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -71,9 +71,9 @@ namespace ProyectoTienda.Vistas
 
        public void incluirDatos()
         {
-            txtDesceipcion.Text = Descripcion;
+            //txtDesceipcion.Text = Descripcion;
            
-            txtDesceipcion.Focus();
+            //txtDesceipcion.Focus();
   
         }
 
@@ -82,28 +82,28 @@ namespace ProyectoTienda.Vistas
             try
             {
 
-                if (txtDesceipcion.Text != "" )
-                {
-                    SqlCommand cmd = new SqlCommand("spPermisos", Conexion.conex);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@CRUD", 3);
-                    cmd.Parameters.AddWithValue("@Id_permiso", Ids.ToString());
-                    cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
+                //if (txtDesceipcion.Text != "" )
+                //{
+                //    SqlCommand cmd = new SqlCommand("spPermisos", Conexion.conex);
+                //    cmd.CommandType = CommandType.StoredProcedure;
+                //    cmd.Parameters.AddWithValue("@CRUD", 3);
+                //    cmd.Parameters.AddWithValue("@Id_permiso", Ids.ToString());
+                //    cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
                  
-                    Conexion.conex.Open();
-                    cmd.ExecuteNonQuery();
-                    Conexion.conex.Close();
-                    this.Close();
-                    MessageBox.Show("Id Permiso " + Ids + " Actualizado correctamente");
+                //    Conexion.conex.Open();
+                //    cmd.ExecuteNonQuery();
+                //    Conexion.conex.Close();
+                //    this.Close();
+                //    MessageBox.Show("Id Permiso " + Ids + " Actualizado correctamente");
 
 
-                }
+                //}
 
-                else
-                {
-                    MessageBox.Show("Los campos no deben quedar vacios.");
+                //else
+                //{
+                //    MessageBox.Show("Los campos no deben quedar vacios.");
                     
-                }
+                //}
             }
             catch (Exception w)
             {
@@ -118,20 +118,20 @@ namespace ProyectoTienda.Vistas
         {
             try
             {
-                if (txtDesceipcion.Text != "" )
-                {
-                    SqlCommand cmd = new SqlCommand("spPermisos", Conexion.conex);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@CRUD", 1);
-                    cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
+                //if (txtDesceipcion.Text != "" )
+                //{
+                //    SqlCommand cmd = new SqlCommand("spPermisos", Conexion.conex);
+                //    cmd.CommandType = CommandType.StoredProcedure;
+                //    cmd.Parameters.AddWithValue("@CRUD", 1);
+                //    cmd.Parameters.AddWithValue("@Descripcion", txtDesceipcion.Text);
                    
-                    Conexion.conex.Open();
-                    cmd.ExecuteNonQuery();
-                    Conexion.conex.Close();
-                    this.Close();
+                //    Conexion.conex.Open();
+                //    cmd.ExecuteNonQuery();
+                //    Conexion.conex.Close();
+                //    this.Close();
 
-                }
-                else MessageBox.Show("fallo");
+                //}
+                //else MessageBox.Show("fallo");
             }
             catch(Exception asdd)
             {

@@ -3,6 +3,7 @@ using System.Windows;
 using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Input;
 
 namespace ProyectoTienda.Vistas
 {
@@ -56,6 +57,26 @@ namespace ProyectoTienda.Vistas
         private void btnCerrar(object sender, RoutedEventArgs e)
         {
             Cerrar();
+        }
+
+        private void TxtMonto_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if ((e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || (e.Key == Key.Back) || (e.Key == Key.Decimal))
+            { e.Handled = false; }
+            else if ((e.Key >= Key.D0 && e.Key <= Key.D9))
+            { e.Handled = false; }
+            else
+            { e.Handled = true; }
+        }
+
+        private void Txtcod_oper_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || (e.Key == Key.Back) || (e.Key == Key.Decimal))
+            { e.Handled = false; }
+            else if ((e.Key >= Key.D0 && e.Key <= Key.D9))
+            { e.Handled = false; }
+            else
+            { e.Handled = true; }
         }
 
         public void incluirDatos()

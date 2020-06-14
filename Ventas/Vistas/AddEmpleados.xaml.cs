@@ -154,8 +154,6 @@ namespace ProyectoTienda.Vistas
                 Conexion.conex.Close();
             }
 
-
-
-}  
+      }  
     }
 }
